@@ -1,0 +1,65 @@
+.buydid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 60px; /* fixes top margin issue */
+  }
+  
+  .buydid__title {
+    text-align: center;
+    /* font-size: 2.5rem; */
+    font-weight: bold;
+    color: #0a1633;
+    margin-bottom: 20px;
+  }
+  
+  .buydid__intro {
+    text-align: center;
+    /* font-size: 1.1rem; */
+    color: #555;
+    margin-bottom: 50px;
+  }
+  
+  .buydid__grid {
+    display: grid;
+    grid-template-columns: repeat( minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .buydid-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .buydid-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .buydid-icon {
+    background: linear-gradient(135deg, #2d9cdb, #56ccf2);
+    color: #fff;
+    font-size: 1.8rem;
+    padding: 12px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  
+  /* .buydid-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0a1633;
+  }
+  
+  .buydid-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+  } */
+  

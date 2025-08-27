@@ -1,0 +1,209 @@
+{
+  "Header": {
+    "title": "WELCOME TO DIDX",
+    "paragraph": "Connecting the world, one country at a time!"
+  },
+  "About": {
+  "paragraph": "DIDX, founded in Delaware in 2005 and backed by Super Technologies, is the world’s first wholesale DID number marketplace. Today, it connects 30,000+ telecom companies—including Google, IBM, and Microsoft—helping operators seamlessly buy, sell, and manage global phone numbers. Recognized internationally for innovation, DIDX has grown from a small project into one of the world’s largest and most trusted DID platforms.",
+
+   "Why": [
+  "Global Reach – Serving 25,000+ telecom companies worldwide",
+  "Trusted by Leaders – Partners include Google, IBM, Microsoft & more",
+  "Proven Innovation – Pioneers in VoIP and DID marketplaces since 2005",
+  "Scalable Solutions – From small operators to global carriers"
+],
+"Why2": [
+  "Award-Winning – Internationally recognized for telecom excellence"
+]
+
+  },
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/portfolio/01-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/02-large.jpg",
+      "smallImage": "img/portfolio/02-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/portfolio/03-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/04-large.jpg",
+      "smallImage": "img/portfolio/04-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/05-large.jpg",
+      "smallImage": "img/portfolio/05-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/06-large.jpg",
+      "smallImage": "img/portfolio/06-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/07-large.jpg",
+      "smallImage": "img/portfolio/07-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/08-large.jpg",
+      "smallImage": "img/portfolio/08-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/09-large.jpg",
+      "smallImage": "img/portfolio/09-small.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-wordpress",
+      "name": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-cart-arrow-down",
+      "name": "Consectetur adipiscing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-cloud-download",
+      "name": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-language",
+      "name": "Consectetur adipiscing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-plane",
+      "name": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-pie-chart",
+      "name": "Consectetur adipiscing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John Doe",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "1309 Coffeen Avenue STE 1200 Sheridan, Wyoming 82801 ",
+    "phone": "(800) 518-0092",
+    "email": "sales@didx.net",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  },
+
+  "Features": [
+  {
+    "icon": "fa fa-shield",
+    "title": "100% DIDX Guarantee",
+    "text": "Buy with confidence with DIDX. If any DID does not work for more than 3 days in a row, we do not pay the seller, and we do not charge the buyer."
+  },
+  {
+    "icon": "fa fa-database",
+    "title": "Online Instant CDR for 5 Years",
+    "text": "Both sellers and buyers can view CDRs for the last five years of the number purchase. Buyers see only their own CDR, not previous owners."
+  },
+  {
+    "icon": "fa fa-code",
+    "title": "Free APIs",
+    "text": "Integrate DIDX directly into your website or software with our free APIs to buy and sell DIDs seamlessly."
+  },
+  {
+    "icon": "fa fa-headphones",
+    "title": "Multiple Codecs",
+    "text": "DIDX supports codecs including ILBC, G711A, G711U, G729, G723, G726, and GSM—buy or sell using any of these."
+  },
+  {
+    "icon": "fa fa-random",
+    "title": "Instant Ring-to Path Change",
+    "text": "Instantly change the ring-to address of your DID number using the website or API."
+  },
+  {
+    "icon": "fa fa-credit-card",
+    "title": "Instant Billing Solution",
+    "text": "Easily sell DIDs via DIDX with setup, monthly, per minute, and per channel billing handled instantly."
+  },
+  {
+    "icon": "fa fa-globe",
+    "title": "Realtime Stock",
+    "text": "Access DID stock from global DIDX seller members and purchase instantly."
+  },
+  {
+    "icon": "fa fa-bell",
+    "title": "Request DIDs",
+    "text": "Request a DID number from anywhere in the world and get notified when it becomes available from our 16,500+ members."
+  },
+  {
+    "icon": "fa fa-plug",
+    "title": "Multiple Protocol Support",
+    "text": "DIDX supports SIP, H.323, and IAX for buyers, and IAX2 and SIP for sellers."
+  }
+]}
+
