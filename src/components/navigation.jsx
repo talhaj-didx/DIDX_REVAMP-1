@@ -34,7 +34,7 @@ export const Navigation = () => {
             <li><Link to="/buy-did">Buy DID</Link></li>
             <li><Link to="/sell-did">Sell DID</Link></li>
             <li><Link to="/rates">Rates</Link></li>
-            <li><Link to="/features">Features</Link></li>
+            {/* <li><Link to="/features">Features</Link></li> */}
             <li><Link to="/coverage">Coverage</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>

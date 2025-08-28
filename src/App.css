@@ -53,7 +53,7 @@
 }
 
 .about-hero__text {
-  flex: 0.4;
+  flex: 0.5;
   text-align: left;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .about-hero__art {
-  flex: 0.6;
+  flex: 0.5;
   display: flex;
   justify-content: flex-start;
   margin-top: 80px;

@@ -815,3 +815,274 @@ label {
   position: relative;
   user-select: none;
 }
+
+.money-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.money-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  /* color: #333; */
+  text-align: center;
+}
+
+.money-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.money-text {
+  flex: 1;
+}
+
+.money-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.money-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.money-block {
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.money-block h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  /* color: #222; */
+}
+
+.money-block p {
+  margin: 6px 0;
+  /* color: #555; */
+}
+
+.money-block a {
+  color: linear-gradient(to right, #5ca9fb 0%, #0083A0 100%);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.money-block a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .money-container {
+    flex-direction: column;
+  }
+  .money-image {
+    margin-top: 20px;
+  }
+  .money-section h2 {
+    font-size: 24px;
+  }
+}
+
+
+/* RATES Section */
+.pricing-section {
+  background: #f9fafb;
+  padding: 80px 20px;
+}
+
+.pricing-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Text */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 15px auto 40px;
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+/* Switcher */
+.switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: white;
+  left: 3px;
+  bottom: 3px;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2563eb;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: border 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  border: 2px solid #2563eb;
+}
+
+.card-content {
+  margin-bottom: 20px;
+}
+
+.plan-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #111827;
+}
+
+.plan-desc {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.old-price {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.billing {
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.details {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fde68a;
+  color: #92400e;
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-outline {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #2563eb;
+  border: none;
+  color: white;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-outline {
+  background: white;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+}
+.btn-outline:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

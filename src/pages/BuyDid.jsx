@@ -88,6 +88,7 @@ export default function BuyDid() {
       <HeroSection
         titleA={"BUY DIDS FROM US"}
         description={"DIDX.net empowers VoIP phone companies to offer phone service from different areas of the world to its end-users."}
+         img={"/img/globe.png"}
       />
       
       <section ref={rootRef} className="buydid">

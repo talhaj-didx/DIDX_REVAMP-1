@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 const HeroSection = ({ titleA, titleB, description, img }) => {
     const heroRef = useRef(null);
 
-
     useGSAP(() => {
         // HERO animations
         const heroTl = gsap.timeline();
@@ -40,12 +39,13 @@ const HeroSection = ({ titleA, titleB, description, img }) => {
         });
 
         // Globe Spin Animation
-       if (img) { gsap.to(heroRef.current.querySelector("img"), {
-            rotation: 360,
-            duration: 30,
-            repeat: -1,
-            ease: "linear"
-        });
+        if (img) {
+            gsap.to(heroRef.current.querySelector("img"), {
+                rotation: 360,
+                duration: 30,
+                repeat: -1,
+                ease: "linear"
+            });
         }
 
     }, []);
@@ -58,7 +58,7 @@ const HeroSection = ({ titleA, titleB, description, img }) => {
                     {img ? <div className="about-hero__art">
                         <img src={img} alt="Team collaborating" loading="eager" />
                     </div>
-                    : <></>
+                        : <></>
                     }
                     <div className="about-hero__text">
                         <h1>
