@@ -1,4 +1,3 @@
-import React from 'react'
 import AnimatedTable from '../components/animatedTable'
 import HeroSection from '../components/heroSection'
 import { Contact } from '../components/contact'

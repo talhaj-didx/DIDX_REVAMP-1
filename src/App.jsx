@@ -72,6 +72,7 @@ import Coverage from "./pages/Coverage";
 import ContactPage from "./pages/ContactPage";
 
 import "./App.css";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,7 @@ const router = createBrowserRouter([
       { path: "features", element: <FeaturesPage /> },
       { path: "coverage", element: <Coverage /> },
       { path: "contact", element: <ContactPage /> },
+      { path: "login-page", element: <Login /> },
     ],
   },
 ]);

@@ -11,10 +11,10 @@ import {
   Chip,
   Button,
 } from "@mui/material";
-import InfoIcon from '@mui/icons-material/Info';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
+import InfoIcon from "@mui/icons-material/Info";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -27,7 +27,11 @@ export default function DidxRatesSection() {
     const tl = gsap.timeline();
     tl.from(rootRef.current, { opacity: 0, y: 24, duration: 0.6 });
     tl.from(leftColRef.current, { x: -20, opacity: 0, duration: 0.6 }, "-=");
-    tl.from(cardsRef.current.querySelectorAll('.card'), { y: 16, opacity: 0, stagger: 0.08, duration: 0.45 }, "-=");
+    tl.from(
+      cardsRef.current.querySelectorAll(".card"),
+      { y: 16, opacity: 0, stagger: 0.08, duration: 0.45 },
+      "-="
+    );
   });
 
   return (
@@ -39,11 +43,15 @@ export default function DidxRatesSection() {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        // background: 'linear-gradient(180deg,#f7fafc, #ffffff)'
       }}
     >
-      <Paper elevation={0} sx={{ borderRadius: 3, p: { xs: 3, md: 6 }, width: "100%" }}>
-        <Grid container spacing={8} alignItems="flex-start">
+      <Paper
+        elevation={0}
+        sx={{ borderRadius: 3, p: { xs: 3, md: 6 }, width: "100%" }}
+      >
+        {/* ✅ Grid container alignment */}
+        <Grid container spacing={8} alignItems="center" justifyContent="center">
+          {/* Left Column */}
           <Grid item xs={12} md={6}>
             <Box ref={leftColRef}>
               <List disablePadding>
@@ -57,10 +65,17 @@ export default function DidxRatesSection() {
                       boxShadow: 3,
                       borderRadius: 2,
                     },
-                     padding: "35px"
+                    p: { xs: 3, md: 5 },
                   }}
                 >
-                  <InfoIcon sx={{ mr: 2, mt: 0.5, fontSize: 36, color: 'primary.main' }} />
+                  <InfoIcon
+                    sx={{
+                      mr: 2,
+                      mt: 0.5,
+                      fontSize: 40,
+                      color: "primary.main",
+                    }}
+                  />
                   <ListItemText
                     primary={
                       <Typography variant="h4" sx={{ fontWeight: 600 }}>
@@ -73,8 +88,9 @@ export default function DidxRatesSection() {
                         color="text.secondary"
                         sx={{ mt: 1, lineHeight: 1.6 }}
                       >
-                        Basic membership on DIDX is free. Member gets 2 free DIDs for 30
-                        days to explore services. Accounts must be activated to buy/sell.
+                        Basic membership on DIDX is free. Member gets 2 free DIDs
+                        for 30 days to explore services. Accounts must be activated
+                        to buy/sell.
                       </Typography>
                     }
                   />
@@ -92,10 +108,17 @@ export default function DidxRatesSection() {
                       boxShadow: 3,
                       borderRadius: 2,
                     },
-                     padding: "35px"
+                    p: { xs: 3, md: 5 },
                   }}
                 >
-                  <AccountCircleIcon sx={{ mr: 2, mt: 0.5, fontSize: 36, color: 'primary.main' }} />
+                  <AccountCircleIcon
+                    sx={{
+                      mr: 2,
+                      mt: 0.5,
+                      fontSize: 40,
+                      color: "primary.main",
+                    }}
+                  />
                   <ListItemText
                     primary={
                       <Typography variant="h4" sx={{ fontWeight: 600 }}>
@@ -108,11 +131,12 @@ export default function DidxRatesSection() {
                         color="text.secondary"
                         sx={{ mt: 1, lineHeight: 1.6 }}
                       >
-                        Zero setup charge · Zero monthly charge. Sellers do not pay listing
-                        or brokerage fees. A monthly minimum quantity charge of $50 applies
-                        when buyers do not have at least 50 purchased numbers OR domestic
-                        USA sellers have at least 500 numbers OR international sellers have
-                        at least 50 numbers for sale on DIDX.
+                        Zero setup charge · Zero monthly charge. Sellers do not
+                        pay listing or brokerage fees. A monthly minimum quantity
+                        charge of $50 applies when buyers do not have at least 50
+                        purchased numbers OR domestic USA sellers have at least 500
+                        numbers OR international sellers have at least 50 numbers
+                        for sale on DIDX.
                       </Typography>
                     }
                   />
@@ -130,10 +154,17 @@ export default function DidxRatesSection() {
                       boxShadow: 3,
                       borderRadius: 2,
                     },
-                     padding: "35px"
+                    p: { xs: 3, md: 5 },
                   }}
                 >
-                  <MonetizationOnIcon sx={{ mr: 2, mt: 0.5, fontSize: 36, color: 'primary.main' }} />
+                  <MonetizationOnIcon
+                    sx={{
+                      mr: 2,
+                      mt: 0.5,
+                      fontSize: 40,
+                      color: "primary.main",
+                    }}
+                  />
                   <ListItemText
                     primary={
                       <Typography variant="h4" sx={{ fontWeight: 600 }}>
@@ -146,16 +177,17 @@ export default function DidxRatesSection() {
                         color="text.secondary"
                         sx={{ mt: 1, lineHeight: 1.6 }}
                       >
-                        There is NO CHARGE to list your numbers on DIDX to sell them. DIDX
-                        is for wholesale customers only. If you need fewer than 50 numbers
-                        please visit virtualphoneline.com.
+                        There is NO CHARGE to list your numbers on DIDX to sell
+                        them. DIDX is for wholesale customers only. If you need
+                        fewer than 50 numbers please visit
+                        virtualphoneline.com.
                       </Typography>
                     }
                   />
                 </ListItem>
               </List>
 
-              <Box sx={{ mt: 6,justifySelf:'center', gap: 10 }}>
+              <Box sx={{ mt: 6, justifySelf: "center", gap: 10 }}>
                 <Button
                   variant="contained"
                   size="large"
@@ -191,51 +223,85 @@ export default function DidxRatesSection() {
                   Contact Support
                 </Button>
               </Box>
-
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={6}  sx={{marginLeft: 30,marginRight: 30, flex:1, justifyContent:'center', alignItems:"center"}}>
-            <Box ref={cardsRef} sx={{ display: 'grid', gap: 5, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
-              <Paper className="card" elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-                <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 1, fontWeight: 600 }}>
-                  <Chip icon={<AccountCircleIcon />} label="Basic" size="medium" />
-                  Free Trial
-                </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ mt: 2, lineHeight: 1.6 }}>
-                  2 free DIDs for 30 days. Activation required to transact.
-                </Typography>
-              </Paper>
-
-              <Paper className="card" elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-                <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 1, fontWeight: 600 }}>
-                  <Chip icon={<MonetizationOnIcon />} label="Regular" size="medium" />
-                  Wholesale
-                </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ mt: 2, lineHeight: 1.6 }}>
-                  No setup or monthly charge. Sellers keep control of pricing. Minimum charges apply in certain low-volume scenarios.
-                </Typography>
-              </Paper>
-
-              <Paper className="card" elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-                <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 1, fontWeight: 600 }}>
-                  <Chip icon={<InfoIcon />} label="Listing" size="medium" />
-                  No Listing Fee
-                </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ mt: 2, lineHeight: 1.6 }}>
-                  List your DIDs for sale without charge. DIDX is targeted at wholesale customers.
-                </Typography>
-              </Paper>
-
-              <Paper className="card" elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-                <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 1, fontWeight: 600 }}>
-                  <Chip icon={<CreditCardIcon />} label="Note" size="medium" />
-                  How to view rates
-                </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ mt: 2, lineHeight: 1.6 }}>
-                  Vendor/Seller sets each DID price — log in to your DIDX account to view live rates for specific numbers.
-                </Typography>
-              </Paper>
+          {/* Right Column (Cards) */}
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              ref={cardsRef}
+              sx={{
+                display: "grid",
+                gap: 5,
+                maxWidth: { xs: "100%", sm: "700px", md: "1000px" }, // 🔥 Bigger container
+                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+              }}
+            >
+              {[
+                {
+                  icon: <AccountCircleIcon />,
+                  label: "Basic",
+                  title: "Free Trial",
+                  text: "2 free DIDs for 30 days. Activation required to transact.",
+                },
+                {
+                  icon: <MonetizationOnIcon />,
+                  label: "Regular",
+                  title: "Wholesale",
+                  text: "No setup or monthly charge. Sellers keep control of pricing. Minimum charges apply in certain low-volume scenarios.",
+                },
+                {
+                  icon: <InfoIcon />,
+                  label: "Listing",
+                  title: "No Listing Fee",
+                  text: "List your DIDs for sale without charge. DIDX is targeted at wholesale customers.",
+                },
+                {
+                  icon: <CreditCardIcon />,
+                  label: "Note",
+                  title: "How to view rates",
+                  text: "Vendor/Seller sets each DID price — log in to your DIDX account to view live rates for specific numbers.",
+                },
+              ].map((card, i) => (
+                <Paper
+                  key={i}
+                  className="card"
+                  elevation={3}
+                  sx={{
+                    p: { xs: 4, md: 6 }, // 🔥 Bigger padding = larger card
+                    borderRadius: 3,
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
+                      fontWeight: 600,
+                    }}
+                  >
+                    <Chip icon={card.icon} label={card.label} size="medium" />
+                    {card.title}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    color="text.secondary"
+                    sx={{ mt: 2, lineHeight: 1.6 }}
+                  >
+                    {card.text}
+                  </Typography>
+                </Paper>
+              ))}
             </Box>
           </Grid>
         </Grid>
