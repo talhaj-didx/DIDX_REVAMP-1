@@ -123,11 +123,11 @@ export default function AnimatedTable() {
   }, []);
 
   return (
-    <div style={{ overflowX: "none", margin: "50px" }}>
+    <div style={{ margin: "50px" }}>
       <table
         ref={tableRef}
+        className="table-container"
         style={{
-          width: "100%",
           borderCollapse: "collapse",
           fontFamily: "Arial, sans-serif",
           fontSize: "14px",
@@ -157,6 +157,20 @@ export default function AnimatedTable() {
           ))}
         </tbody>
       </table>
+      {/* Scoped CSS for responsiveness */}
+      <style jsx>{`
+  .table-container {
+    width: 100%;
+    justify-self: center
+  }
+
+  @media (min-width: 768px) {
+    .table-container {
+      width: 80%;
+    }
+  }
+`}</style>
+
     </div>
   );
 }

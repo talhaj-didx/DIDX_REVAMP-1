@@ -73,6 +73,8 @@ import ContactPage from "./pages/ContactPage";
 
 import "./App.css";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import BuyerSellerInteropPage from "./pages/Introp";
 
 const router = createBrowserRouter([
   {
@@ -87,7 +89,9 @@ const router = createBrowserRouter([
       { path: "features", element: <FeaturesPage /> },
       { path: "coverage", element: <Coverage /> },
       { path: "contact", element: <ContactPage /> },
+      { path: "introp", element: <BuyerSellerInteropPage /> },
       { path: "login-page", element: <Login /> },
+      { path: "signup", element: <SignUp /> },
     ],
   },
 ]);

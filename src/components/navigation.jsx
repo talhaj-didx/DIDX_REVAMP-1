@@ -17,9 +17,9 @@ export const Navigation = () => {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <img 
-            src={"img/didx-logo.png"} 
-            alt="DIDX Logo" 
+          <img
+            src={"img/didx-logo.png"}
+            alt="DIDX Logo"
             style={{ height: "60px" }}
           />
         </div>
@@ -36,8 +36,9 @@ export const Navigation = () => {
             <li><Link to="/rates">Rates</Link></li>
             {/* <li><Link to="/features">Features</Link></li> */}
             <li><Link to="/coverage">Coverage</Link></li>
+            <li><Link to="/introp">Introp</Link></li>
             {/* <li><Link to="/contact">Contact Us</Link></li> */}
-             <li><Link to="/login-page">Login</Link></li>
+            <li><Link to="/login-page">Login</Link></li>
           </ul>
         </div>
       </div>
