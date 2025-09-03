@@ -29,7 +29,7 @@ const FeatureBoxes = () => {
   }, []); // 👈 runs once
 
   const features = [
-    { title: "DIDX Awards", color: "#003366", link: "#" },
+    { title: "DIDX Awards", color: "#003366", link: "/awards" },
     { title: "DIDX Partners", color: "#E6FAFA", textColor: "#003366", link: "#" },
     { title: "DIDX Members", color: "#FF9966", link: "#" },
     { title: "DIDX Events", color: "#33A8FF", link: "#" },

@@ -75,6 +75,8 @@ import "./App.css";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import BuyerSellerInteropPage from "./pages/Introp";
+import BuyerInterop from "./pages/BuyerInterop";
+import Awards from "./pages/Awards";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +94,8 @@ const router = createBrowserRouter([
       { path: "introp", element: <BuyerSellerInteropPage /> },
       { path: "login-page", element: <Login /> },
       { path: "signup", element: <SignUp /> },
+      { path: "buyer-interop", element: <BuyerInterop /> },
+      { path: "awards", element: <Awards /> }
     ],
   },
 ]);

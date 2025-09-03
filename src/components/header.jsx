@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 
 export const Header = (props) => {
   const overlayRef = useRef(null);
@@ -82,13 +83,21 @@ export const Header = (props) => {
                 <p ref={paragraphRef}>
                   {props.data ? props.data.paragraph : "Loading"}
                 </p>
-                <a
+                {/* <a
                   href="#features"
                   className="btn btn-custom btn-lg page-scroll"
                   ref={buttonRef}
+              
                 >
                   Learn More
-                </a>
+                </a> */}
+                <Link
+                  to="/signup"
+                  className="btn btn-custom btn-lg page-scroll"
+                  ref={buttonRef}
+                >
+                  Sign Up
+                </Link>
               </div>
             </div>
           </div>

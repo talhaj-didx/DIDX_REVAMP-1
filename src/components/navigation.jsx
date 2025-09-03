@@ -36,7 +36,7 @@ export const Navigation = () => {
             <li><Link to="/rates">Rates</Link></li>
             {/* <li><Link to="/features">Features</Link></li> */}
             <li><Link to="/coverage">Coverage</Link></li>
-            <li><Link to="/introp">Introp</Link></li>
+            <li><Link to="/introp">Interop</Link></li>
             {/* <li><Link to="/contact">Contact Us</Link></li> */}
             <li><Link to="/login-page">Login</Link></li>
           </ul>

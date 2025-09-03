@@ -55,7 +55,6 @@ export default function Signup() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(58, 149, 214, 1) 42%, rgba(221, 224, 235, 1) 95%)",
                     px: 2,
                     py: 24
                 }}
