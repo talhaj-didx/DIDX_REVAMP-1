@@ -77,6 +77,7 @@ import SignUp from "./pages/SignUp";
 import BuyerSellerInteropPage from "./pages/Introp";
 import BuyerInterop from "./pages/BuyerInterop";
 import Awards from "./pages/Awards";
+import Events from "./pages/Events";
 
 const router = createBrowserRouter([
   {
@@ -95,7 +96,8 @@ const router = createBrowserRouter([
       { path: "login-page", element: <Login /> },
       { path: "signup", element: <SignUp /> },
       { path: "buyer-interop", element: <BuyerInterop /> },
-      { path: "awards", element: <Awards /> }
+      { path: "awards", element: <Awards /> },
+       { path: "events", element: <Events /> }
     ],
   },
 ]);
