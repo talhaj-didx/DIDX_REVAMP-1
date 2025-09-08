@@ -3,9 +3,12 @@ import { Box, Typography, Link, Container } from "@mui/material";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import HeroSection from "../components/heroSection";
+import JsonData from "../data/data.json";
+import { Contact } from "../components/contact";
 
 export default function BuyerSellerInteropPage() {
     const sectionRef = useRef();
+    const landingPageData = JsonData;
 
     useGSAP(() => {
         gsap.from(sectionRef.current.querySelectorAll("h3, p, a"), {
@@ -47,12 +50,12 @@ export default function BuyerSellerInteropPage() {
                         Buyer Interop Process
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         Interop (interoperability) enables you and DIDX to test between your
                         and DIDX networks before activating business with DIDxchange.
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         Please note that DIDX requires you to offer at least 500 number to the
                         Exchange in order to start selling. If you have a problem in that qty,
                         please contact us on{" "}
@@ -62,13 +65,13 @@ export default function BuyerSellerInteropPage() {
                         with the reason and we will try take it with our management.
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         They are pointed to DIDX that plays an IVR when called. Check the
                         numbers by calling them to see they are alive and reachable from your
                         telephone.
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         Browse a copy of the DIDX member{" "}
                         <Link href="/member-manual.pdf" underline="hover" color="primary">
                             manual
@@ -114,12 +117,12 @@ export default function BuyerSellerInteropPage() {
                         Seller Interop Process
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         Interop (interoperability) enables you and DIDX to test between your
                         and DIDX networks before activating business with DIDxchange.
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         Please note that DIDX requires you to offer at least 500 number to the
                         Exchange in order to start selling. If you have a problem in that qty,
                         please contact us on{" "}
@@ -129,13 +132,13 @@ export default function BuyerSellerInteropPage() {
                         with the reason and we will try take it with our management.
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         They are pointed to DIDX that plays an IVR when called. Check the
                         numbers by calling them to see they are alive and reachable from your
                         telephone.
                     </Typography>
 
-                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" }, lineHeight: 1.8 }}>
+                    <Typography paragraph color="text.primary"  sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" }, lineHeight: 1.8 }}>
                         Browse a copy of the DIDX member{" "}
                         <Link href="/member-manual.pdf" underline="hover" color="primary">
                             manual
@@ -173,6 +176,7 @@ export default function BuyerSellerInteropPage() {
                     </Link>
                 </Box>
             </Container>
+            <Contact data={landingPageData.Contact} />
         </>
     );
 
