@@ -59,12 +59,12 @@ export default function DidxRatesSection() {
                   sx={{
                     alignItems: "flex-start",
                     mb: 3,
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.03)",
-                      boxShadow: 3,
-                      borderRadius: 2,
-                    },
+                    // transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    // "&:hover": {
+                    //   transform: "scale(1.03)",
+                    //   boxShadow: 3,
+                    //   borderRadius: 2,
+                    // },
                     p: { xs: 3, md: 5 },
                   }}
                 >
@@ -102,12 +102,12 @@ export default function DidxRatesSection() {
                   sx={{
                     alignItems: "flex-start",
                     mb: 3,
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.03)",
-                      boxShadow: 3,
-                      borderRadius: 2,
-                    },
+                    // transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    // "&:hover": {
+                    //   transform: "scale(1.03)",
+                    //   boxShadow: 3,
+                    //   borderRadius: 2,
+                    // },
                     p: { xs: 3, md: 5 },
                   }}
                 >
@@ -148,12 +148,12 @@ export default function DidxRatesSection() {
                   sx={{
                     alignItems: "flex-start",
                     mb: 3,
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.03)",
-                      boxShadow: 3,
-                      borderRadius: 2,
-                    },
+                    // transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    // "&:hover": {
+                    //   transform: "scale(1.03)",
+                    //   boxShadow: 3,
+                    //   borderRadius: 2,
+                    // },
                     p: { xs: 3, md: 5 },
                   }}
                 >

@@ -134,7 +134,7 @@ export default function AnimatedTable() {
         }}
       >
         <thead>
-          <tr style={{ background: "#f2f2f2" }}>
+          <tr style={{ background: "#004080", color: "#fff" }}>
             <th style={thStyle}>Prefix</th>
             <th style={thStyle}>Destination</th>
             <th style={thStyle}>Channels</th>
@@ -145,7 +145,8 @@ export default function AnimatedTable() {
             <tr
               key={idx}
               style={{
-                background: idx % 2 === 0 ? "#fff" : "#f9f9f9",
+                background: idx % 2 === 0 ? "#e6f2ff" : "#ffffff",
+                color: "#333",
               }}
             >
               <td style={tdStyle}>{prefix}</td>
@@ -159,18 +160,17 @@ export default function AnimatedTable() {
       </table>
       {/* Scoped CSS for responsiveness */}
       <style jsx>{`
-  .table-container {
-    width: 100%;
-    justify-self: center
-  }
+        .table-container {
+          width: 100%;
+          justify-self: center;
+        }
 
-  @media (min-width: 768px) {
-    .table-container {
-      width: 80%;
-    }
-  }
-`}</style>
-
+        @media (min-width: 768px) {
+          .table-container {
+            width: 80%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -4,18 +4,16 @@
     "paragraph": "Connecting the world, one country at a time!"
   },
   "About": {
-  "paragraph": "DIDX, founded in Delaware in 2005 and backed by Super Technologies, is the world’s first wholesale DID number marketplace. Today, it connects 30,000+ telecom companies—including Google, IBM, and Microsoft—helping operators seamlessly buy, sell, and manage global phone numbers. Recognized internationally for innovation, DIDX has grown from a small project into one of the world’s largest and most trusted DID platforms.",
-
-   "Why": [
-  "Global Reach – Serving 25,000+ telecom companies worldwide",
-  "Trusted by Leaders – Partners include Google, IBM, Microsoft & more",
-  "Proven Innovation – Pioneers in VoIP and DID marketplaces since 2005",
-  "Scalable Solutions – From small operators to global carriers"
-],
-"Why2": [
-  "Award-Winning – Internationally recognized for telecom excellence"
-]
-
+    "paragraph": "DIDX, founded in Delaware in 2005 and backed by Super Technologies, is the world’s first wholesale DID number marketplace. Today, it connects 30,000+ telecom companies—including Google, IBM, and Microsoft—helping operators seamlessly buy, sell, and manage global phone numbers. Recognized internationally for innovation, DIDX has grown from a small project into one of the world’s largest and most trusted DID platforms.",
+    "Why": [
+      "Global Reach – Serving 25,000+ telecom companies worldwide",
+      "Trusted by Leaders – Partners include Google, IBM, Microsoft & more",
+      "Proven Innovation – Pioneers in VoIP and DID marketplaces since 2005",
+      "Scalable Solutions – From small operators to global carriers"
+    ],
+    "Why2": [
+      "Award-Winning – Internationally recognized for telecom excellence"
+    ]
   },
   "Gallery": [
     {
@@ -158,52 +156,68 @@
     "twitter": "twitter.com",
     "youtube": "youtube.com"
   },
-
+  "MemberShips": [
+    {
+      "icon": "fa money-bill",
+      "title": "Basic Membership",
+      "text": "Basic membership on DIDX is free. Member gets 2 free DIDs for 30 days to explore services. Accounts must be activated to buy/sell."
+    },
+    {
+      "icon": "fa fa-database",
+      "title": "Regular Membership",
+      "text": "Zero setup charge · Zero monthly charge. Sellers do not pay listing or brokerage fees. A monthly minimum quantity charge of $50 applies when buyers do not have at least 50 purchased numbers OR domestic USA sellers have at least 500 numbers OR international sellers have at least 50 numbers for sale on DIDX."
+    },
+    {
+      "icon": "fa fa-database",
+      "title": "Listing Charges",
+      "text": "There is NO CHARGE to list your numbers on DIDX to sell them. DIDX is for wholesale customers only. If you need fewer than 50 numbers please visit virtualphoneline.com."
+    }
+  ],
   "Features": [
-  {
-    "icon": "fa fa-shield",
-    "title": "100% DIDX Guarantee",
-    "text": "Buy with confidence with DIDX. If any DID does not work for more than 3 days in a row, we do not pay the seller, and we do not charge the buyer."
-  },
-  {
-    "icon": "fa fa-database",
-    "title": "Online Instant CDR for 5 Years",
-    "text": "Both sellers and buyers can view CDRs for the last five years of the number purchase. Buyers see only their own CDR, not previous owners."
-  },
-  {
-    "icon": "fa fa-code",
-    "title": "Free APIs",
-    "text": "Integrate DIDX directly into your website or software with our free APIs to buy and sell DIDs seamlessly."
-  },
-  {
-    "icon": "fa fa-headphones",
-    "title": "Multiple Codecs",
-    "text": "DIDX supports codecs including ILBC, G711A, G711U, G729, G723, G726, and GSM—buy or sell using any of these."
-  },
-  {
-    "icon": "fa fa-random",
-    "title": "Instant Ring-to Path Change",
-    "text": "Instantly change the ring-to address of your DID number using the website or API."
-  },
-  {
-    "icon": "fa fa-credit-card",
-    "title": "Instant Billing Solution",
-    "text": "Easily sell DIDs via DIDX with setup, monthly, per minute, and per channel billing handled instantly."
-  },
-  {
-    "icon": "fa fa-globe",
-    "title": "Realtime Stock",
-    "text": "Access DID stock from global DIDX seller members and purchase instantly."
-  },
-  {
-    "icon": "fa fa-bell",
-    "title": "Request DIDs",
-    "text": "Request a DID number from anywhere in the world and get notified when it becomes available from our 16,500+ members."
-  },
-  {
-    "icon": "fa fa-plug",
-    "title": "Multiple Protocol Support",
-    "text": "DIDX supports SIP, H.323, and IAX for buyers, and IAX2 and SIP for sellers."
-  }
-]}
-
+    {
+      "icon": "fa fa-shield",
+      "title": "100% DIDX Guarantee",
+      "text": "Buy with confidence with DIDX. If any DID does not work for more than 3 days in a row, we do not pay the seller, and we do not charge the buyer."
+    },
+    {
+      "icon": "fa fa-database",
+      "title": "Online Instant CDR for 5 Years",
+      "text": "Both sellers and buyers can view CDRs for the last five years of the number purchase. Buyers see only their own CDR, not previous owners."
+    },
+    {
+      "icon": "fa fa-code",
+      "title": "Free APIs",
+      "text": "Integrate DIDX directly into your website or software with our free APIs to buy and sell DIDs seamlessly."
+    },
+    {
+      "icon": "fa fa-headphones",
+      "title": "Multiple Codecs",
+      "text": "DIDX supports codecs including ILBC, G711A, G711U, G729, G723, G726, and GSM—buy or sell using any of these."
+    },
+    {
+      "icon": "fa fa-random",
+      "title": "Instant Ring-to Path Change",
+      "text": "Instantly change the ring-to address of your DID number using the website or API."
+    },
+    {
+      "icon": "fa fa-credit-card",
+      "title": "Instant Billing Solution",
+      "text": "Easily sell DIDs via DIDX with setup, monthly, per minute, and per channel billing handled instantly."
+    },
+    {
+      "icon": "fa fa-globe",
+      "title": "Realtime Stock",
+      "text": "Access DID stock from global DIDX seller members and purchase instantly."
+    },
+    {
+      "icon": "fa fa-bell",
+      "title": "Request DIDs",
+      "text": "Request a DID number from anywhere in the world and get notified when it becomes available from our 16,500+ members."
+    },
+    {
+      "icon": "fa fa-plug",
+      "title": "Multiple Protocol Support",
+      "text": "DIDX supports SIP, H.323, and IAX for buyers, and IAX2 and SIP for sellers."
+    }
+  ]
+}

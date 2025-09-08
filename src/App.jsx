@@ -78,6 +78,13 @@ import BuyerSellerInteropPage from "./pages/Introp";
 import BuyerInterop from "./pages/BuyerInterop";
 import Awards from "./pages/Awards";
 import Events from "./pages/Events";
+import Clec from "./pages/Clec";
+import ToolFreeNumbers from "./pages/ToolFreeNumbers";
+import CaseStudy from "./pages/CaseStudy";
+import Lookup from "./pages/Lookup";
+import Asterisk from "./components/Asterisk";
+import VoipSwitch from "./pages/VoipSwitch";
+import Elastix from "./pages/Elastix";
 
 const router = createBrowserRouter([
   {
@@ -97,7 +104,15 @@ const router = createBrowserRouter([
       { path: "signup", element: <SignUp /> },
       { path: "buyer-interop", element: <BuyerInterop /> },
       { path: "awards", element: <Awards /> },
-       { path: "events", element: <Events /> }
+      { path: "events", element: <Events /> },
+      { path: "clec", element: <Clec /> },
+      { path: "toll-free-numbers", element: < ToolFreeNumbers /> },
+      { path: "case-study", element: < CaseStudy /> },
+      { path: "lnp-lookup", element: < Lookup /> },
+      { path: "asterisk", element: < Asterisk /> },
+      { path: "voip-switch", element: < VoipSwitch /> },
+      { path: "elastix", element: < Elastix /> },
+
     ],
   },
 ]);
