@@ -20,7 +20,7 @@ const AboutUs = () => {
   const landingPageData = JsonData;
 
   const [activeModal, setActiveModal] = useState(null);
-
+  
   useGSAP(() => {
 
     // Video fade-in
@@ -95,7 +95,6 @@ const AboutUs = () => {
 
       {/* CONTENT BLOCKS */}
       <section className="about-sections container">
-
         <FeaturesCard data={cardData} />
 
         <div className="about-stats">

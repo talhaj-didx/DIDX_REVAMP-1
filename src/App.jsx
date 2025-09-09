@@ -85,6 +85,9 @@ import Lookup from "./pages/Lookup";
 import Asterisk from "./components/Asterisk";
 import VoipSwitch from "./pages/VoipSwitch";
 import Elastix from "./pages/Elastix";
+import Partners from "./pages/Partners";
+import { useEffect, useState } from "react";
+import BonusPopup from "./components/modals/BonusPopup";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +107,7 @@ const router = createBrowserRouter([
       { path: "signup", element: <SignUp /> },
       { path: "buyer-interop", element: <BuyerInterop /> },
       { path: "awards", element: <Awards /> },
+      { path: "partners", element: <Partners /> },
       { path: "events", element: <Events /> },
       { path: "clec", element: <Clec /> },
       { path: "toll-free-numbers", element: < ToolFreeNumbers /> },
@@ -118,6 +122,17 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    handleOpen();
+  }, [])
+  return <>
+    <RouterProvider router={router} />
+    <BonusPopup open={open} handleClose={handleClose} />
+  </>;
 }
 
