@@ -17,7 +17,7 @@ import {
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
 
 export const metadata = {
   title: "VOIP Switch | DIDX",
@@ -38,7 +38,7 @@ const values = [
 
 export default function VoipSwitch() {
   const sectionRef = useRef();
-  const landingPageData = JsonData;
+  
 
   useGSAP(() => {
     gsap.from(sectionRef.current.children, {
@@ -230,7 +230,7 @@ export default function VoipSwitch() {
           </Typography>
         </Box>
       </Container>
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </>
   );
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import DidxRatesSection from '../components/didxRatesSection'
 import HeroSection from '../components/heroSection'
-import JsonData from "../data/data.json";
+
 import { Contact } from '../components/contact';
 import GridCard from '../components/GridCard';
 
 const Rates = () => {
-  const landingPageData = JsonData;
+  
   //  const dataS = [
   // {
   //   "icon": "fa-money",
@@ -36,7 +36,7 @@ const Rates = () => {
 
       {/* <GridCard props={{ data: dataS }} /> */}
       <DidxRatesSection />
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </div>
   )
 }

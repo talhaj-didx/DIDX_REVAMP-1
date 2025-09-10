@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import HeroSection from '../components/heroSection'
 import { Contact } from '../components/contact'
-import JsonData from "../data/data.json";
+
 import {
   FaShieldAlt,
   FaHandsHelping,
@@ -36,7 +36,7 @@ export const features = [
 ];
 
 const SellDid = () => {
-  const landingPageData = JsonData;
+  
   const sectionRef = useRef(null);
 
   // Animate the new section
@@ -123,7 +123,7 @@ const SellDid = () => {
           </div>
         </div>
       </section>
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </div>
   );
 };

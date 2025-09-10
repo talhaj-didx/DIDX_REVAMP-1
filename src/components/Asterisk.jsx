@@ -15,7 +15,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { Contact } from "./contact";
-import JsonData from "../data/data.json";
+
 
 export const metadata = {
     title: "Asterisk Configuration | DIDX",
@@ -35,7 +35,7 @@ const values = [
 
 export default function Asterisk() {
     const containerRef = useRef();
-    const landingPageData = JsonData;
+    
 
     const textStyle = {
         fontSize: { xs: "1.2rem", md: "1.5rem" },
@@ -312,7 +312,7 @@ export default function Asterisk() {
                     </Typography>
                 </Container>
             </Box>
-            <Contact data={landingPageData.Contact} />
+            <Contact  />
         </>
     );
 }

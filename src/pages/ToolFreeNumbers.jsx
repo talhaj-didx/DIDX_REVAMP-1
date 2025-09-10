@@ -2,13 +2,13 @@ import React from 'react'
 import AnimatedTable from '../components/animatedTable2'
 import { Typography } from '@mui/material'
 import { Contact } from '../components/contact'
-import JsonData from "../data/data.json";
+
 import BreadCrumb from '../components/BreadCrumbs';
 export const metadata = {
     'title': 'DIDX Global Toll Free Coverage | DIDX'
 }
 const ToolFreeNumbers = () => {
-    const landingPageData = JsonData;
+    
     return (
         <>
             <BreadCrumb title={metadata.title}/>
@@ -32,7 +32,7 @@ const ToolFreeNumbers = () => {
             </Typography>
                 <AnimatedTable />
             </div>
-            <Contact data={landingPageData.Contact} />
+            <Contact />
         </>
     )
 }

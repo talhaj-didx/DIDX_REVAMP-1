@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { Box, Typography, TextField, Button, Container, Paper } from "@mui/material";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import JsonData from "../data/data.json";
+
 import { Contact } from "../components/contact";
+import BreadCrumb from "../components/BreadCrumbs";
 
 export default function Login() {
   const formRef = useRef(null);
-  const landingPageData = JsonData;
+  
 
   useEffect(() => {
     const loadReCaptcha = () => {
@@ -32,15 +33,17 @@ export default function Login() {
 
   return (
     <>
+     <BreadCrumb title={"Login"}/>
       <Box
         sx={{
           width: "100%",
-          minHeight: "100vh",
+          // minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           bgcolor: "background.default",
           px: 2,
+          py: 5
         }}
       >
         <Container maxWidth="sm">
@@ -157,7 +160,7 @@ export default function Login() {
           </Paper>
         </Container>
       </Box>
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </>
   );
 }

@@ -227,21 +227,9 @@ import {
   FaMapMarkerAlt,
 
 } from "react-icons/fa";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
-export const Contact = (props) => {
+export const Contact = () => {
   const footerRef = useRef(null);
-
-  useGSAP(() => {
-    gsap.from(footerRef.current.querySelectorAll(".fade-in"), {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-    });
-  }, []);
 
   return (
     <Box
@@ -251,7 +239,7 @@ export const Contact = (props) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        background: "#0a4a75ff"
+        background:"#101516ff"
       }}
     >
       {/* Top Section */}
@@ -495,7 +483,7 @@ export const Contact = (props) => {
       <Box
         sx={{
           width: "100%",
-          bgcolor: "#101516ff",
+          background: "linear-gradient(90deg, #0a4a75ff 0%, rgba(29, 34, 36, 1) 80%)",
           color: "rgba(255,255,255,0.8)",
           px: { xs: 2, lg: 12, xl: 28 },
           py: 3,

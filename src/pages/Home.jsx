@@ -20,7 +20,7 @@ const Home = () => {
       <About data={landingPageData.About} />
       <Testimonials data={landingPageData.Testimonials} />
       <Team data={landingPageData.Team} />
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </>
   );
 };

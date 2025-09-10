@@ -11,7 +11,6 @@ import {
     InputAdornment,
     Checkbox,
     FormControlLabel,
-    Select,
 } from "@mui/material";
 import countries from "../data/countries.json";
 
@@ -20,11 +19,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import PhoneInput from "../components/phoneInput";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
+import BreadCrumb from "../components/BreadCrumbs";
 
 export default function Signup() {
     const formRef = useRef(null);
-    const landingPageData = JsonData;
+    
 
     useEffect(() => {
         const loadReCaptcha = () => {
@@ -47,7 +47,8 @@ export default function Signup() {
     });
 
     return (
-        <>
+        <> 
+          <BreadCrumb title={"SignUp"}/>
             <Box
                 sx={{
                     width: "100%",
@@ -56,7 +57,7 @@ export default function Signup() {
                     alignItems: "center",
                     justifyContent: "center",
                     px: 2,
-                    py: 24
+                    py: 5
                 }}
             >
                 <Container maxWidth="sm">
@@ -252,7 +253,7 @@ export default function Signup() {
                     </Paper>
                 </Container>
             </Box>
-            <Contact data={landingPageData.Contact} />
+            <Contact />
         </>
     );
 }

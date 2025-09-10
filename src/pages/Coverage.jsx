@@ -1,10 +1,10 @@
 import AnimatedTable from '../components/animatedTable'
 import HeroSection from '../components/heroSection'
 import { Contact } from '../components/contact'
-import JsonData from "../data/data.json";
+
 
 const Coverage = () => {
-  const landingPageData = JsonData;
+  
 
   return (
     <div>
@@ -16,7 +16,7 @@ const Coverage = () => {
         img={"/img/globe.png"}
       />
       <AnimatedTable />
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </div>
   )
 }

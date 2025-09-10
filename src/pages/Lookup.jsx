@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import BreadCrumb from "../components/BreadCrumbs";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
 
 export const metadata = {
     title: "Local Number Portability (LNP) Lookup",
@@ -22,7 +22,7 @@ export const metadata = {
 
 export default function Lookup() {
     const formRef = useRef(null);
-    const landingPageData = JsonData;
+    
 
 
     // Animate form on mount
@@ -144,7 +144,7 @@ export default function Lookup() {
                     </Paper>
                 </Container>
             </Box>
-            <Contact data={landingPageData.Contact} />
+            <Contact />
         </>
     );
 }

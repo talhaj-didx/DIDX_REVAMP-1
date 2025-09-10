@@ -4,16 +4,14 @@ import {
   Box,
   Container,
   Typography,
-  Breadcrumbs,
   Link as MuiLink,
-  Divider,
+
 } from "@mui/material";
-import { Image as ImageIcon } from "@mui/icons-material";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import BreadCrumb from "../components/BreadCrumbs";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
 
 /**
  * Elastix configuration step-by-step page
@@ -29,7 +27,7 @@ export const metadata = {
 
 export default function Elastix() {
   const containerRef = useRef(null);
-  
+
 
   // GSAP animation on mount
   useGSAP(() => {
@@ -72,15 +70,15 @@ export default function Elastix() {
     my: 3,
   };
 
-  const landingPageData = JsonData;
+
 
   return (
     <>
-       <BreadCrumb title={metadata.title} />
- 
-    <Box component="main" sx={{ width: "100%", py: 6, px: { xs: 2, md: 4, xl: 10 } }}>
-      {/* Simple breadcrumb (self-contained; not Next.js) */}
-      {/* <Container maxWidth="lg" sx={{ mb: 3 }}>
+      <BreadCrumb title={metadata.title} />
+
+      <Box component="main" sx={{ width: "100%", py: 6, px: { xs: 2, md: 4, xl: 10 } }}>
+        {/* Simple breadcrumb (self-contained; not Next.js) */}
+        {/* <Container maxWidth="lg" sx={{ mb: 3 }}>
         <Breadcrumbs aria-label="breadcrumb" separator="›">
           <MuiLink underline="hover" color="inherit" href="/">
             Home
@@ -93,80 +91,80 @@ export default function Elastix() {
         <Divider sx={{ mt: 2 }} />
       </Container> */}
 
-      <Container maxWidth="lg" ref={containerRef}>
-        <section>
+        <Container maxWidth="lg" ref={containerRef}>
+          <section>
 
-          {/* Step headings and paragraphs - each element has className "fade-slide" for GSAP */}
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 1: Click on PBX
-          </Typography>
+            {/* Step headings and paragraphs - each element has className "fade-slide" for GSAP */}
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 1: Click on PBX
+            </Typography>
 
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 2: Click on Trunks
-          </Typography>
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 2: Click on Trunks
+            </Typography>
 
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 2: Click on add SIP Trunk
-          </Typography>
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 2: Click on add SIP Trunk
+            </Typography>
 
-          <Box  className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step1.jpg" alt="Elastix step 1" />
+            <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step1.jpg" alt="Elastix step 1" />
 
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 4: Give the Trunk Name and Outbound Caller ID
-          </Typography>
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 4: Give the Trunk Name and Outbound Caller ID
+            </Typography>
 
-          <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step2.jpg" alt="Elastix step 2" />
+            <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step2.jpg" alt="Elastix step 2" />
 
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 5: Set the Outgoing and Incoming Settings
-          </Typography>
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 5: Set the Outgoing and Incoming Settings
+            </Typography>
 
-          <Typography className="fade-slide" sx={{ ...paragraphSx, fontWeight: 700, mb: 1 }}>
-            Outgoing Settings:
-          </Typography>
+            <Typography className="fade-slide" sx={{ ...paragraphSx, fontWeight: 700, mb: 1 }}>
+              Outgoing Settings:
+            </Typography>
 
-          <Typography className="fade-slide" sx={paragraphSx}>
-            Trunk Name: <strong>DIDX</strong>
-            <br />
-            <strong>Peer Details:</strong>
-            <br />
-            Host: Ip Address
-            <br />
-            Type: Peer
-          </Typography>
+            <Typography className="fade-slide" sx={paragraphSx}>
+              Trunk Name: <strong>DIDX</strong>
+              <br />
+              <strong>Peer Details:</strong>
+              <br />
+              Host: Ip Address
+              <br />
+              Type: Peer
+            </Typography>
 
-          <Typography className="fade-slide" sx={{ ...paragraphSx, fontWeight: 700, mb: 1 }}>
-            Incoming Settings:
-          </Typography>
+            <Typography className="fade-slide" sx={{ ...paragraphSx, fontWeight: 700, mb: 1 }}>
+              Incoming Settings:
+            </Typography>
 
-          <Typography className="fade-slide" sx={paragraphSx}>
-            User Context: <strong>DIDX</strong>
-            <br />
-            <strong>User Details:</strong>
-            <br />
-            Host: Ip Address
-            <br />
-            Type: Peer
-          </Typography>
+            <Typography className="fade-slide" sx={paragraphSx}>
+              User Context: <strong>DIDX</strong>
+              <br />
+              <strong>User Details:</strong>
+              <br />
+              Host: Ip Address
+              <br />
+              Type: Peer
+            </Typography>
 
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 6: Set registration settings
-          </Typography>
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 6: Set registration settings
+            </Typography>
 
-          <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step3.jpg" alt="Elastix registration step" />
+            <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step3.jpg" alt="Elastix registration step" />
 
-          <Typography className="fade-slide" sx={smallHeadingSx}>
-            Step 7: Click on Inbound routes
-          </Typography>
+            <Typography className="fade-slide" sx={smallHeadingSx}>
+              Step 7: Click on Inbound routes
+            </Typography>
 
-          <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step4.jpg" alt="Elastix inbound routes 1" />
-          <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step5.jpg" alt="Elastix inbound routes 2" />
-          <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step6.jpg" alt="Elastix inbound routes 3" />
+            <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step4.jpg" alt="Elastix inbound routes 1" />
+            <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step5.jpg" alt="Elastix inbound routes 2" />
+            <Box className="fade-slide" sx={imageSx} component="img" src="img/elastix-page-banners/step6.jpg" alt="Elastix inbound routes 3" />
 
-        </section>
-      </Container>
-    </Box>
-      <Contact data={landingPageData.Contact} />
-       </>
+          </section>
+        </Container>
+      </Box>
+      <Contact />
+    </>
   );
 }

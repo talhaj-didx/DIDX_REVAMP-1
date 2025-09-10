@@ -8,19 +8,20 @@ import {
   FaGlobe, FaHandshake
 } from "react-icons/fa";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
-import FeaturesCard from "../components/featuresCard";
+
 import HeroSection from "../components/heroSection";
+import InfoSection from "../components/InfoCardSection";
+import LeadershipQuote from "../components/LeadershipQuote";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs = () => {
   const videoRef = useRef(null);
   const statsRef = useRef([]);
-  const landingPageData = JsonData;
+
 
   const [activeModal, setActiveModal] = useState(null);
-  
+
   useGSAP(() => {
 
     // Video fade-in
@@ -95,7 +96,115 @@ const AboutUs = () => {
 
       {/* CONTENT BLOCKS */}
       <section className="about-sections container">
-        <FeaturesCard data={cardData} />
+        {/* <FeaturesCard data={cardData} /> */}
+        {/* <MultiActionAreaCard
+          title={" Who Are We?"}
+          description={"DIDX, incorporated in Delaware since 2005, has been working in the field of telecom solutions. More information on Super Technologies can be found at supertec.com."}
+          img={"/img/who.jpg"}
+        /> */}
+
+        {/* <MultiActionAreaCard
+          title={"Why Do We Do?"}
+          description={
+            <>
+              DIDX was created initially because we needed to buy phone numbers for our
+              own services like virtualphoneline.com but when we went out there to look
+              for numbers, no one was willing to sell in small qty and being a small
+              company we needed smaller qty’s.
+              <br />
+              <br />
+              So one of the vendor’s told us that we can not sell you less numbers because
+              we do not have a billing system to sell you the numbers in small qty with
+              and the answer from our team was CAN WE BUILD SOMETHING for you to BILL US
+              with ?
+              <br />
+              <br />
+              We thought that if we could solve this problem for them, there may be a few
+              dozen other companies who would want to use us for billing, and perhaps 50
+              or so more could eventually use DIDX. Little did we know that within a few
+              years, over 30,000 phone companies would use it, and great names like
+              Google, IBM, and Microsoft became our partners and customers.
+            </>
+          }
+
+          img={"/img/who.jpg"}
+          style={{ mt: 5 }}
+        /> */}
+        <InfoSection
+          title="Who Are We?"
+          description="DIDX, incorporated in Delaware since 2005, has been working in the field of telecom solutions. More information on Super Technologies can be found at supertec.com."
+          imageUrl="/img/who.jpg"
+          imageAlt="Technologists working"
+          imagePosition="left"   // Image LEFT, content RIGHT
+        />
+
+        <InfoSection
+          title="Why Do We Do?"
+          description={
+            <>
+              DIDX was created initially because we needed to buy phone numbers for our
+              own services like virtualphoneline.com but when we went out there to look
+              for numbers, no one was willing to sell in small qty and being a small
+              company we needed smaller qty’s.
+              <br />
+              <br />
+              So one of the vendor’s told us that we can not sell you less numbers because
+              we do not have a billing system to sell you the numbers in small qty with
+              and the answer from our team was CAN WE BUILD SOMETHING for you to BILL US
+              with ?
+              <br />
+              <br />
+              We thought that if we could solve this problem for them, there may be a few
+              dozen other companies who would want to use us for billing, and perhaps 50
+              or so more could eventually use DIDX. Little did we know that within a few
+              years, over 30,000 phone companies would use it, and great names like
+              Google, IBM, and Microsoft became our partners and customers.
+            </>
+          }
+          imageUrl="/img/who.jpg"
+          imageAlt="Technologists working"
+          imagePosition="right"   // Image LEFT, content RIGHT
+        />
+
+        <InfoSection
+          title="What do we Do?"
+          description="DID Exchange is a VOIP-based wholesale DID Phone Number marketplace which can and is used by Mobile Operators, LECs, ClECs, IXCs or other telecommunications service providers who offer or use any kind of PHONE NUMBERS in there network."
+          imageUrl="/img/who.jpg"
+          imageAlt="Technologists working"
+          imagePosition="left"   // Image LEFT, content RIGHT
+        />
+
+        <InfoSection
+          title="Since When We Are Doing This?"
+          description={
+            <>
+              Our Founder Rehan Allahwala who has beta tested for Net2phone in 1997 and worked with Jeff Pulver’s Free World Project # 1 has been around doing this since the birth of Voice of the Internet.
+              <br />
+              <br />
+              He has invented services like www.virtualphoneline .com , Super-phone .com, Ip-pabx .com. Then in 2005 he came up with the Idea of DID Exchange, which eventually became DIDX and it becomes most successful of them all.
+              <br />
+              <br />
+              DIDX was started in 2005 and formally launched in 2006 as a side project and now have over 25000 telecom companies as members.
+            </>
+          }
+          imageUrl="/img/who.jpg"
+          imageAlt="Technologists working"
+          imagePosition="right"   // Image LEFT, content RIGHT
+        />
+
+        <InfoSection
+          title="Recognition"
+          description={
+            "DIDX has been honoured with many awards over the years from many countries, a list of which is here Awards"
+          }
+          imageUrl="/img/awards.jpg"
+          imageAlt="Technologists working"
+          imagePosition="left"   // Image LEFT, content RIGHT
+        />
+
+        <LeadershipQuote />
+
+
 
         <div className="about-stats">
           <h2 style={{ gridColumn: "1 / -1", textAlign: "center" }}>Our Impact</h2>
@@ -117,10 +226,10 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <Contact data={landingPageData.Contact} />
+      <Contact />
 
       {/* MODAL */}
-      {activeModal && (
+      {/* {activeModal && (
         <div className="modal-overlay" onClick={() => setActiveModal(null)}>
           <div
             className="modal-content"
@@ -136,7 +245,7 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-      )}
+      )} */}
     </main>
   );
 };

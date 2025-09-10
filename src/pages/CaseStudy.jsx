@@ -14,11 +14,11 @@ import {
 } from "react-icons/fa";
 import BreadCrumb from "../components/BreadCrumbs";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
 
 export default function CaseStudy() {
     const sectionRef = useRef(null);
-    const landingPageData = JsonData;
+    
 
     // Animate on mount
     useGSAP(() => {
@@ -184,7 +184,7 @@ export default function CaseStudy() {
                     </Typography>
                 </Box>
             </Container>
-               <Contact data={landingPageData.Contact} />
+               <Contact />
         </>
     );
 }

@@ -28,7 +28,7 @@ export default function BreadCrumb({ title }) {
         minHeight: 64,
         // bgcolor: "#000000",
         background: "#3f6ab0",
-        background: "linear-gradient(90deg, rgba(63, 106, 176, 1) 0%, rgba(29, 34, 36, 1) 98%)",
+        background: "linear-gradient(90deg, #0a4a75ff 0%, rgba(29, 34, 36, 1) 98%)",
         display: "flex",
         flexWrap: "wrap",
         alignItems: "center",

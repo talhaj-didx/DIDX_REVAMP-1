@@ -16,13 +16,13 @@ import {
   FaHistory, FaNetworkWired, FaPeopleCarry,
 } from "react-icons/fa";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
 import FeaturesCard from "../components/featuresCard";
 import HeroSection from "../components/heroSection";
 
 export default function BuyDid() {
   const rootRef = useRef(null);
-  const landingPageData = JsonData;
+  
 
 
   const features = [
@@ -94,7 +94,7 @@ export default function BuyDid() {
       <section ref={rootRef} className="buydid">
         <FeaturesCard data={features} />
       </section>
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </>
   );
 }

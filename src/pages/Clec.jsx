@@ -3,7 +3,7 @@ import { Box, Typography, Container, Divider } from "@mui/material";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+
 import BreadCrumb from "../components/BreadCrumbs";
 
 // // ✅ Breadcrumb (converted from your layout component)
@@ -17,7 +17,7 @@ import BreadCrumb from "../components/BreadCrumbs";
 
 export default function Clec() {
   const sectionRef = useRef(null);
-  const landingPageData = JsonData;
+  
 
   // ✅ GSAP entrance animation
   useGSAP(() => {
@@ -143,7 +143,7 @@ export default function Clec() {
           </Typography>
         </Box>
       </Container>
-      <Contact data={landingPageData.Contact} />
+      <Contact />
     </>
   );
 }
