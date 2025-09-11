@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { FaSearch, FaFilter } from "react-icons/fa";
 
 const values = [
   ['+355', 'Albania', 2],
@@ -111,78 +112,104 @@ const values = [
 
 export default function AnimatedTable() {
   const tableRef = useRef();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterRegion, setFilterRegion] = useState("");
 
-  useGSAP(() => {
-    gsap.from(tableRef.current.querySelectorAll("tbody tr"), {
-      opacity: 0,
-      y: 20,
-      stagger: 0.05,
-      duration: 0.6,
-      ease: "power3.out",
+  // Define regions for countries
+  const getRegion = (country) => {
+    const europeCountries = ['Albania', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'North Macedonia', 'Malta', 'Moldova', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Romania', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'United Kingdom'];
+    const asiaCountries = ['Bangladesh', 'Cambodia', 'China', 'Hong Kong', 'India', 'Indonesia', 'Israel', 'Japan', 'Jordan', 'Kazakhstan', 'Kuwait', 'Kyrgyzstan', 'Macao', 'Malaysia', 'Myanmar', 'Pakistan', 'Philippines', 'Singapore', 'South Korea', 'Taiwan', 'Thailand', 'Uzbekistan', 'Vietnam'];
+    const americasCountries = ['Argentina', 'Barbados', 'Bolivia', 'Brazil', 'Canada', 'Cayman Islands', 'Chile', 'Colombia', 'Costa Rica', 'Curacao', 'Dominican Republic', 'El Salvador', 'Guatemala', 'Honduras', 'Jamaica', 'Mexico', 'Panama', 'Paraguay', 'Peru', 'Puerto Rico', 'Trinidad and Tobago', 'United States', 'Venezuela'];
+    const africaCountries = ['Algeria', 'Angola', 'Benin', 'Ghana', 'Guinea', 'Kenya', 'Morocco', 'Nigeria', 'Seychelles', 'South Africa', 'Sudan', 'Tunisia', 'Uganda', 'Zimbabwe'];
+    
+    if (europeCountries.includes(country)) return 'europe';
+    if (asiaCountries.includes(country)) return 'asia';
+    if (americasCountries.includes(country)) return 'americas';
+    if (africaCountries.includes(country)) return 'africa';
+    return 'other';
+  };
+
+  // Filter and search functionality
+  const filteredValues = useMemo(() => {
+    return values.filter(([prefix, country, channels]) => {
+      const matchesSearch = country.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                           prefix.includes(searchTerm);
+      const matchesFilter = !filterRegion || getRegion(country) === filterRegion;
+      return matchesSearch && matchesFilter;
     });
-  }, []);
+  }, [searchTerm, filterRegion]);
+
+  // useGSAP(() => {
+  //   if (tableRef.current) {
+  //     gsap.from(tableRef.current.querySelectorAll("tbody tr"), {
+  //       opacity: 0,
+  //       y: 20,
+  //       stagger: 0.05,
+  //       duration: 0.6,
+  //       ease: "power3.out",
+  //     });
+  //   }
+  // }, [filteredValues]);
 
   return (
-    <div style={{ margin: "50px" }}>
-      <table
-        ref={tableRef}
-        className="table-container"
-        style={{
-          borderCollapse: "collapse",
-          fontFamily: "Arial, sans-serif",
-          fontSize: "14px",
-        }}
-      >
-        <thead>
-          <tr style={{ background: "#004080", color: "#fff" }}>
-            <th style={thStyle}>Prefix</th>
-            <th style={thStyle}>Destination</th>
-            <th style={thStyle}>Channels</th>
-          </tr>
-        </thead>
-        <tbody>
-          {values.map(([prefix, country, channels], idx) => (
-            <tr
-              key={idx}
-              style={{
-                background: idx % 2 === 0 ? "#e6f2ff" : "#ffffff",
-                color: "#333",
-              }}
+    <div className="animated-table-section">
+      <div className="animated-table__header">
+        <h3 className="animated-table__title">Available Countries & Regions</h3>
+        <p className="animated-table__subtitle">
+          Complete list of countries where we provide DID numbers with their respective prefixes
+        </p>
+        <div className="animated-table__filters">
+          <div className="animated-table__search">
+            <FaSearch />
+            <input 
+              type="text" 
+              placeholder="Search countries..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <div className="animated-table__filter">
+            <FaFilter />
+            <select 
+              value={filterRegion}
+              onChange={(e) => setFilterRegion(e.target.value)}
             >
-              <td style={tdStyle}>{prefix}</td>
-              <td style={{ ...tdStyle, display: "flex", alignItems: "center", gap: "8px" }}>
-                {country}
-              </td>
-              <td style={tdStyle}>{channels}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* Scoped CSS for responsiveness */}
-      <style jsx>{`
-        .table-container {
-          width: 100%;
-          justify-self: center;
-        }
+              <option value="">All Regions</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="americas">Americas</option>
+              <option value="africa">Africa</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-        @media (min-width: 768px) {
-          .table-container {
-            width: 80%;
-          }
-        }
-      `}</style>
+      <div className="animated-table__container">
+        <table ref={tableRef} className="animated-table">
+          <thead>
+            <tr>
+              <th>Country Code</th>
+              <th>Country Name</th>
+              <th>Channels</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredValues.map(([prefix, country, channels], idx) => (
+              <tr key={idx}>
+                <td className="animated-table__prefix">{prefix}</td>
+                <td className="animated-table__country">{country}</td>
+                <td className="animated-table__channels">{channels}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {filteredValues.length === 0 && (
+          <div className="animated-table__no-results">
+            <p>No countries found matching your search criteria.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
-const thStyle = {
-  border: "1px solid #ccc",
-  padding: "8px",
-  textAlign: "left",
-  fontWeight: "bold",
-};
-
-const tdStyle = {
-  border: "1px solid #ccc",
-  padding: "8px",
-};

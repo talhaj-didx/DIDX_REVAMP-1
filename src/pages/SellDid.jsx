@@ -36,7 +36,7 @@ export const features = [
 ];
 
 const SellDid = () => {
-  
+
   const sectionRef = useRef(null);
 
   // Animate the new section
@@ -70,10 +70,21 @@ const SellDid = () => {
         description={
           "DIDX provides the most profitable marketplace to sell your DIDs to thousands of members who are carriers, telecoms, and new VoIP companies. They are the buyers and join DIDX to buy service in the areas that you offer DID service."
         }
-         img={"/img/globe.png"}
+        img={"/img/globe.png"}
       />
 
-      <FeaturesCard data={features} />
+
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+        }}
+      >
+        <FeaturesCard data={features} />
+      </div>
+
+
+
 
       {/* New Section: How to Make Money from DIDX */}
       <section className="money-section" ref={sectionRef}>

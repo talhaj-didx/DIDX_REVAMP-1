@@ -1,30 +1,41 @@
 // FileName - Navbar.js
 
-import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  List,
-  ListItem,
-  ListItemText,
-  Collapse,
-  IconButton,
-  useMediaQuery,
-  Box,
-} from "@mui/material";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
-  const small = useMediaQuery("(max-width:600px)");
-  const full = useMediaQuery("(min-width:600px)");
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      if (window.innerWidth > 768) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   const menuItems = [
@@ -39,103 +50,60 @@ export default function Navbar() {
   ];
 
   return (
-    <AppBar
-      position="sticky"
-      color="default"
-      sx={{
-        width: "100%",
-        top: 0,
-        zIndex: (theme) => theme.zIndex.drawer + 1,
-          mb:-10
-        
-      }}
-    >
-      <Toolbar
-        variant="dense"
-        sx={{
-          width: "100%",
-          px: 2,
-          minHeight: "70px", // taller navbar
-        }}
-      >
-        {/* Small Screen Navbar */}
-        {small && (
-          <Box sx={{ flex: 1, width: "100%" }}>
-            <List sx={{ p: 0 }}>
-              <ListItem
-                sx={{ display: "flex", justifyContent: "space-around" }}
-              >
-                <img
-                  src={"img/didx-logo.png"}
-                  alt="DIDX Logo"
-                  style={{ height: "65px" }} // bigger logo
-                />
-                <IconButton color="inherit" onClick={handleClick}>
-                  <MenuIcon fontSize="large" />
-                  {open ? <ExpandLess /> : <ExpandMore />}
-                </IconButton>
-              </ListItem>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {menuItems.map((item, index) => (
-                    <ListItem
-                      key={index}
-                      button
-                      component={Link}
-                      to={item.link}
-                      onClick={() => setOpen(false)} // close menu on click
-                      sx={{
-                        "& .MuiListItemText-primary": {
-                          fontSize: "1.1rem",
-                          fontWeight: 500,
-                        },
-                      }}
-                    >
-                      <ListItemText primary={item.text} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Collapse>
-            </List>
-          </Box>
-        )}
+    <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
+      <div className="navbar__container">
+        {/* Logo */}
+        <Link to="/" className="navbar__logo" onClick={closeMenu}>
+          <img 
+            src="/img/didx-logo.png" 
+            alt="DIDX Logo" 
+            className="navbar__logo-img"
+          />
+        </Link>
 
-        {/* Full Screen Navbar */}
-        {full && (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "100%",
-            }}
-          >
-            <img
-              src={"img/didx-logo.png"}
-              alt="DIDX Logo"
-              style={{ height: "70px", cursor: "pointer" }} // bigger logo
-            />
-            <Box>
-              {menuItems.map((item, index) => (
-                <Button
-                  key={index}
-                  component={Link}
-                  to={item.link}
-                  color="inherit"
-                  sx={{
-                    fontSize: "1.5rem",
-                    fontWeight: 400,
-                     fontFamily: "serif",
-                    mx: 1, // spacing between buttons
-                  }}
+        {/* Desktop Navigation */}
+        <div className="navbar__desktop">
+          <ul className="navbar__menu">
+            {menuItems.map((item, index) => (
+              <li key={index} className="navbar__item">
+                <Link 
+                  to={item.link} 
+                  className="navbar__link"
+                  onClick={closeMenu}
                 >
                   {item.text}
-                </Button>
-              ))}
-            </Box>
-          </Box>
-        )}
-      </Toolbar>
-    </AppBar>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="navbar__toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Mobile Navigation */}
+        <div className={`navbar__mobile ${isOpen ? 'navbar__mobile--open' : ''}`}>
+          <ul className="navbar__mobile-menu">
+            {menuItems.map((item, index) => (
+              <li key={index} className="navbar__mobile-item">
+                <Link 
+                  to={item.link} 
+                  className="navbar__mobile-link"
+                  onClick={closeMenu}
+                >
+                  {item.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }

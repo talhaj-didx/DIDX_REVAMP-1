@@ -1,22 +1,15 @@
 import React, { useRef } from "react";
-import {
-  Box,
-  Grid,
-  Paper,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-  Chip,
-  Button,
-} from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { 
+  FaInfoCircle, 
+  FaUser, 
+  FaDollarSign, 
+  FaCreditCard,
+  FaCheckCircle,
+  FaArrowRight,
+  FaStar
+} from "react-icons/fa";
 
 export default function DidxRatesSection() {
   const rootRef = useRef(null);
@@ -28,284 +21,134 @@ export default function DidxRatesSection() {
     tl.from(rootRef.current, { opacity: 0, y: 24, duration: 0.6 });
     tl.from(leftColRef.current, { x: -20, opacity: 0, duration: 0.6 }, "-=");
     tl.from(
-      cardsRef.current.querySelectorAll(".card"),
-      { y: 16, opacity: 0, stagger: 0.08, duration: 0.45 },
+      cardsRef.current.querySelectorAll(".rates-card"),
+      { y: 16, opacity: 0, duration: 0.45 },
       "-="
     );
   });
 
+  const membershipPlans = [
+    {
+      icon: <FaInfoCircle />,
+      title: "Basic Membership",
+      description: "Basic membership on DIDX is free. Member gets 2 free DIDs for 30 days to explore services. Accounts must be activated to buy/sell.",
+      features: ["2 Free DIDs", "30 Day Trial", "Activation Required"],
+      color: "var(--c1)"
+    },
+    {
+      icon: <FaUser />,
+      title: "Regular Membership", 
+      description: "Zero setup charge · Zero monthly charge. Sellers do not pay listing or brokerage fees. A monthly minimum quantity charge of $50 applies when buyers do not have at least 50 purchased numbers OR domestic USA sellers have at least 500 numbers OR international sellers have at least 50 numbers for sale on DIDX.",
+      features: ["Zero Setup", "Zero Monthly", "No Brokerage Fees"],
+      color: "var(--c1)"
+    },
+    {
+      icon: <FaDollarSign />,
+      title: "Listing Charges",
+      description: "There is NO CHARGE to list your numbers on DIDX to sell them. DIDX is for wholesale customers only. If you need fewer than 50 numbers please visit virtualphoneline.com.",
+      features: ["No Listing Fee", "Wholesale Only", "50+ Numbers"],
+      color: "var(--c1)"
+    }
+  ];
+
+  const rateCards = [
+    {
+      icon: <FaUser />,
+      label: "Basic",
+      title: "Free Trial",
+      description: "2 free DIDs for 30 days. Activation required to transact.",
+      color: "var(--c1)"
+    },
+    {
+      icon: <FaDollarSign />,
+      label: "Regular", 
+      title: "Wholesale",
+      description: "No setup or monthly charge. Sellers keep control of pricing. Minimum charges apply in certain low-volume scenarios.",
+      color: "var(--c1)"
+    },
+    {
+      icon: <FaInfoCircle />,
+      label: "Listing",
+      title: "No Listing Fee",
+      description: "List your DIDs for sale without charge. DIDX is targeted at wholesale customers.",
+      color: "var(--c1)"
+    },
+    {
+      icon: <FaCreditCard />,
+      label: "Note",
+      title: "How to view rates",
+      description: "Vendor/Seller sets each DID price — log in to your DIDX account to view live rates for specific numbers.",
+      color: "var(--c1)"
+    }
+  ];
+
   return (
-    <Box
-      ref={rootRef}
-      sx={{
-        px: { xs: 2, md: 10 },
-        py: { xs: 6, md: 12 },
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <Paper
-        elevation={0}
-        sx={{ borderRadius: 3, p: { xs: 3, md: 6 }, width: "100%" }}
-      >
-        {/* ✅ Grid container alignment */}
-        <Grid container spacing={8} alignItems="center" justifyContent="center">
-          {/* Left Column */}
-          <Grid item xs={12} md={6}>
-            <Box ref={leftColRef}>
-              <List disablePadding>
-                <ListItem
-                  sx={{
-                    alignItems: "flex-start",
-                    mb: 3,
-                    // transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    // "&:hover": {
-                    //   transform: "scale(1.03)",
-                    //   boxShadow: 3,
-                    //   borderRadius: 2,
-                    // },
-                    p: { xs: 3, md: 5 },
-                  }}
-                >
-                  <InfoIcon
-                    sx={{
-                      mr: 2,
-                      mt: 0.5,
-                      fontSize: 40,
-                      color: "primary.main",
-                    }}
-                  />
-                  <ListItemText
-                    primary={
-                      <Typography variant="h4" sx={{ fontWeight: 600 }}>
-                        Basic Membership
-                      </Typography>
-                    }
-                    secondary={
-                      <Typography
-                        variant="h6"
-                        color="text.secondary"
-                        sx={{ mt: 1, lineHeight: 1.6 }}
-                      >
-                        Basic membership on DIDX is free. Member gets 2 free DIDs
-                        for 30 days to explore services. Accounts must be activated
-                        to buy/sell.
-                      </Typography>
-                    }
-                  />
-                </ListItem>
+    <section ref={rootRef} className="rates-section">
+      <div className="rates-container">
+        <div className="rates-header">
+          <h2 className="rates-title">DIDX Membership & Rates</h2>
+          <p className="rates-subtitle">Choose the perfect plan for your business needs</p>
+        </div>
 
-                <Divider component="li" sx={{ my: 3 }} />
-
-                <ListItem
-                  sx={{
-                    alignItems: "flex-start",
-                    mb: 3,
-                    // transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    // "&:hover": {
-                    //   transform: "scale(1.03)",
-                    //   boxShadow: 3,
-                    //   borderRadius: 2,
-                    // },
-                    p: { xs: 3, md: 5 },
-                  }}
-                >
-                  <AccountCircleIcon
-                    sx={{
-                      mr: 2,
-                      mt: 0.5,
-                      fontSize: 40,
-                      color: "primary.main",
-                    }}
-                  />
-                  <ListItemText
-                    primary={
-                      <Typography variant="h4" sx={{ fontWeight: 600 }}>
-                        Regular Membership
-                      </Typography>
-                    }
-                    secondary={
-                      <Typography
-                        variant="h6"
-                        color="text.secondary"
-                        sx={{ mt: 1, lineHeight: 1.6 }}
-                      >
-                        Zero setup charge · Zero monthly charge. Sellers do not
-                        pay listing or brokerage fees. A monthly minimum quantity
-                        charge of $50 applies when buyers do not have at least 50
-                        purchased numbers OR domestic USA sellers have at least 500
-                        numbers OR international sellers have at least 50 numbers
-                        for sale on DIDX.
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-
-                <Divider component="li" sx={{ my: 3 }} />
-
-                <ListItem
-                  sx={{
-                    alignItems: "flex-start",
-                    mb: 3,
-                    // transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    // "&:hover": {
-                    //   transform: "scale(1.03)",
-                    //   boxShadow: 3,
-                    //   borderRadius: 2,
-                    // },
-                    p: { xs: 3, md: 5 },
-                  }}
-                >
-                  <MonetizationOnIcon
-                    sx={{
-                      mr: 2,
-                      mt: 0.5,
-                      fontSize: 40,
-                      color: "primary.main",
-                    }}
-                  />
-                  <ListItemText
-                    primary={
-                      <Typography variant="h4" sx={{ fontWeight: 600 }}>
-                        Listing Charges
-                      </Typography>
-                    }
-                    secondary={
-                      <Typography
-                        variant="h6"
-                        color="text.secondary"
-                        sx={{ mt: 1, lineHeight: 1.6 }}
-                      >
-                        There is NO CHARGE to list your numbers on DIDX to sell
-                        them. DIDX is for wholesale customers only. If you need
-                        fewer than 50 numbers please visit
-                        virtualphoneline.com.
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-              </List>
-
-              <Box sx={{ mt: 6, justifySelf: "center", gap: 10 }}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  startIcon={<CreditCardIcon />}
-                  sx={{
-                    mr: 2,
-                    fontSize: "1.1rem",
-                    py: 1.5,
-                    px: 3,
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.08)",
-                      boxShadow: 6,
-                    },
-                  }}
-                >
-                  Log in to view rates
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  sx={{
-                    fontSize: "1.1rem",
-                    py: 1.5,
-                    px: 3,
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.08)",
-                      boxShadow: 6,
-                    },
-                  }}
-                >
-                  Contact Support
-                </Button>
-              </Box>
-            </Box>
-          </Grid>
-
-          {/* Right Column (Cards) */}
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Box
-              ref={cardsRef}
-              sx={{
-                display: "grid",
-                gap: 5,
-                maxWidth: { xs: "100%", sm: "700px", md: "1000px" }, // 🔥 Bigger container
-                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-              }}
-            >
-              {[
-                {
-                  icon: <AccountCircleIcon />,
-                  label: "Basic",
-                  title: "Free Trial",
-                  text: "2 free DIDs for 30 days. Activation required to transact.",
-                },
-                {
-                  icon: <MonetizationOnIcon />,
-                  label: "Regular",
-                  title: "Wholesale",
-                  text: "No setup or monthly charge. Sellers keep control of pricing. Minimum charges apply in certain low-volume scenarios.",
-                },
-                {
-                  icon: <InfoIcon />,
-                  label: "Listing",
-                  title: "No Listing Fee",
-                  text: "List your DIDs for sale without charge. DIDX is targeted at wholesale customers.",
-                },
-                {
-                  icon: <CreditCardIcon />,
-                  label: "Note",
-                  title: "How to view rates",
-                  text: "Vendor/Seller sets each DID price — log in to your DIDX account to view live rates for specific numbers.",
-                },
-              ].map((card, i) => (
-                <Paper
-                  key={i}
-                  className="card"
-                  elevation={3}
-                  sx={{
-                    p: { xs: 4, md: 6 }, // 🔥 Bigger padding = larger card
-                    borderRadius: 3,
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                      fontWeight: 600,
-                    }}
-                  >
-                    <Chip icon={card.icon} label={card.label} size="medium" />
-                    {card.title}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    color="text.secondary"
-                    sx={{ mt: 2, lineHeight: 1.6 }}
-                  >
-                    {card.text}
-                  </Typography>
-                </Paper>
+        <div className="rates-content">
+          {/* Left Column - Membership Plans */}
+          <div ref={leftColRef} className="rates-left">
+            <div className="membership-plans">
+              {membershipPlans.map((plan, index) => (
+                <div key={index} className="membership-card">
+                  <div className="membership-card__header">
+                    <div className="membership-card__icon" style={{ backgroundColor: plan.color }}>
+                      {plan.icon}
+                    </div>
+                    <h3 className="membership-card__title">{plan.title}</h3>
+                  </div>
+                  <p className="membership-card__description">{plan.description}</p>
+                  <div className="membership-card__features">
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="feature-item">
+                        <FaCheckCircle className="feature-icon" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ))}
-            </Box>
-          </Grid>
-        </Grid>
-      </Paper>
-    </Box>
+            </div>
+
+            <div className="rates-actions">
+              <button className="btn btn-primary">
+                <FaCreditCard />
+                Log in to view rates
+                <FaArrowRight />
+              </button>
+              <button className="btn btn-secondary">
+                Contact Support
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column - Rate Cards */}
+          <div className="rates-right">
+            <div ref={cardsRef} className="rates-cards">
+              {rateCards.map((card, index) => (
+                <div key={index} className="rates-card">
+                  <div className="rates-card__header">
+                    <div className="rates-card__badge" style={{ backgroundColor: card.color }}>
+                      {card.label}
+                    </div>
+                    <div className="rates-card__icon" style={{ color: card.color }}>
+                      {card.icon}
+                    </div>
+                  </div>
+                  <h4 className="rates-card__title">{card.title}</h4>
+                  <p className="rates-card__description">{card.description}</p>
+                  <div className="rates-card__glow" style={{ background: `linear-gradient(135deg, ${card.color}20, transparent)` }}></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
