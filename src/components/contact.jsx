@@ -326,6 +326,7 @@ export const Contact = () => {
             // ["Testimonial", "/testimonial"],
             ["Coverage Area", "/coverage"],
             ["LNP Lookup", "/lnp-lookup"],
+            ["FAQ", "/faq"],
           ].map(([label, link], i) => (
             <Typography
               key={i}

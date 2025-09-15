@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Box, Typography, TextField, Button, Container, Paper } from "@mui/material";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { FaUser, FaLock, FaShieldAlt } from "react-icons/fa";
 
 import { Contact } from "../components/contact";
 import BreadCrumb from "../components/BreadCrumbs";
@@ -33,133 +33,121 @@ export default function Login() {
 
   return (
     <>
-     <BreadCrumb title={"Login"}/>
-      <Box
-        sx={{
-          width: "100%",
-          // minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          bgcolor: "background.default",
-          px: 2,
-          py: 5
-        }}
-      >
-        <Container maxWidth="sm">
-          <Paper
-            ref={formRef}
-            elevation={6}
-            sx={{
-              p: { xs: 3, sm: 5 },
-              borderRadius: 3,
-            }}
-          >
-            <Typography
-              variant="h3"
-              sx={{ fontWeight: 600, color: "text.primary", mb: 2, justifySelf: 'center' }}
-            >
-              Login to your account
-            </Typography>
+      <BreadCrumb title={"Login"}/>
+      <div className="login-section">
+        <div className="login-container">
+          <div className="login-content" ref={formRef}>
+            {/* Header */}
+            <div className="login-header">
+              <div className="login-header__icon">
+                <FaUser />
+              </div>
+              <h1 className="login-header__title">Welcome Back</h1>
+              <p className="login-header__subtitle">
+                Sign in to your DIDX account to access your dashboard
+              </p>
+            </div>
 
-            <Typography variant="body1" sx={{ mb: 3, color: "text.secondary", fontSize: 15, justifySelf: 'center' }}>
-              Or{" "}
-              <Link
-                to="/signup"
-                style={{ color: "linear-gradient(135deg, #0083A0, #5ca9fb", fontWeight: 500, textDecoration: "none" }}
+            {/* Form */}
+            <div className="login-form-container">
+              <div className="login-form__header">
+                <h2 className="login-form__title">Login to your account</h2>
+                <p className="login-form__subtitle">
+                  Or{" "}
+                  <Link to="/signup" className="login-form__link">
+                    signup if you don't have an account
+                  </Link>
+                </p>
+              </div>
+
+              <form
+                className="login-form"
+                action="https://admin.didx.net/LoginAction.php"
+                method="POST"
+                noValidate
               >
-                signup if you don&apos;t have an account
-              </Link>
-            </Typography>
+                <div className="login-form__fields">
+                  {/* UID Field */}
+                  <div className="login-field">
+                    <label className="login-field__label">UID *</label>
+                    <div className="login-field__icon">
+                      <FaUser />
+                    </div>
+                    <input
+                      className="login-field__input"
+                      type="text"
+                      name="UID"
+                      placeholder="Enter your UID"
+                      required
+                    />
+                  </div>
 
-            <Box
-              component="form"
-              action="https://admin.didx.net/LoginAction.php"
-              method="POST"
-              noValidate
-            >
-              <TextField
-                fullWidth
-                margin="normal"
-                label="UID *"
-                name="UID"
-                required
-                variant="outlined"
-              />
+                  {/* Password Field */}
+                  <div className="login-field">
+                    <label className="login-field__label">Password *</label>
+                    <div className="login-field__icon">
+                      <FaLock />
+                    </div>
+                    <input
+                      className="login-field__input"
+                      type="password"
+                      name="Pass"
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </div>
+                </div>
 
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Password *"
-                type="password"
-                name="Pass"
-                required
-                variant="outlined"
-              />
+                {/* Forgot Password */}
+                <div className="login-form__forgot">
+                  <Link to="/reset-password" className="login-form__forgot-link">
+                    Forget Password?
+                  </Link>
+                </div>
 
-              <Box sx={{ my: 1 }}>
-                <Link
-                  to="/reset-password"
-                  style={{ color: "linear-gradient(135deg, #0083A0, #5ca9fb)", fontWeight: 500, fontSize: "1.25rem" }}
-                >
-                  Forget Password?
-                </Link>
-              </Box>
+                {/* Divider */}
+                <div className="login-form__divider">
+                  Security Verification
+                </div>
 
-              <Typography variant="body1" sx={{ fontWeight: 600, mt: 2, fontSize: "1.25rem" }}>
-                Captcha *
-              </Typography>
+                {/* Captcha */}
+                <div className="login-captcha">
+                  <label className="login-captcha__label">
+                    <FaShieldAlt className="login-captcha__icon" />
+                    Captcha *
+                  </label>
+                  <div className="login-captcha__container">
+                    <div
+                      className="g-recaptcha"
+                      data-sitekey="6Le4oD0UAAAAAC5rb6AJF6TQjUYXSo76OwzsQ1Vd"
+                    />
+                  </div>
+                </div>
 
-              <Box
-                sx={{
-                  my: 3,
-                  width: "100%",
-                  display: "flex",
-                  // justifyContent: "center",
-                  "& .g-recaptcha": {
-                    transform: "scale(1)",
-                    transformOrigin: "center",
-                  },
-                  // Responsive scaling
-                  "@media (max-width: 400px)": {
-                    "& .g-recaptcha": {
-                      transform: "scale(0.85)",
-                    },
-                  },
-                  "@media (max-width: 350px)": {
-                    "& .g-recaptcha": {
-                      transform: "scale(0.75)",
-                    },
-                  },
-                }}
-              >
-                <Box
-                  className="g-recaptcha"
-                  data-sitekey="6Le4oD0UAAAAAC5rb6AJF6TQjUYXSo76OwzsQ1Vd"
-                />
-              </Box>
+                {/* Submit Button */}
+                <button type="submit" className="login-form__submit">
+                  <FaUser className="login-form__submit-icon" />
+                  Sign In
+                </button>
+              </form>
 
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                size="large"
-                sx={{
-                  py: 1.2,
-                  fontSize: "1.25rem",
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  textTransform: "none",
-                  background: "linear-gradient(135deg, #0083A0, #5ca9fb)"
-                }}
-              >
-                Sign in
-              </Button>
-            </Box>
-          </Paper>
-        </Container>
-      </Box>
+              {/* Info */}
+              <div className="login-form__info">
+                <p className="login-form__info-text">
+                  By signing in, you agree to our{" "}
+                  <Link to="/terms" className="login-form__info-link">
+                    Terms of Service
+                  </Link>{" "}
+                  and{" "}
+                  <Link to="/privacy" className="login-form__info-link">
+                    Privacy Policy
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <Contact />
     </>
   );

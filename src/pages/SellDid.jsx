@@ -124,7 +124,7 @@ const SellDid = () => {
             </div>
 
             <div className="money-block">
-              <a href="#">Click here for more information</a>
+              <a href="/mobile">Click here for more information</a>
             </div>
           </div>
 

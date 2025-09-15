@@ -46,6 +46,7 @@ export default function Navbar() {
     { text: "Rates", link: "/rates" },
     { text: "Coverage", link: "/coverage" },
     { text: "Interop", link: "/introp" },
+    { text: "Contact", link: "/contact" },
     { text: "Login", link: "/login-page" },
   ];
 

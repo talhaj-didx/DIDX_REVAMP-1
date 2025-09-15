@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { FaGlobe } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import AnimatedTable from '../components/animatedTable'
 import HeroSection from '../components/heroSection'
 import { Contact } from '../components/contact'
@@ -42,6 +43,12 @@ const Coverage = () => {
               <h2 className="coverage-hero__title">Global Coverage Map</h2>
               <p className="coverage-hero__subtitle">
                 Explore our extensive network of DID numbers across 100+ countries worldwide
+              </p>
+              <p className="coverage-hero__info">
+                For DID numbers at a fixed Per month rate and purchase by channel{" "}
+                <Link to="/channels" className="coverage-hero__link">
+                  see for more information
+                </Link>
               </p>
             </div>
             <div className="coverage-hero__image">

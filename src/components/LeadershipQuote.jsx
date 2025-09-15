@@ -41,7 +41,7 @@ const LeadershipQuote = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 textAlign: "center",
-                padding: "80px 20px",
+                padding: "50px 20px",
                 backgroundImage:
                     "url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80')",
                 backgroundSize: "cover",
@@ -68,7 +68,7 @@ const LeadershipQuote = () => {
                     alignItems: "center",
                     maxWidth: "1000px",
                     width: "100%",
-                    gap: "40px",
+                    gap: "25px",
                 }}
             >
                 {/* Profile Image */}
@@ -77,8 +77,8 @@ const LeadershipQuote = () => {
                         src="https://randomuser.me/api/portraits/men/47.jpg"
                         alt="Leader"
                         style={{
-                            width: "180px",
-                            height: "180px",
+                            width: "140px",
+                            height: "140px",
                             borderRadius: "50%",
                             border: "4px solid white",
                             boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
@@ -91,22 +91,22 @@ const LeadershipQuote = () => {
                 <div className="quote-text" style={{ maxWidth: "600px" }}>
                     <p
                         style={{
-                            fontSize: "18px",
-                            lineHeight: 1.6,
+                            fontSize: "16px",
+                            lineHeight: 1.5,
                             fontStyle: "italic",
-                            marginBottom: "24px",
+                            marginBottom: "20px",
                         }}
                     >
                         Our founder Rehan Allahwala calls DIDX as an ACCIDENT, many people were behind the entire System like Mr Khurram Shafi, Umair Bari, Danish Moosa and Sajid who wrote DIDX as his internship project.
 
                         Since then the system has been re-created, written and evolved over the years to become one of the largest Phone Number network of the world.
                     </p>
-                    <p style={{ fontWeight: "600", marginBottom: "6px" }}>Rehan Allahwala</p>
+                    <p style={{ fontWeight: "600", marginBottom: "4px" }}>Rehan Allahwala</p>
                     <p
                         style={{
-                            fontSize: "14px",
+                            fontSize: "13px",
                             color: "#ccc",
-                            marginBottom: "24px",
+                            marginBottom: "20px",
                         }}
                     >
                         President and Chief Executive Officer, Insight
@@ -117,7 +117,7 @@ const LeadershipQuote = () => {
                             backgroundColor: "white",
                             color: "#C2185B",
                             fontWeight: "600",
-                            padding: "12px 24px",
+                            padding: "10px 20px",
                             borderRadius: "6px",
                             border: "none",
                             cursor: "pointer",

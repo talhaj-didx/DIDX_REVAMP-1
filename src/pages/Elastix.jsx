@@ -44,7 +44,17 @@ export default function Elastix() {
       <section className="elastix-page">
         <div className="elastix-container">
           {/* Hero Section */}
-          <div className="elastix-hero">
+          {/* <div className="elastix-hero">
+            <div className="elastix-hero__icon">
+              <FaCog />
+            </div>
+            <h1 className="elastix-hero__title">Elastix Configuration Guide</h1>
+            <p className="elastix-hero__subtitle">
+              Step-by-step instructions to configure Elastix PBX with DIDX for seamless DID number integration
+            </p>
+          </div> */}
+
+          <div className="elastix-hero elastix-section">
             <div className="elastix-hero__icon">
               <FaCog />
             </div>

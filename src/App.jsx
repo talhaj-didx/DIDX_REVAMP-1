@@ -86,8 +86,12 @@ import Asterisk from "./components/Asterisk";
 import VoipSwitch from "./pages/VoipSwitch";
 import Elastix from "./pages/Elastix";
 import Partners from "./pages/Partners";
+import Mobile from "./pages/Mobile";
+import ResetPassword from "./pages/ResetPassword";
+import FAQ from "./pages/FAQ";
 import { useEffect, useState } from "react";
 import BonusPopup from "./components/modals/BonusPopup";
+import Channel from "./pages/Channel";
 
 const router = createBrowserRouter([
   {
@@ -116,6 +120,10 @@ const router = createBrowserRouter([
       { path: "asterisk", element: < Asterisk /> },
       { path: "voip-switch", element: < VoipSwitch /> },
       { path: "elastix", element: < Elastix /> },
+      { path: "mobile", element: < Mobile /> },
+      { path: "channels", element: <Channel/> },
+      { path: "reset-password", element: < ResetPassword /> },
+      { path: "faq", element: < FAQ /> }
 
     ],
   },
@@ -132,7 +140,7 @@ export default function App() {
   }, [])
   return <>
     <RouterProvider router={router} />
-    <BonusPopup open={open} handleClose={handleClose} />
+    {/* <BonusPopup open={open} handleClose={handleClose} /> */}
   </>;
 }
 

@@ -124,7 +124,7 @@ export default function BuyerSellerInteropPage() {
                     <div className="interop-resources interop-section">
                         <h2 className="interop-resources__title">Resources & Documentation</h2>
                         <div className="interop-resources__grid">
-                            <a href="/member-manual.pdf" className="interop-resource">
+                            <a href="/pdf/member-manual.pdf" target="_blank" rel="noopener noreferrer" className="interop-resource">
                                 <div className="interop-resource__icon">
                                     <FaFilePdf />
                                 </div>
