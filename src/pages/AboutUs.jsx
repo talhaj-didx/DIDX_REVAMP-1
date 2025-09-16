@@ -71,8 +71,8 @@ const AboutUs = () => {
   return (
     <main className="about-page">
       <HeroSection
-        titleA={"We connect the world with"}
-        titleB={"phone numbers"}
+        titleA={"We connect the world with phone numbers"}
+        // titleB={"phone numbers"}
         description={" Since 2005, DIDX has helped carriers and service providers buy and sell DIDs at scale—securely, transparently, and efficiently."}
         img={"/img/globe.png"} />
 
@@ -133,7 +133,7 @@ const AboutUs = () => {
         <InfoSection
           title="Who Are We?"
           description="DIDX, incorporated in Delaware since 2005, has been working in the field of telecom solutions. More information on Super Technologies can be found at supertec.com."
-          imageUrl="/img/who.jpg"
+          imageUrl="/img/about3.jpg"
           imageAlt="Technologists working"
           imagePosition="left"   // Image LEFT, content RIGHT
         />
@@ -161,7 +161,7 @@ const AboutUs = () => {
               Google, IBM, and Microsoft became our partners and customers.
             </>
           }
-          imageUrl="/img/who.jpg"
+          imageUrl="/img/about0.jpg"
           imageAlt="Technologists working"
           imagePosition="right"   // Image LEFT, content RIGHT
         />
@@ -169,7 +169,7 @@ const AboutUs = () => {
         <InfoSection
           title="What do we Do?"
           description="DID Exchange is a VOIP-based wholesale DID Phone Number marketplace which can and is used by Mobile Operators, LECs, ClECs, IXCs or other telecommunications service providers who offer or use any kind of PHONE NUMBERS in there network."
-          imageUrl="/img/who.jpg"
+          imageUrl="/img/about1.jpg"
           imageAlt="Technologists working"
           imagePosition="left"   // Image LEFT, content RIGHT
         />
@@ -187,7 +187,7 @@ const AboutUs = () => {
               DIDX was started in 2005 and formally launched in 2006 as a side project and now have over 25000 telecom companies as members.
             </>
           }
-          imageUrl="/img/who.jpg"
+          imageUrl="/img/sincewhen.jpg"
           imageAlt="Technologists working"
           imagePosition="right"   // Image LEFT, content RIGHT
         />
@@ -197,7 +197,7 @@ const AboutUs = () => {
           description={
             "DIDX has been honoured with many awards over the years from many countries, a list of which is here Awards"
           }
-          imageUrl="/img/awards.jpg"
+          imageUrl="/img/recong.jpg"
           imageAlt="Technologists working"
           imagePosition="left"   // Image LEFT, content RIGHT
         />

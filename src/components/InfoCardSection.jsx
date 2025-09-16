@@ -87,9 +87,15 @@ const InfoSection = ({ title, description, imageUrl, imageAlt, imagePosition }) 
           variant="outlined"
           sx={{
             mt: 2,
-            borderColor: "#8A1538",
-            color: "#8A1538",
-            "&:hover": { backgroundColor: "#8A1538", color: "#fff" },
+            borderColor: "var(--c1)",
+            color: "var(--c1)",
+            "&:hover": { 
+              backgroundColor: "var(--c1)", 
+              color: "#fff",
+              transform: "translateY(-2px)",
+              boxShadow: "0 8px 20px rgba(0, 131, 160, 0.2)"
+            },
+            transition: "all 0.3s ease"
           }}
         >
           Learn more

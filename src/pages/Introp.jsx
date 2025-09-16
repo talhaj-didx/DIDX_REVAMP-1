@@ -1,13 +1,20 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Contact } from "../components/contact";
 import BreadCrumb from "../components/BreadCrumbs";
 import { FaInfoCircle, FaCheckCircle, FaEnvelope, FaFilePdf, FaYoutube, FaBook, FaArrowRight, FaCog, FaNetworkWired, FaPhone } from "react-icons/fa";
+import HeroSection from '../components/heroSection'
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function BuyerSellerInteropPage() {
     const sectionRef = useRef();
-    
+
 
     useGSAP(() => {
         gsap.from(sectionRef.current?.querySelectorAll("h3, p, a"), {
@@ -25,12 +32,20 @@ export default function BuyerSellerInteropPage() {
                 titleA={"Buyer And Seller Interoperability Process"}
                 img={"/img/globe.png"}
             /> */}
-            <BreadCrumb title={"Buyer And Seller Interoperability Process"} />
+            {/* <BreadCrumb title={"Buyer And Seller Interoperability Process"} /> */}
+
+            <HeroSection
+                titleA={"Buyer and Seller Interop Process"}
+                description={
+                    "Seamless integration and testing between your network and DIDX for optimal business activation"
+                }
+                img={"/img/globe.png"}
+            />
 
             <section className="interop-page">
                 <div className="interop-container">
                     {/* Hero Section */}
-                    <div ref={sectionRef} className="interop-hero interop-section">
+                    {/* <div ref={sectionRef} className="interop-hero interop-section">
                         <div className="interop-hero__content">
                             <h1 className="interop-hero__title">Buyer and Seller Interop Process</h1>
                             <p className="interop-hero__subtitle">
@@ -38,36 +53,29 @@ export default function BuyerSellerInteropPage() {
                             </p>
                             <div className="interop-hero__stats">
                                 <div className="interop-hero__stat">
+                                    <div className="interop-hero__stat-icon">
+                                        <FaNetworkWired />
+                                    </div>
                                     <span className="interop-hero__stat-number">500+</span>
                                     <span className="interop-hero__stat-label">Minimum Numbers</span>
                                 </div>
                                 <div className="interop-hero__stat">
+                                    <div className="interop-hero__stat-icon">
+                                        <FaCheckCircle />
+                                    </div>
                                     <span className="interop-hero__stat-number">24/7</span>
                                     <span className="interop-hero__stat-label">Support Available</span>
                                 </div>
                                 <div className="interop-hero__stat">
+                                    <div className="interop-hero__stat-icon">
+                                        <FaPhone />
+                                    </div>
                                     <span className="interop-hero__stat-number">100%</span>
                                     <span className="interop-hero__stat-label">Network Testing</span>
                                 </div>
                             </div>
                         </div>
-                        <div className="interop-hero__visual">
-                            <div className="interop-hero__image-container">
-                                <img src="/img/communication.jpg" alt="Interop Process" className="interop-hero__image" />
-                                <div className="interop-hero__floating-elements">
-                                    <div className="interop-hero__floating-icon interop-hero__floating-icon--1">
-                                        <FaNetworkWired />
-                                    </div>
-                                    <div className="interop-hero__floating-icon interop-hero__floating-icon--2">
-                                        <FaCog />
-                                    </div>
-                                    <div className="interop-hero__floating-icon interop-hero__floating-icon--3">
-                                        <FaPhone />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> */}
 
 
 
