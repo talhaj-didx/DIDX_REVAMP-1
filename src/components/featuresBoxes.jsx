@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FeatureBoxes = () => {
+const FeatureBoxes = ({features}) => {
   const boxesRef = useRef([]);
 
   // ✅ useGSAP instead of useLayoutEffect
@@ -16,7 +16,7 @@ const FeatureBoxes = () => {
         scrollTrigger: {
           trigger: box,
           start: "top 85%",
-          toggleActions: "play reverse play reverse",
+          // toggleActions: "play reverse play reverse",
         },
         opacity: 0,
         y: 40,
@@ -27,13 +27,6 @@ const FeatureBoxes = () => {
       });
     });
   }, []); // 👈 runs once
-
-  const features = [
-    { title: "DIDX Awards", color: "#003366", link: "/awards" },
-    { title: "DIDX Partners", color: "#E6FAFA ", textColor: "#003366", link: "/partners" },
-    { title: "DIDX Members", color: "#FF9966", link: "#" },
-    { title: "DIDX Events", color: "#33A8FF", link: "/events" },
-  ];
 
   return (
     <div

@@ -4,9 +4,10 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import AnimatedTable from '../components/animatedTable'
-import HeroSection from '../components/heroSection'
-import { Contact } from '../components/contact'
+import AnimatedTable from '../components/animatedTable';
+import HeroSection from '../components/heroSection';
+import { Contact } from '../components/contact';
+import JsonData from "../data/data.json";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -17,6 +18,15 @@ const Coverage = () => {
   const sectionRef = useRef();
   const heroRef = useRef();
   const ctaRef = useRef();
+  const {
+    Coverage: {
+      data: {
+        title: coverage,
+        description,
+        data: { countries },
+      },
+    },
+  } = JsonData;
 
   useGSAP(() => {
     // Hero section animations

@@ -2,12 +2,20 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useTestimonials } from "../hooks/useTestimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Testimonials = (props) => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+
+  const {data} = useTestimonials();
+
+   const {
+    title = "",
+    data: { testimonials = [] } = {},
+  } = data?.data?.[0] || {};
 
   useGSAP(
     (context, contextSafe) => {
@@ -50,18 +58,18 @@ export const Testimonials = (props) => {
         card.addEventListener("mouseleave", handleLeave);
       });
     },
-    { dependencies: [props.data], scope: sectionRef } // ✅ keeps it scoped + re-runs when data changes
+    { dependencies: [testimonials], scope: sectionRef } // ✅ keeps it scoped + re-runs when data changes
   );
 
   return (
     <div id="testimonials" ref={sectionRef}>
       <div className="container">
         <div className="section-title text-center">
-          <h2>What our clients say</h2>
+          <h2>{title || "What our clients say"}</h2>
         </div>
         <div className="row">
-          {props.data
-            ? props.data.map((d, i) => (
+          {testimonials
+            ? testimonials.map((d, i) => (
                 <div
                   key={`${d.name}-${i}`}
                   className="col-md-4"
@@ -70,10 +78,10 @@ export const Testimonials = (props) => {
                 >
                   <div className="testimonial">
                     <div className="testimonial-image">
-                      <img src={d.img} alt={d.name} />
+                      <img src={d.avatar} alt={d.name} />
                     </div>
                     <div className="testimonial-content">
-                      <p>"{d.text}"</p>
+                      <p>"{d.content}"</p>
                       <div className="testimonial-meta"> - {d.name} </div>
                     </div>
                   </div>

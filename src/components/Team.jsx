@@ -2,12 +2,22 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useOurTeam } from "../hooks/useOurTeam";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Team = (props) => {
+export const Team = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+
+  const {data} = useOurTeam();
+
+  const {
+    title = "",
+    description ="",
+    data: { team_members = [] } = {},
+  } = data?.data?.[0] || {};
+
 
   useGSAP(
     (context, contextSafe) => {
@@ -50,37 +60,36 @@ export const Team = (props) => {
         card.addEventListener("mouseleave", handleLeave);
       });
     },
-    { dependencies: [props.data], scope: sectionRef } // ✅ re-run if data changes
+    { dependencies: [team_members], scope: sectionRef } // ✅ re-run if data changes
   );
 
   return (
     <div id="team" className="text-center" ref={sectionRef}>
       <div className="container">
         <div className="col-md-8 col-md-offset-2 section-title">
-          <h2>Meet the Team</h2>
+          <h2>{title || "Meet the Team"}</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            {description || ''}
           </p>
         </div>
         <div id="row">
-          {props.data
-            ? props.data.map((d, i) => (
-                <div
-                  key={`${d.name}-${i}`}
-                  className="col-md-3 col-sm-6 team"
-                  ref={(el) => (cardsRef.current[i] = el)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="thumbnail">
-                    <img src={d.img} alt={d.name} className="team-img" />
-                    <div className="caption">
-                      <h4>{d.name}</h4>
-                      <p>{d.job}</p>
-                    </div>
+          {team_members
+            ? team_members.map((d, i) => (
+              <div
+                key={`${d.name}-${i}`}
+                className="col-md-3 col-sm-6 team"
+                ref={(el) => (cardsRef.current[i] = el)}
+                style={{ cursor: "pointer" }}
+              >
+                <div className="thumbnail">
+                  <img src={d.photo} alt={d.name} className="team-img" />
+                  <div className="caption">
+                    <h4>{d.name}</h4>
+                    <p>{d.position}</p>
                   </div>
                 </div>
-              ))
+              </div>
+            ))
             : "loading"}
         </div>
       </div>

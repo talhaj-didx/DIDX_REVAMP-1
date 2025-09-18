@@ -92,6 +92,8 @@ import FAQ from "./pages/FAQ";
 import { useEffect, useState } from "react";
 import BonusPopup from "./components/modals/BonusPopup";
 import Channel from "./pages/Channel";
+import { QueryClientProvider } from "@tanstack/react-query";
+import queryClient from "./api/queryClient";
 
 const router = createBrowserRouter([
   {
@@ -121,7 +123,7 @@ const router = createBrowserRouter([
       { path: "voip-switch", element: < VoipSwitch /> },
       { path: "elastix", element: < Elastix /> },
       { path: "mobile", element: < Mobile /> },
-      { path: "channels", element: <Channel/> },
+      { path: "channels", element: <Channel /> },
       { path: "reset-password", element: < ResetPassword /> },
       { path: "faq", element: < FAQ /> }
 
@@ -139,8 +141,10 @@ export default function App() {
     handleOpen();
   }, [])
   return <>
-    <RouterProvider router={router} />
-    {/* <BonusPopup open={open} handleClose={handleClose} /> */}
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      {/* <BonusPopup open={open} handleClose={handleClose} /> */}
+    </QueryClientProvider>
   </>;
 }
 

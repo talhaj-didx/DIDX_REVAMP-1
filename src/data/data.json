@@ -1,7 +1,31 @@
 {
   "Header": {
     "title": "WELCOME TO DIDX",
-    "paragraph": "Connecting the world, one country at a time!"
+    "paragraph": "Connecting the world, one country at a time!",
+    "success": true,
+    "message": "Hero section retrieved successfully",
+    "data": {
+      "id": 1,
+      "title": "Welcome to DIDX",
+      "description": "Connecting the world, one country at a time!",
+      "content": "We provide the best DID services with global coverage...",
+      "type": "hero",
+      "page_id": 1,
+      "is_active": true,
+      "settings": {
+        "background_image": "/img/global-connections.jpg",
+        "text_color": "#ffffff",
+        "button_color": "#007bff"
+      },
+      "data": {
+        "cta_text": "Get Started Now",
+        "cta_link": "/signup",
+        "subtitle": "Trusted by 1000+ businesses"
+      },
+      "sort_order": 1,
+      "created_at": "2024-01-01T00:00:00.000000Z",
+      "updated_at": "2024-01-01T00:00:00.000000Z"
+    }
   },
   "About": {
     "paragraph": "DIDX, founded in Delaware in 2005 and backed by Super Technologies, is the world’s first wholesale DID number marketplace. Today, it connects 30,000+ telecom companies—including Google, IBM, and Microsoft—helping operators seamlessly buy, sell, and manage global phone numbers. Recognized internationally for innovation, DIDX has grown from a small project into one of the world’s largest and most trusted DID platforms.",
@@ -94,38 +118,78 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
     }
   ],
-  "Testimonials": [
-    {
-      "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/02.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    },
-    {
-      "img": "img/testimonials/03.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/04.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
-    },
-    {
-      "img": "img/testimonials/05.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
-    },
-    {
-      "img": "img/testimonials/06.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+  "Testimonials": {
+    "success": true,
+    "message": "Testimonials section retrieved successfully",
+    "data": {
+      "id": 7,
+      "title": "What Our Customers Say",
+      "description": "Real feedback from our clients",
+      "content": "Read testimonials from our satisfied customers...",
+      "type": "testimonials",
+      "page_id": 1,
+      "is_active": true,
+      "settings": {
+        "layout": "carousel",
+        "autoplay": true
+      },
+      "data": {
+        "testimonials": [
+          {
+            "name": "John Smith",
+            "company": "ABC Corp",
+            "position": "CEO",
+            "content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "rating": 5,
+            "avatar": "img/testimonials/01.jpg"
+          },
+          {
+            "name": "Sarah Johnson",
+            "company": "XYZ Ltd",
+            "position": "CTO",
+            "content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "rating": 5,
+            "avatar": "img/testimonials/02.jpg"
+          },
+          {
+            "name": "John Doe",
+            "company": "XYZ Ltd",
+            "position": "CTO",
+            "content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "rating": 5,
+            "avatar": "img/testimonials/03.jpg"
+          },
+          {
+            "name": "John Doe",
+            "company": "XYZ Ltd",
+            "position": "CTO",
+            "content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "rating": 5,
+            "avatar": "img/testimonials/04.jpg"
+          },
+          {
+            "name": "John Doe",
+            "company": "XYZ Ltd",
+            "position": "CTO",
+            "content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "rating": 5,
+            "avatar": "img/testimonials/05.jpg"
+          },
+          {
+            "name": "John Doe",
+            "company": "XYZ Ltd",
+            "position": "CTO",
+            "content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "rating": 5,
+            "avatar": "img/testimonials/06.jpg"
+          }
+        ]
+      },
+      "sort_order": 7,
+      "created_at": "2024-01-01T00:00:00.000000Z",
+      "updated_at": "2024-01-01T00:00:00.000000Z"
     }
-  ],
+  },
   "Team": [
     {
       "img": "img/team/01.jpg",
@@ -173,51 +237,347 @@
       "text": "There is NO CHARGE to list your numbers on DIDX to sell them. DIDX is for wholesale customers only. If you need fewer than 50 numbers please visit virtualphoneline.com."
     }
   ],
-  "Features": [
-    {
-      "icon": "fa fa-shield",
-      "title": "100% DIDX Guarantee",
-      "text": "Buy with confidence with DIDX. If any DID does not work for more than 3 days in a row, we do not pay the seller, and we do not charge the buyer."
-    },
-    {
-      "icon": "fa fa-database",
-      "title": "Online Instant CDR for 5 Years",
-      "text": "Both sellers and buyers can view CDRs for the last five years of the number purchase. Buyers see only their own CDR, not previous owners."
-    },
-    {
-      "icon": "fa fa-code",
-      "title": "Free APIs",
-      "text": "Integrate DIDX directly into your website or software with our free APIs to buy and sell DIDs seamlessly."
-    },
-    {
-      "icon": "fa fa-headphones",
-      "title": "Multiple Codecs",
-      "text": "DIDX supports codecs including ILBC, G711A, G711U, G729, G723, G726, and GSM—buy or sell using any of these."
-    },
-    {
-      "icon": "fa fa-random",
-      "title": "Instant Ring-to Path Change",
-      "text": "Instantly change the ring-to address of your DID number using the website or API."
-    },
-    {
-      "icon": "fa fa-credit-card",
-      "title": "Instant Billing Solution",
-      "text": "Easily sell DIDs via DIDX with setup, monthly, per minute, and per channel billing handled instantly."
-    },
-    {
-      "icon": "fa fa-globe",
-      "title": "Realtime Stock",
-      "text": "Access DID stock from global DIDX seller members and purchase instantly."
-    },
-    {
-      "icon": "fa fa-bell",
-      "title": "Request DIDs",
-      "text": "Request a DID number from anywhere in the world and get notified when it becomes available from our 16,500+ members."
-    },
-    {
-      "icon": "fa fa-plug",
-      "title": "Multiple Protocol Support",
-      "text": "DIDX supports SIP, H.323, and IAX for buyers, and IAX2 and SIP for sellers."
+  "Features": {
+    "success": true,
+    "message": "Features section retrieved successfully",
+    "data": {
+      "id": 4,
+      "title": "Our Features",
+      "description": "What makes us different",
+      "content": "Discover our amazing features...",
+      "type": "features",
+      "page_id": 1,
+      "is_active": true,
+      "settings": {
+        "layout": "grid",
+        "columns": 3
+      },
+      "data": {
+        "features": [
+          {
+            "icon": "fa fa-shield",
+            "title": "100% DIDX Guarantee",
+            "description": "Buy with confidence with DIDX. If any DID does not work for more than 3 days in a row, we do not pay the seller, and we do not charge the buyer."
+          },
+          {
+            "icon": "fa fa-database",
+            "title": "Online Instant CDR for 5 Years",
+            "description": "Both sellers and buyers can view CDRs for the last five years of the number purchase. Buyers see only their own CDR, not previous owners."
+          },
+          {
+            "icon": "fa fa-code",
+            "title": "Free APIs",
+            "description": "Integrate DIDX directly into your website or software with our free APIs to buy and sell DIDs seamlessly."
+          },
+          {
+            "icon": "fa fa-headphones",
+            "title": "Multiple Codecs",
+            "description": "DIDX supports codecs including ILBC, G711A, G711U, G729, G723, G726, and GSM—buy or sell using any of these."
+          },
+          {
+            "icon": "fa fa-random",
+            "title": "Instant Ring-to Path Change",
+            "description": "Instantly change the ring-to address of your DID number using the website or API."
+          },
+          {
+            "icon": "fa fa-credit-card",
+            "title": "Instant Billing Solution",
+            "description": "Easily sell DIDs via DIDX with setup, monthly, per minute, and per channel billing handled instantly."
+          },
+          {
+            "icon": "fa fa-globe",
+            "title": "Realtime Stock",
+            "description": "Access DID stock from global DIDX seller members and purchase instantly."
+          },
+          {
+            "icon": "fa fa-bell",
+            "title": "Request DIDs",
+            "description": "Request a DID number from anywhere in the world and get notified when it becomes available from our 16,500+ members."
+          },
+          {
+            "icon": "fa fa-plug",
+            "title": "Multiple Protocol Support",
+            "description": "DIDX supports SIP, H.323, and IAX for buyers, and IAX2 and SIP for sellers."
+          }
+        ]
+      },
+      "sort_order": 4,
+      "created_at": "2024-01-01T00:00:00.000000Z",
+      "updated_at": "2024-01-01T00:00:00.000000Z"
     }
-  ]
+  },
+  "FeatureVideoSection": {
+    "success": true,
+    "message": "Videos section retrieved successfully",
+    "data": {
+      "id": 5,
+      "title": "Watch Our Videos",
+      "description": "Learn more about our services",
+      "content": "Check out our video content...",
+      "type": "videos",
+      "page_id": 1,
+      "is_active": true,
+      "settings": {
+        "autoplay": false,
+        "show_controls": true
+      },
+      "data": {
+        "videos": [
+          {
+            "title": "Features for DID Buyers",
+            "url": "https://youtu.be/F0nW-qDuwNE",
+            "thumbnail": "/images/video1-thumb.jpg",
+            "duration": "2:30"
+          },
+          {
+            "title": "Features for DID Sellers",
+            "url": "https://youtu.be/htC6S598onQ",
+            "thumbnail": "/images/video2-thumb.jpg",
+            "duration": "3:45"
+          }
+        ]
+      },
+      "sort_order": 5,
+      "created_at": "2024-01-01T00:00:00.000000Z",
+      "updated_at": "2024-01-01T00:00:00.000000Z"
+    }
+  },
+  "WhyChooseUs": {
+    "success": true,
+    "message": "Why choose us section retrieved successfully",
+    "data": {
+      "id": 6,
+      "title": "Why Choose DIDX?",
+      "description": "Reasons to choose us",
+      "content": "Here's why businesses choose DIDX...",
+      "type": "why_choose_us",
+      "page_id": 1,
+      "is_active": true,
+      "settings": {
+        "layout": "list",
+        "show_icons": true
+      },
+      "data": {
+        "reasons": [
+          {
+            "title": "DIDX Awards",
+            "color": "#003366",
+            "link": "/awards"
+          },
+          {
+            "title": "DIDX Partners",
+            "color": "#E6FAFA",
+            "textColor": "#003366",
+            "link": "/partners"
+          },
+          {
+            "title": "DIDX Members",
+            "color": "#FF9966",
+            "link": "#"
+          },
+          {
+            "title": "DIDX Events",
+            "color": "#33A8FF",
+            "link": "/events"
+          }
+        ]
+      },
+      "sort_order": 6,
+      "created_at": "2024-01-01T00:00:00.000000Z",
+      "updated_at": "2024-01-01T00:00:00.000000Z"
+    }
+  },
+  "OurTeam":{
+  "success": true,
+  "message": "Our team section retrieved successfully",
+  "data": {
+    "id": 8,
+    "title": "Meet Our Team",
+    "description": "The people behind DIDX",
+    "content": "Get to know our amazing team...",
+    "type": "our_team",
+    "page_id": 1,
+    "is_active": true,
+    "settings": {
+      "layout": "grid",
+      "show_social": true
+    },
+    "data": {
+      "team_members": [
+        {
+          "name": "Alex Johnson",
+          "position": "CEO & Founder",
+          "bio": "10+ years in telecommunications",
+          "photo": "img/team/01.jpg",
+          "social": {
+            "linkedin": "https://linkedin.com/in/alex-johnson",
+            "twitter": "https://twitter.com/alexjohnson"
+          }
+        },
+        {
+          "name": "Maria Garcia",
+          "position": "CTO",
+          "bio": "Expert in DID technologies",
+          "photo": "img/team/02.jpg",
+          "social": {
+            "linkedin": "https://linkedin.com/in/maria-garcia",
+            "github": "https://github.com/maria-garcia"
+          }
+        },
+        {
+          "name": "Maria Garcia",
+          "position": "CTO",
+          "bio": "Expert in DID technologies",
+          "photo": "img/team/03.jpg",
+          "social": {
+            "linkedin": "https://linkedin.com/in/maria-garcia",
+            "github": "https://github.com/maria-garcia"
+          }
+        },
+        {
+          "name": "Maria Garcia",
+          "position": "CTO",
+          "bio": "Expert in DID technologies",
+          "photo": "img/team/04.jpg",
+          "social": {
+            "linkedin": "https://linkedin.com/in/maria-garcia",
+            "github": "https://github.com/maria-garcia"
+          }
+        }
+      ]
+    },
+    "sort_order": 8,
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T00:00:00.000000Z"
+  }
+},
+"Coverage": {
+  "success": true,
+  "message": "Coverage page section retrieved successfully",
+  "data": {
+    "id": 13,
+    "title": "Global DID Coverage In 100+ Countries",
+    "description": "DIDx is the world's No.1 Direct Inward Dialing numbering (DID Numbers) provider since 2005. It's an exchange where buyers and sellers meet to trade in DID numbers. We currently have over 100+ countries as part of our coverage. If You need DID Number from a country which you do not see here, Please CONTACT US with your target price and quantity.",
+    "content": "We provide DIDs in multiple countries...",
+    "type": "coverage_page",
+    "page_id": 1,
+    "is_active": true,
+    "settings": {
+      "show_map": true,
+      "show_list": true
+    },
+    "data": {
+      "countries": [
+        { "code": "+355", "name": "Albania", "channels": 2, "region": "europe" },
+        { "code": "+213", "name": "Algeria", "channels": 2, "region": "africa" },
+        { "code": "+244", "name": "Angola", "channels": 2, "region": "africa" },
+        { "code": "+54", "name": "Argentina", "channels": 2, "region": "americas" },
+        { "code": "+61", "name": "Australia", "channels": 2, "region": "other" },
+        { "code": "+43", "name": "Austria", "channels": 2, "region": "europe" },
+        { "code": "+973", "name": "Bahrain", "channels": 2, "region": "other" },
+        { "code": "+880", "name": "Bangladesh", "channels": 2, "region": "asia" },
+        { "code": "+1", "name": "Barbados", "channels": 2, "region": "americas" },
+        { "code": "+32", "name": "Belgium", "channels": 2, "region": "europe" },
+        { "code": "+229", "name": "Benin", "channels": 2, "region": "africa" },
+        { "code": "+591", "name": "Bolivia", "channels": 2, "region": "americas" },
+        { "code": "+387", "name": "Bosnia and Herzegovina", "channels": 2, "region": "europe" },
+        { "code": "+55", "name": "Brazil", "channels": 2, "region": "americas" },
+        { "code": "+359", "name": "Bulgaria", "channels": 2, "region": "europe" },
+        { "code": "+855", "name": "Cambodia", "channels": 2, "region": "asia" },
+        { "code": "+1", "name": "Canada", "channels": 2, "region": "americas" },
+        { "code": "+1", "name": "Cayman Islands", "channels": 2, "region": "americas" },
+        { "code": "+56", "name": "Chile", "channels": 2, "region": "americas" },
+        { "code": "+86", "name": "China", "channels": 2, "region": "asia" },
+        { "code": "+57", "name": "Colombia", "channels": 2, "region": "americas" },
+        { "code": "+506", "name": "Costa Rica", "channels": 2, "region": "americas" },
+        { "code": "+385", "name": "Croatia", "channels": 2, "region": "europe" },
+        { "code": "+599", "name": "Curacao", "channels": 2, "region": "americas" },
+        { "code": "+357", "name": "Cyprus", "channels": 2, "region": "europe" },
+        { "code": "+420", "name": "Czech Republic", "channels": 2, "region": "europe" },
+        { "code": "+45", "name": "Denmark", "channels": 2, "region": "europe" },
+        { "code": "+1", "name": "Dominican Republic", "channels": 2, "region": "americas" },
+        { "code": "+503", "name": "El Salvador", "channels": 2, "region": "americas" },
+        { "code": "+372", "name": "Estonia", "channels": 2, "region": "europe" },
+        { "code": "+358", "name": "Finland", "channels": 2, "region": "europe" },
+        { "code": "+33", "name": "France", "channels": 2, "region": "europe" },
+        { "code": "+995", "name": "Georgia", "channels": 2, "region": "europe" },
+        { "code": "+49", "name": "Germany", "channels": 2, "region": "europe" },
+        { "code": "+233", "name": "Ghana", "channels": 2, "region": "africa" },
+        { "code": "+30", "name": "Greece", "channels": 2, "region": "europe" },
+        { "code": "+502", "name": "Guatemala", "channels": 2, "region": "americas" },
+        { "code": "+224", "name": "Guinea", "channels": 2, "region": "africa" },
+        { "code": "+504", "name": "Honduras", "channels": 2, "region": "americas" },
+        { "code": "+852", "name": "Hong Kong", "channels": 2, "region": "asia" },
+        { "code": "+36", "name": "Hungary", "channels": 2, "region": "europe" },
+        { "code": "+354", "name": "Iceland", "channels": 2, "region": "europe" },
+        { "code": "+91", "name": "India", "channels": 2, "region": "asia" },
+        { "code": "+62", "name": "Indonesia", "channels": 2, "region": "asia" },
+        { "code": "+353", "name": "Ireland", "channels": 2, "region": "europe" },
+        { "code": "+972", "name": "Israel", "channels": 2, "region": "asia" },
+        { "code": "+39", "name": "Italy", "channels": 2, "region": "europe" },
+        { "code": "+1", "name": "Jamaica", "channels": 2, "region": "americas" },
+        { "code": "+81", "name": "Japan", "channels": 2, "region": "asia" },
+        { "code": "+962", "name": "Jordan", "channels": 2, "region": "asia" },
+        { "code": "+7", "name": "Kazakhstan", "channels": 2, "region": "asia" },
+        { "code": "+254", "name": "Kenya", "channels": 2, "region": "africa" },
+        { "code": "+686", "name": "Kuwait", "channels": 2, "region": "asia" },
+        { "code": "+996", "name": "Kyrgyzstan", "channels": 2, "region": "asia" },
+        { "code": "+371", "name": "Latvia", "channels": 2, "region": "europe" },
+        { "code": "+370", "name": "Lithuania", "channels": 2, "region": "europe" },
+        { "code": "+352", "name": "Luxembourg", "channels": 2, "region": "europe" },
+        { "code": "+853", "name": "Macao", "channels": 2, "region": "asia" },
+        { "code": "+389", "name": "North Macedonia", "channels": 2, "region": "europe" },
+        { "code": "+60", "name": "Malaysia", "channels": 2, "region": "asia" },
+        { "code": "+356", "name": "Malta", "channels": 2, "region": "europe" },
+        { "code": "+52", "name": "Mexico", "channels": 2, "region": "americas" },
+        { "code": "+373", "name": "Moldova", "channels": 2, "region": "europe" },
+        { "code": "+212", "name": "Morocco", "channels": 2, "region": "africa" },
+        { "code": "+95", "name": "Myanmar", "channels": 2, "region": "asia" },
+        { "code": "+31", "name": "Netherlands", "channels": 2, "region": "europe" },
+        { "code": "+64", "name": "New Zealand", "channels": 2, "region": "other" },
+        { "code": "+234", "name": "Nigeria", "channels": 2, "region": "africa" },
+        { "code": "+47", "name": "Norway", "channels": 2, "region": "europe" },
+        { "code": "+92", "name": "Pakistan", "channels": 2, "region": "asia" },
+        { "code": "+507", "name": "Panama", "channels": 2, "region": "americas" },
+        { "code": "+595", "name": "Paraguay", "channels": 2, "region": "americas" },
+        { "code": "+51", "name": "Peru", "channels": 2, "region": "americas" },
+        { "code": "+63", "name": "Philippines", "channels": 2, "region": "asia" },
+        { "code": "+48", "name": "Poland", "channels": 2, "region": "europe" },
+        { "code": "+351", "name": "Portugal", "channels": 2, "region": "europe" },
+        { "code": "+1", "name": "Puerto Rico", "channels": 2, "region": "americas" },
+        { "code": "+40", "name": "Romania", "channels": 2, "region": "europe" },
+        { "code": "+7", "name": "Russia", "channels": 2, "region": "europe" },
+        { "code": "+381", "name": "Serbia", "channels": 2, "region": "europe" },
+        { "code": "+248", "name": "Seychelles", "channels": 2, "region": "africa" },
+        { "code": "+65", "name": "Singapore", "channels": 2, "region": "asia" },
+        { "code": "+421", "name": "Slovakia", "channels": 2, "region": "europe" },
+        { "code": "+386", "name": "Slovenia", "channels": 2, "region": "europe" },
+        { "code": "+27", "name": "South Africa", "channels": 2, "region": "africa" },
+        { "code": "+82", "name": "South Korea", "channels": 2, "region": "asia" },
+        { "code": "+34", "name": "Spain", "channels": 2, "region": "europe" },
+        { "code": "+249", "name": "Sudan", "channels": 2, "region": "africa" },
+        { "code": "+49", "name": "Sweden", "channels": 2, "region": "europe" },
+        { "code": "+41", "name": "Switzerland", "channels": 2, "region": "europe" },
+        { "code": "+886", "name": "Taiwan", "channels": 2, "region": "asia" },
+        { "code": "+66", "name": "Thailand", "channels": 2, "region": "asia" },
+        { "code": "+1", "name": "Trinidad and Tobago", "channels": 2, "region": "americas" },
+        { "code": "+216", "name": "Tunisia", "channels": 2, "region": "africa" },
+        { "code": "+90", "name": "Turkey", "channels": 2, "region": "europe" },
+        { "code": "+256", "name": "Uganda", "channels": 2, "region": "africa" },
+        { "code": "+380", "name": "Ukraine", "channels": 2, "region": "europe" },
+        { "code": "+971", "name": "United Arab Emirates", "channels": 2, "region": "other" },
+        { "code": "+44", "name": "United Kingdom", "channels": 2, "region": "europe" },
+        { "code": "+1", "name": "United States", "channels": 2, "region": "americas" },
+        { "code": "+998", "name": "Uzbekistan", "channels": 2, "region": "asia" },
+        { "code": "+58", "name": "Venezuela", "channels": 2, "region": "americas" },
+        { "code": "+84", "name": "Vietnam", "channels": 2, "region": "asia" },
+        { "code": "+263", "name": "Zimbabwe", "channels": 2, "region": "africa" }
+      ]
+    },
+    "sort_order": 13,
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T00:00:00.000000Z"
+  }
+}
+
 }

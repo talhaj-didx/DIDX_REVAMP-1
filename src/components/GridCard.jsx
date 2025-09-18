@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
 
-const GridCard = ({props}) => {
+const GridCard = ({features}) => {
     const itemsRef = useRef([]);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const GridCard = ({props}) => {
                 el.removeEventListener("mouseleave", handleMouseLeave);
             };
         });
-    }, [props.data]);
+    }, [features]);
 
     return (
         <div
@@ -44,8 +44,8 @@ const GridCard = ({props}) => {
                 gap: "30px",
             }}
         >
-            {props.data
-                ? props.data.map((d, i) => (
+            {features
+                ? features.map((d, i) => (
                     <div
                         key={`${d.title}-${i}`}
                         ref={(el) => (itemsRef.current[i] = el)}
@@ -71,7 +71,7 @@ const GridCard = ({props}) => {
                             }}
                         ></i>
                         <h3 style={{ marginBottom: "10px" }}>{d.title}</h3>
-                        <p style={{ fontSize: "15px", color: "#555" }}>{d.text}</p>
+                        <p style={{ fontSize: "15px", color: "#555" }}>{d.description}</p>
                     </div>
                 ))
                 : "Loading..."}

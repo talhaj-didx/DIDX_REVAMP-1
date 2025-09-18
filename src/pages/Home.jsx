@@ -1,4 +1,3 @@
-import React from "react";
 import { Header } from "../components/header";
 import StatsSection from "../components/statsSection";
 import { Features } from "../components/features";
@@ -11,14 +10,13 @@ import JsonData from "../data/data.json";
 const Home = () => {
   const landingPageData = JsonData;
 
-
   return (
     <>
-      <Header data={landingPageData.Header} />
+      <Header/>
       <StatsSection />
-      <Features data={landingPageData.Features} />
-      <About data={landingPageData.About} />
-      <Testimonials data={landingPageData.Testimonials} />
+      <Features/>
+      <About/>
+      <Testimonials/>
       <Team data={landingPageData.Team} />
       <Contact />
     </>
