@@ -3,16 +3,15 @@ import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 
-export const Header = () => {
+export const Header = ({data}) => {
   const overlayRef = useRef(null);
   const titleRef = useRef(null);
   const paragraphRef = useRef(null);
   const buttonRef = useRef(null);
 
-  const { data, isLoading, error } = useData();
 
   // ✅ Safely destructure the first item
-  const headerData = data?.data?.[0] || {};
+  const headerData = data?.[0] || {};
   const {
     title,
     description : paragraph,

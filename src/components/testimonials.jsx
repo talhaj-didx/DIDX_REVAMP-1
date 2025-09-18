@@ -2,20 +2,18 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTestimonials } from "../hooks/useTestimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Testimonials = (props) => {
+export const Testimonials = ({data}) => {
+  
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
-
-  const {data} = useTestimonials();
 
    const {
     title = "",
     data: { testimonials = [] } = {},
-  } = data?.data?.[0] || {};
+  } = data?.[0] || {};
 
   useGSAP(
     (context, contextSafe) => {

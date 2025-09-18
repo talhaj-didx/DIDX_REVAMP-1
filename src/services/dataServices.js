@@ -6,7 +6,7 @@ export const fetchData = async (endpoint) => {
 
     try {
         const res = await axiosInstance.get(endpoint);
-         return res.data;
+        return res.data;
     } catch (error) {
 
         console.error(`Error fetching data from ${endpoint}:`, error);
@@ -37,5 +37,23 @@ export const TestimonialsSection = async () => {
 
 export const ourTeamSection = async () => {
     return await fetchData("/sections/type/our_team");
+};
+
+ // fetching multiple sections at once
+export const getMultipleSections = async () => {
+    try {
+        const response = await axiosInstance.post('/sections/by-types', {
+            "types": ["hero", "features", "videos", "why_choose_us", "testimonials", "our_team"]
+        });
+
+        if (response.data.success) {
+            console.log('Sections:', response.data.data);
+            return response.data.data;
+        }
+        throw new Error(response.data.message || 'Failed to fetch sections');
+    } catch (error) {
+        console.error('Error fetching multiple sections:', error);
+        throw error;
+    }
 };
 

@@ -1,24 +1,16 @@
 import YoutubeEmbed from "./others/youtubeEmbed"
 import GridCard from "./GridCard";
-import { useFeatures } from "../hooks/useFeatures";
-import { useFeaturesVideos } from "../hooks/useFeaturesVideos";
 
-export const Features = () => {
+export const Features = ({ data, featuresVideos }) => {
 
-  const { data } = useFeatures();
-  const { data: featuresVideos } = useFeaturesVideos();
-  
   const {
     data: { videos = [] } = {},
-  } = featuresVideos?.data?.[0] || {};
+  } = featuresVideos?.[0] || {};
 
   const {
     title = "",
     data: { features = [] } = {},
-  } = data?.data?.[0] || {};
-
-
-
+  } = data?.[0] || {};
 
 
   return (
@@ -42,8 +34,6 @@ export const Features = () => {
           margin: "60px auto 0",
         }}
       >
-
-
         {videos.map((item) => (
           <>
 

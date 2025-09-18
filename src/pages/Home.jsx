@@ -5,19 +5,32 @@ import { About } from "../components/about";
 import { Testimonials } from "../components/testimonials";
 import { Team } from "../components/Team";
 import { Contact } from "../components/contact";
-import JsonData from "../data/data.json";
+import { useMultipleSections } from "../hooks/useMultipleSections";
+
+function getSection(response, key) {
+  return response?.[key] || [];
+}
 
 const Home = () => {
-  const landingPageData = JsonData;
+
+  const { data, } = useMultipleSections();
+  const heroData = getSection(data, "hero");
+  const featuresData = getSection(data, "features");
+  const featuresVideos = getSection(data, "videos");
+  const testimonialsData = getSection(data, "testimonials");
+  const teamsData = getSection(data, "our_team");
 
   return (
     <>
-      <Header/>
+      <Header data={heroData} />
       <StatsSection />
-      <Features/>
-      <About/>
-      <Testimonials/>
-      <Team data={landingPageData.Team} />
+      <Features
+        data={featuresData}
+        featuresVideos={featuresVideos}
+      />
+      <About />
+      <Testimonials data={testimonialsData} />
+      <Team data={teamsData} />
       <Contact />
     </>
   );

@@ -2,21 +2,19 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useOurTeam } from "../hooks/useOurTeam";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Team = () => {
+export const Team = ({ data }) => {
+  
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
 
-  const {data} = useOurTeam();
-
   const {
     title = "",
-    description ="",
+    description = "",
     data: { team_members = [] } = {},
-  } = data?.data?.[0] || {};
+  } = data?.[0] || {};
 
 
   useGSAP(
