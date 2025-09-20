@@ -1,21 +1,56 @@
 import React, { useRef } from 'react'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaSkype, FaWhatsapp } from 'react-icons/fa'
+import { 
+  FaMapMarkerAlt, 
+  FaPhone, 
+  FaEnvelope, 
+  FaSkype, 
+  FaWhatsapp, 
+  FaClock, 
+  FaLinkedin, 
+  FaTwitter, 
+  FaFacebook 
+} from 'react-icons/fa'
 import Lottie from 'lottie-react'
 import BreadCrumb from '../components/BreadCrumbs'
 import { Contact } from '../components/contact'
 import contactAnimation from '../lottie/Contact Us.json'
 import { useGSAP } from '@gsap/react'
 import { gsap } from "gsap";
+import { useApi } from "../hooks/useApi";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { contactUsSection } from '../services/dataServices'
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const getIconComponent = (iconName) => {
+  const iconMap = {
+    'FaMapMarkerAlt': FaMapMarkerAlt,
+    'FaPhone': FaPhone,
+    'FaEnvelope': FaEnvelope,
+    'FaSkype': FaSkype,
+    'FaWhatsapp': FaWhatsapp,
+    'FaClock': FaClock,
+    'FaLinkedin': FaLinkedin,
+    'FaTwitter': FaTwitter,
+    'FaFacebook': FaFacebook
+  };
+  
+  return iconMap[iconName] || FaPhone; // Default to FaPhone if icon not found
+};
+
 const ContactPage = () => {
   const lottieRef = useRef(null)
   const rootRef = useRef();
+
+  const { data, isLoading, error} = useApi({
+    queryKey:"contact-us",
+    queryFn: contactUsSection
+  });
+
+  const {data: contactsData} = data ?? {}
   
   
       useGSAP(() => {
@@ -58,73 +93,62 @@ const ContactPage = () => {
 
           {/* Contact Information Grid */}
           <div className="contact-grid">
-            {/* Address */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <FaMapMarkerAlt />
+            {isLoading ? (
+              <div className="contact-loading">
+                <p>Loading contact information...</p>
               </div>
-              <h3 className="contact-card__title">Address</h3>
-              <div className="contact-card__content">
-                <p>1309 Coffeen Avenue STE</p>
-                <p>1200 Sheridan, Wyoming</p>
-                <p>82801</p>
+            ) : error ? (
+              <div className="contact-error">
+                <p>Error loading contact information. Please try again later.</p>
               </div>
-            </div>
-
-            {/* USA Customer Service */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <FaPhone />
+            ) : contactsData && contactsData.length > 0 ? (
+              contactsData.map((contact) => {
+                const IconComponent = getIconComponent(contact.icon);
+                
+                // If contact has a link and it's not an address, make the whole card clickable
+                if (contact.link && contact.type !== 'address') {
+                  return (
+                    <a 
+                      key={contact.id} 
+                      href={contact.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="contact-card contact-card--clickable"
+                      style={{ color: 'inherit', textDecoration: 'none' }}
+                    >
+                      <div className={`contact-card__icon ${contact.iconClass || ''}`}>
+                        <IconComponent />
+                      </div>
+                      <h3 className="contact-card__title">{contact.title}</h3>
+                      <div className="contact-card__content">
+                        {contact.content.map((line, index) => (
+                          <p key={index}>{line}</p>
+                        ))}
+                      </div>
+                    </a>
+                  );
+                }
+                
+                // For address and other non-clickable cards, render as div
+                return (
+                  <div key={contact.id} className="contact-card">
+                    <div className={`contact-card__icon ${contact.iconClass || ''}`}>
+                      <IconComponent />
+                    </div>
+                    <h3 className="contact-card__title">{contact.title}</h3>
+                    <div className="contact-card__content">
+                      {contact.content.map((line, index) => (
+                        <p key={index}>{line}</p>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="contact-no-data">
+                <p>No contact information available.</p>
               </div>
-              <h3 className="contact-card__title">USA Customer Service</h3>
-              <div className="contact-card__content">
-                <p>(800) 518-0092</p>
-              </div>
-            </div>
-
-            {/* Sales Email */}
-            <div className="contact-card">
-              <div className="contact-card__icon">
-                <FaEnvelope />
-              </div>
-              <h3 className="contact-card__title">Sales Email</h3>
-              <div className="contact-card__content">
-                <p>sales@didx.net</p>
-              </div>
-            </div>
-
-            {/* Sales Skype */}
-            <div className="contact-card">
-              <div className="contact-card__icon contact-card__icon--skype">
-                <FaSkype />
-              </div>
-              <h3 className="contact-card__title">Sales Skype</h3>
-              <div className="contact-card__content">
-                <p>salesdidx</p>
-              </div>
-            </div>
-
-            {/* Sales Whatsapp */}
-            <div className="contact-card">
-              <div className="contact-card__icon contact-card__icon--whatsapp">
-                <FaWhatsapp />
-              </div>
-              <h3 className="contact-card__title">Sales Whatsapp</h3>
-              <div className="contact-card__content">
-                <p>(800) 518-0092</p>
-              </div>
-            </div>
-
-            {/* NOC Whatsapp */}
-            <div className="contact-card">
-              <div className="contact-card__icon contact-card__icon--whatsapp">
-                <FaWhatsapp />
-              </div>
-              <h3 className="contact-card__title">NOC Whatsapp</h3>
-              <div className="contact-card__content">
-                <p>(800) 518-0092</p>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Customer Service Notice */}

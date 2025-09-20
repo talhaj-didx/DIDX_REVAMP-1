@@ -1,5 +1,26 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
+import { 
+  FaGlobe, 
+  FaHeadphones, 
+  FaShieldAlt, 
+  FaDollarSign, 
+  FaCode, 
+  FaChartBar 
+} from 'react-icons/fa';
+
+const getIconComponent = (iconName) => {
+  const iconMap = {
+    'globe': FaGlobe,
+    'headphones': FaHeadphones,
+    'shield': FaShieldAlt,
+    'dollar-sign': FaDollarSign,
+    'code': FaCode,
+    'chart-bar': FaChartBar
+  };
+  
+  return iconMap[iconName] || FaGlobe; // Default to FaGlobe if icon not found
+};
 
 const GridCard = ({features}) => {
     const itemsRef = useRef([]);
@@ -45,35 +66,42 @@ const GridCard = ({features}) => {
             }}
         >
             {features
-                ? features.map((d, i) => (
-                    <div
-                        key={`${d.title}-${i}`}
-                        ref={(el) => (itemsRef.current[i] = el)}
-                        style={{
-                            cursor: "pointer",
-                            transition: "transform 0.3s ease",
-                            padding: "25px",
-                            borderRadius: "12px",
-                            background: "#fff",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center", // ✅ centers icon & text
-                            justifyContent: "center",
-                            textAlign: "center",
-                        }}
-                    >
-                        <i
-                            className={d.icon}
+                ? features.map((d, i) => {
+                    const IconComponent = getIconComponent(d.icon);
+                    return (
+                        <div
+                            key={`${d.title}-${i}`}
+                            ref={(el) => (itemsRef.current[i] = el)}
                             style={{
-                                fontSize: "48px",
-                                marginBottom: "15px",
-                                color: "#FFFFFF" // 🎨 highlight color (change as needed)
+                                cursor: "pointer",
+                                transition: "transform 0.3s ease",
+                                padding: "25px",
+                                borderRadius: "12px",
+                                background: "#fff",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center", // ✅ centers icon & text
+                                justifyContent: "center",
+                                textAlign: "center",
                             }}
-                        ></i>
-                        <h3 style={{ marginBottom: "10px" }}>{d.title}</h3>
-                        <p style={{ fontSize: "15px", color: "#555" }}>{d.description}</p>
-                    </div>
-                ))
+                        >
+                            <div
+                                style={{
+                                    fontSize: "48px",
+                                    marginBottom: "15px",
+                                    color: d.color || "#007bff", // Use color from API data
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}
+                            >
+                                <IconComponent />
+                            </div>
+                            <h3 style={{ marginBottom: "10px" }}>{d.title}</h3>
+                            <p style={{ fontSize: "15px", color: "#555" }}>{d.description}</p>
+                        </div>
+                    );
+                })
                 : "Loading..."}
         </div>
     )

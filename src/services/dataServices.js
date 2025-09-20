@@ -54,6 +54,15 @@ export const partnersSection = async () => {
     return await fetchData("/sections/partners");
 };
 
+export const contactUsSection = async () => {
+    return await fetchData("/sections/contact-us");
+};
+
+export const channelRatesSection = async () => {
+    return await fetchData("/sections/channel-rates");
+};
+
+
 
  // fetching multiple sections at once
 export const getMultipleSections = async () => {

@@ -4,6 +4,8 @@ import { useGSAP } from "@gsap/react"
 import { FaPhone, FaSearch, FaFilter, FaGlobe } from 'react-icons/fa'
 import { Contact } from '../components/contact'
 import BreadCrumb from '../components/BreadCrumbs'
+import { useApi } from '../hooks/useApi'
+import { channelRatesSection } from '../services/dataServices'
 
 export const metadata = {
     'title': 'DIDX Channel Rates | DIDX'
@@ -14,74 +16,24 @@ const Channel = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [filterRegion, setFilterRegion] = useState("")
 
-    // Table headings
-    const headings = ['Country', 'Extra Channel Setup Charges', 'Extra Channel Monthly Recurring Charges', 'DID Setup Price', 'DID Per Month Price'];
+    const {data, isLoading, error} = useApi({
+        queryKey:"channel-rates",
+        queryFn: channelRatesSection
+    })
 
-    // Channel rates data
-    const channelData = [
-        ['Anguilla', '$0', '$12', '$1.25', '$1.25'],
-        ['Argentina', '$15', '$23.50', '$1', '$2.52'],
-        ['Australia', '$0', '$5', '$1', '$3.40'],
-        ['Austria', '$15', '$23.50', '$1', '$3.95'],
-        ['Belgium', '$15', '$23.50', '$4', '$5'],
-        ['Brazil', '$15', '$23.50', '$0', '$3'],
-        ['Canada', '$0', '$15', '$0', '$0.70'],
-        ['Chile', '$15', '$23.50', '$1', '$6.50'],
-        ['Colombia', '$0', '$10', '$1', '$12.50'],
-        ['Costa Rica', '$0', '$10', '$1', '$10'],
-        ['Cyprus', '$15', '$23.50', '$1', '$4.75'],
-        ['Czech Republic', '$15', '$23.50', '$1', '$5'],
-        ['Dominican Republic', '$0', '$10', '$1', '$5.63'],
-        ['Egypt', '$10', '$10', '$20.90', '$20'],
-        ['El Salvador', '$15', '$23.50', '$8', '$9'],
-        ['France', '$0', '$10', '$0', '$0.19'],
-        ['Germany', '$2', '$8', '$1', '$5'],
-        ['Ghana', '$0', '$5', '$18', '$15'],
-        ['Guatemala', '$0', '$10', '$1', '$12.50'],
-        ['Hong Kong', '$0', '$5', '$1', '$5.50'],
-        ['Israel', '$15', '$23.50', '$1', '$4.75'],
-        ['Italy', '$15', '$23.50', '$1', '$3.50'],
-        ['Jamaica', '$0', '$5', '$22', '$22'],
-        ['Japan', '$15', '$23.50', '$1', '$4.75'],
-        ['Latvia', '$0', '$5', '$0.25', '$0.75'],
-        ['Malta', '$15', '$23.50', '$1', '$7'],
-        ['Mexico', '$1', '$5.50', '$1', '$3'],
-        ['Netherlands', '$0', '$5', '$0.99', '$0.99'],
-        ['New Zealand', '$0', '$7', '$1', '$3'],
-        ['Panama', '$0', '$10', '$1', '$12.50'],
-        ['Peru', '$15', '$23.50', '$1', '$6.25'],
-        ['Singapore', '$0', '$5', '$2', '$6.60'],
-        ['Slovak Republic', '$15', '$23.50', '$1', '$5'],
-        ['South Africa', '$0', '$5', '$0', '$2.65'],
-        ['Sweden', '$15', '$23.50', '$1', '$3.95'],
-        ['Switzerland', '$0', '$5', '$2.95', '$3.95'],
-        ['United Kingdom', '$0', '$7', '$1', '$2.63'],
-        ['USA', '$0', '$5', '$0', '$0.15'],
-        ['Venezuela', '$0', '$10', '$1', '$12.50']
-    ]
-
-    // Define regions for countries
-    const getRegion = (country) => {
-        const europeCountries = ['Austria', 'Belgium', 'Cyprus', 'Czech Republic', 'France', 'Germany', 'Italy', 'Latvia', 'Malta', 'Netherlands', 'Slovak Republic', 'Sweden', 'Switzerland', 'United Kingdom']
-        const asiaCountries = ['Australia', 'Hong Kong', 'Israel', 'Japan', 'Singapore']
-        const americasCountries = ['Anguilla', 'Argentina', 'Brazil', 'Canada', 'Chile', 'Colombia', 'Costa Rica', 'Dominican Republic', 'El Salvador', 'Guatemala', 'Jamaica', 'Mexico', 'Panama', 'Peru', 'USA', 'Venezuela']
-        const africaCountries = ['Egypt', 'Ghana', 'South Africa']
-        
-        if (europeCountries.includes(country)) return 'europe'
-        if (asiaCountries.includes(country)) return 'asia'
-        if (americasCountries.includes(country)) return 'americas'
-        if (africaCountries.includes(country)) return 'africa'
-        return 'other'
-    }
+    const {data : channelData} = data ?? {};
 
     // Filter and search functionality
     const filteredData = useMemo(() => {
-        return channelData.filter(([country, nrc, mrc, ppm, additional]) => {
-            const matchesSearch = country.toLowerCase().includes(searchTerm.toLowerCase())
-            const matchesFilter = !filterRegion || getRegion(country) === filterRegion
+        if (!channelData || !Array.isArray(channelData)) {
+            return []
+        }
+        return channelData.filter((item) => {
+            const matchesSearch = item?.country?.toLowerCase().includes(searchTerm.toLowerCase())
+            const matchesFilter = !filterRegion || item?.region === filterRegion
             return matchesSearch && matchesFilter
         })
-    }, [searchTerm, filterRegion])
+    }, [channelData, searchTerm, filterRegion])
 
     useGSAP(() => {
         if (sectionRef.current) {
@@ -154,30 +106,44 @@ const Channel = () => {
                             </div>
 
                             <div className="channel-table__container">
-                                <table className="channel-table">
-                                    <thead>
-                                        <tr>
-                                            {headings.map((heading, index) => (
-                                                <th key={index}>{heading}</th>
-                                            ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {filteredData.map(([country, nrc, mrc, ppm, additional], idx) => (
-                                            <tr key={idx}>
-                                                <td className="channel-table__country">{country}</td>
-                                                <td className="channel-table__nrc">{nrc}</td>
-                                                <td className="channel-table__mrc">{mrc}</td>
-                                                <td className="channel-table__ppm">{ppm}</td>
-                                                <td className="channel-table__additional">{additional}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                                {filteredData.length === 0 && (
-                                    <div className="channel-table__no-results">
-                                        <p>No countries found matching your search criteria.</p>
+                                {isLoading ? (
+                                    <div className="channel-table__loading">
+                                        <p>Loading channel rates...</p>
                                     </div>
+                                ) : error ? (
+                                    <div className="channel-table__error">
+                                        <p>Error loading channel rates. Please try again later.</p>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <table className="channel-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Country</th>
+                                                    <th>Extra Channel Setup Charges</th>
+                                                    <th>Extra Channel Monthly Recurring Charges</th>
+                                                    <th>DID Setup Price</th>
+                                                    <th>DID Per Month Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {filteredData.map((item) => (
+                                                    <tr key={item.id}>
+                                                        <td className="channel-table__country">{item.country}</td>
+                                                        <td className="channel-table__nrc">{item.extraChannelSetupCharges}</td>
+                                                        <td className="channel-table__mrc">{item.extraChannelMonthlyRecurringCharges}</td>
+                                                        <td className="channel-table__ppm">{item.didSetupPrice}</td>
+                                                        <td className="channel-table__additional">{item.didPerMonthPrice}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                        {filteredData.length === 0 && !isLoading && (
+                                            <div className="channel-table__no-results">
+                                                <p>No countries found matching your search criteria.</p>
+                                            </div>
+                                        )}
+                                    </>
                                 )}
                             </div>
                         </div>

@@ -5,15 +5,6 @@ import { FaBuilding, FaChartLine, FaUsers, FaCog, FaGlobe, FaPhone } from "react
 import { Contact } from "../components/contact";
 import BreadCrumb from "../components/BreadCrumbs";
 
-// // ✅ Breadcrumb (converted from your layout component)
-// const BreadCrumb = ({ title }) => (
-//   <Box sx={{mt: 10, py: 2, px: { xs: 2, md: 6 }, bgcolor: "#f5f5f5" }}>
-//     <Typography variant="h5" color="text.secondary" style={{justifySelf:'flex-end'}}>
-//       Home / <span style={{ color: "#1976d2" }}>{title}</span>
-//     </Typography>
-//   </Box>
-// );
-
 export default function Clec() {
   const sectionRef = useRef(null);
   
