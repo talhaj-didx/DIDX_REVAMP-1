@@ -1,21 +1,10 @@
 import React, { useRef, useState, useMemo } from "react";
 import { FaSearch, FaFilter } from "react-icons/fa";
-import JsonData from "../data/data.json";
 
-export default function AnimatedTable() {
+export default function AnimatedTable({countries}) {
   const tableRef = useRef();
   const [searchTerm, setSearchTerm] = useState("");
   const [filterRegion, setFilterRegion] = useState("");
-  // const landingPageData = JsonData;
-
-  const {
-    Coverage: {
-      data: {
-        data: { countries },
-      },
-    },
-  } = JsonData;
-
 
   // Filter and search functionality
   const filteredValues = useMemo(() => {

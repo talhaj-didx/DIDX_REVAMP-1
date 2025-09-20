@@ -105,23 +105,24 @@ export default function BuyDid() {
 
           {/* Features Section */}
           <div className="buydid-features buydid-section">
-            {/* <h2 className="buydid-features__title">Why Choose DIDX for Your DID Needs?</h2>
-            <p className="buydid-features__subtitle">
-              Discover the comprehensive benefits and features that make DIDX the preferred choice for VoIP providers worldwide
-            </p> */}
-            
-            <div className="buydid-features__grid">
-              {features.map((feature, index) => (
-                <div key={index} className="buydid-feature">
-                  <div className="buydid-feature__icon">
-                    {feature.icon}
+            <div className="buydid-features__content">
+              <h2 className="buydid-features__title">
+                Why Choose DIDX for Your DID Needs?
+              </h2>
+              <p className="buydid-features__subtitle">
+                Discover the comprehensive benefits and features that make DIDX the preferred choice for VoIP providers worldwide
+              </p>
+              <div className="buydid-features__benefits">
+                {features.map((feature, index) => (
+                  <div key={index} className="buydid-features__benefit">
+                    <div className="buydid-features__benefit-icon">
+                      {feature.icon}
+                    </div>
+                    <h3 className="buydid-features__benefit-title">{feature.title}</h3>
+                    <p className="buydid-features__benefit-text">{feature.text}</p>
                   </div>
-                  <div className="buydid-feature__content">
-                    <h3 className="buydid-feature__title">{feature.title}</h3>
-                    <p className="buydid-feature__text">{feature.text}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-import { useData } from "../hooks/useData";
 
 export const Header = ({data}) => {
   const overlayRef = useRef(null);
@@ -74,11 +73,11 @@ export const Header = ({data}) => {
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
                 <h1 ref={titleRef} style={{ color: text_color }}>
-                  {title || "Loading"}
+                  {title || ""}
                   <span></span>
                 </h1>
                 <p ref={paragraphRef} style={{ color: text_color }}>
-                  {paragraph || "Loading"}
+                  {paragraph || ""}
                 </p>
 
                 <Link
@@ -90,7 +89,7 @@ export const Header = ({data}) => {
                     backgroundImage: `linear-gradient(to right, ${button_color || "#000"}, transparent)`
                   }}
                 >
-                  {cta_text || "Sign Up"}
+                  {cta_text || ""}
                 </Link>
               </div>
             </div>

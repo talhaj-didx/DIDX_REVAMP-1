@@ -5,7 +5,8 @@ import { About } from "../components/about";
 import { Testimonials } from "../components/testimonials";
 import { Team } from "../components/Team";
 import { Contact } from "../components/contact";
-import { useMultipleSections } from "../hooks/useMultipleSections";
+import { useApi } from "../hooks/useApi";
+import { getMultipleSections } from "../services/dataServices";
 
 function getSection(response, key) {
   return response?.[key] || [];
@@ -13,7 +14,7 @@ function getSection(response, key) {
 
 const Home = () => {
 
-  const { data, } = useMultipleSections();
+  const { data } = useApi({ queryKey: "multipleSections", queryFn: getMultipleSections });
   const heroData = getSection(data, "hero");
   const featuresData = getSection(data, "features");
   const featuresVideos = getSection(data, "videos");

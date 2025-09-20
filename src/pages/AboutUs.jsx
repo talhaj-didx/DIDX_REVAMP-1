@@ -3,8 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import {
-  FaUsers, FaAward, FaQuestionCircle,
-  FaHistory, FaNetworkWired, FaPeopleCarry,
+  FaUsers,
   FaGlobe, FaHandshake
 } from "react-icons/fa";
 import { Contact } from "../components/contact";
@@ -18,9 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutUs = () => {
   const videoRef = useRef(null);
   const statsRef = useRef([]);
-
-
-  const [activeModal, setActiveModal] = useState(null);
 
   useGSAP(() => {
 
@@ -58,21 +54,10 @@ const AboutUs = () => {
     });
   }, []);
 
-  // Data for modal
-  const cardData = [
-    { icon: <FaUsers />, title: "Who Are We?", text: "DIDX, incorporated in Delaware since 2005..." },
-    { icon: <FaQuestionCircle />, title: "Why Do We Do?", text: "We needed phone numbers for services..." },
-    { icon: <FaNetworkWired />, title: "What Do We Do?", text: "DID Exchange is a VoIP-based wholesale..." },
-    { icon: <FaHistory />, title: "Since When Are We Doing This?", text: "Our founder Rehan Allahwala..." },
-    { icon: <FaAward />, title: "Recognition", text: "DIDX has been honored with awards..." },
-    { icon: <FaPeopleCarry />, title: "Team", text: "Rehan calls DIDX an accident..." },
-  ];
-
   return (
     <main className="about-page">
       <HeroSection
         titleA={"We connect the world with phone numbers"}
-        // titleB={"phone numbers"}
         description={" Since 2005, DIDX has helped carriers and service providers buy and sell DIDs at scale—securely, transparently, and efficiently."}
         img={"/img/globe.png"} />
 
@@ -96,40 +81,7 @@ const AboutUs = () => {
 
       {/* CONTENT BLOCKS */}
       <section className="about-sections container">
-        {/* <FeaturesCard data={cardData} /> */}
-        {/* <MultiActionAreaCard
-          title={" Who Are We?"}
-          description={"DIDX, incorporated in Delaware since 2005, has been working in the field of telecom solutions. More information on Super Technologies can be found at supertec.com."}
-          img={"/img/who.jpg"}
-        /> */}
 
-        {/* <MultiActionAreaCard
-          title={"Why Do We Do?"}
-          description={
-            <>
-              DIDX was created initially because we needed to buy phone numbers for our
-              own services like virtualphoneline.com but when we went out there to look
-              for numbers, no one was willing to sell in small qty and being a small
-              company we needed smaller qty’s.
-              <br />
-              <br />
-              So one of the vendor’s told us that we can not sell you less numbers because
-              we do not have a billing system to sell you the numbers in small qty with
-              and the answer from our team was CAN WE BUILD SOMETHING for you to BILL US
-              with ?
-              <br />
-              <br />
-              We thought that if we could solve this problem for them, there may be a few
-              dozen other companies who would want to use us for billing, and perhaps 50
-              or so more could eventually use DIDX. Little did we know that within a few
-              years, over 30,000 phone companies would use it, and great names like
-              Google, IBM, and Microsoft became our partners and customers.
-            </>
-          }
-
-          img={"/img/who.jpg"}
-          style={{ mt: 5 }}
-        /> */}
         <InfoSection
           title="Who Are We?"
           description="DIDX, incorporated in Delaware since 2005, has been working in the field of telecom solutions. More information on Super Technologies can be found at supertec.com."

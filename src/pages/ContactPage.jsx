@@ -4,14 +4,38 @@ import Lottie from 'lottie-react'
 import BreadCrumb from '../components/BreadCrumbs'
 import { Contact } from '../components/contact'
 import contactAnimation from '../lottie/Contact Us.json'
+import { useGSAP } from '@gsap/react'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const ContactPage = () => {
   const lottieRef = useRef(null)
+  const rootRef = useRef();
+  
+  
+      useGSAP(() => {
+          // Animate the main container
+          gsap.from(rootRef.current, {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: rootRef.current,
+              start: "top 80%",
+            },
+          });
+        });
 
   return (
     <>
       <BreadCrumb title="Contact Us" />
-      <div className="contact-page">
+      <div className="contact-page" ref={rootRef}>
         <div className="contact-container">
           {/* Header Section with Lottie Animation */}
           <div className="contact-header">

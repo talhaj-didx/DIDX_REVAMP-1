@@ -1,5 +1,4 @@
 import axiosInstance from "../api/axiosInstance";
-import { fallbackHeroData, fallbackHeaderData, fallbackFeaturesData, fallbackUsersData } from "./fallbackData";
 
 // Generic data fetching functions
 export const fetchData = async (endpoint) => {
@@ -38,6 +37,23 @@ export const TestimonialsSection = async () => {
 export const ourTeamSection = async () => {
     return await fetchData("/sections/type/our_team");
 };
+
+export const coverageSection = async () => {
+    return await fetchData("/sections/coverage");
+};
+
+export const awardsSection = async () => {
+    return await fetchData("/sections/awards");
+};
+
+export const eventsSection = async () => {
+    return await fetchData("/sections/events");
+};
+
+export const partnersSection = async () => {
+    return await fetchData("/sections/partners");
+};
+
 
  // fetching multiple sections at once
 export const getMultipleSections = async () => {

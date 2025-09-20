@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,6 +8,8 @@ import AnimatedTable from '../components/animatedTable';
 import HeroSection from '../components/heroSection';
 import { Contact } from '../components/contact';
 import JsonData from "../data/data.json";
+import { useApi } from "../hooks/useApi";
+import { coverageSection } from "../services/dataServices";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -18,15 +20,10 @@ const Coverage = () => {
   const sectionRef = useRef();
   const heroRef = useRef();
   const ctaRef = useRef();
-  const {
-    Coverage: {
-      data: {
-        title: coverage,
-        description,
-        data: { countries },
-      },
-    },
-  } = JsonData;
+  const { data } = useApi({ queryKey: "coverage", queryFn: coverageSection })
+
+  const { data: countries } = data ?? {}
+
 
   useGSAP(() => {
     // Hero section animations
@@ -41,7 +38,7 @@ const Coverage = () => {
 
       if (icon && title && subtitle && info && image && stats.length > 0) {
         const tl = gsap.timeline();
-        
+
         // Icon animation
         tl.from(icon, {
           scale: 0,
@@ -49,42 +46,42 @@ const Coverage = () => {
           duration: 0.8,
           ease: "back.out(1.7)"
         })
-        // Title animation
-        .from(title, {
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power3.out"
-        }, "-=0.4")
-        // Subtitle animation
-        .from(subtitle, {
-          opacity: 0,
-          y: 20,
-          duration: 0.6,
-          ease: "power3.out"
-        }, "-=0.3")
-        // Info text animation
-        .from(info, {
-          opacity: 0,
-          y: 20,
-          duration: 0.6,
-          ease: "power3.out"
-        }, "-=0.2")
-        // Image animation
-        .from(image, {
-          opacity: 0,
-          x: 50,
-          duration: 0.8,
-          ease: "power3.out"
-        }, "-=0.4")
-        // Stats animation
-        .from(stats, {
-          opacity: 0,
-          y: 20,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: "power3.out"
-        }, "-=0.3");
+          // Title animation
+          .from(title, {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            ease: "power3.out"
+          }, "-=0.4")
+          // Subtitle animation
+          .from(subtitle, {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power3.out"
+          }, "-=0.3")
+          // Info text animation
+          .from(info, {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power3.out"
+          }, "-=0.2")
+          // Image animation
+          .from(image, {
+            opacity: 0,
+            x: 50,
+            duration: 0.8,
+            ease: "power3.out"
+          }, "-=0.4")
+          // Stats animation
+          .from(stats, {
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            duration: 0.6,
+            ease: "power3.out"
+          }, "-=0.3");
 
         // Continuous floating animation for icon
         gsap.to(icon, {
@@ -114,7 +111,7 @@ const Coverage = () => {
       if (ctaElements.length > 0) {
         // Set initial state
         gsap.set(ctaElements, { opacity: 0, y: 30 });
-        
+
         // Animate in
         gsap.to(ctaElements, {
           opacity: 1,
@@ -152,7 +149,7 @@ const Coverage = () => {
         }
         img={"/img/globe.png"}
       />
-      
+
       {/* Coverage Image Section */}
       <section className="coverage-page">
         <div className="coverage-container">
@@ -195,8 +192,10 @@ const Coverage = () => {
         </div>
       </section>
 
-      <AnimatedTable />
-      
+      {countries?.length > 0 &&
+        <AnimatedTable countries={countries} />
+      }
+
       {/* CTA Section */}
       <section className="coverage-cta-section">
         <div className="coverage-container">
@@ -212,7 +211,7 @@ const Coverage = () => {
           </div>
         </div>
       </section>
-      
+
       <Contact />
     </div>
   )

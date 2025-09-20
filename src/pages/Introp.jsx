@@ -13,18 +13,23 @@ if (typeof window !== "undefined") {
 }
 
 export default function BuyerSellerInteropPage() {
-    const sectionRef = useRef();
+    const rootRef = useRef();
 
 
     useGSAP(() => {
-        gsap.from(sectionRef.current?.querySelectorAll("h3, p, a"), {
-            opacity: 0,
-            y: 20,
-            stagger: 0.1,
-            duration: 0.6,
-            ease: "power3.out",
+        // Simple fade-in animation for all sections
+        gsap.from(rootRef.current.querySelectorAll(".interop-section"), {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: rootRef.current,
+            start: "top 80%",
+          },
         });
-    }, []);
+      });
 
     return (
         <>
@@ -42,42 +47,8 @@ export default function BuyerSellerInteropPage() {
                 img={"/img/globe.png"}
             />
 
-            <section className="interop-page">
-                <div className="interop-container">
-                    {/* Hero Section */}
-                    {/* <div ref={sectionRef} className="interop-hero interop-section">
-                        <div className="interop-hero__content">
-                            <h1 className="interop-hero__title">Buyer and Seller Interop Process</h1>
-                            <p className="interop-hero__subtitle">
-                                Seamless integration and testing between your network and DIDX for optimal business activation
-                            </p>
-                            <div className="interop-hero__stats">
-                                <div className="interop-hero__stat">
-                                    <div className="interop-hero__stat-icon">
-                                        <FaNetworkWired />
-                                    </div>
-                                    <span className="interop-hero__stat-number">500+</span>
-                                    <span className="interop-hero__stat-label">Minimum Numbers</span>
-                                </div>
-                                <div className="interop-hero__stat">
-                                    <div className="interop-hero__stat-icon">
-                                        <FaCheckCircle />
-                                    </div>
-                                    <span className="interop-hero__stat-number">24/7</span>
-                                    <span className="interop-hero__stat-label">Support Available</span>
-                                </div>
-                                <div className="interop-hero__stat">
-                                    <div className="interop-hero__stat-icon">
-                                        <FaPhone />
-                                    </div>
-                                    <span className="interop-hero__stat-number">100%</span>
-                                    <span className="interop-hero__stat-label">Network Testing</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-
-
+            <div className="buydid-page" ref={rootRef}>
+                <div className="buydid-container">
 
                     {/* Process Steps */}
                     <div className="interop-process interop-section">
@@ -177,7 +148,7 @@ export default function BuyerSellerInteropPage() {
                         </a>
                     </div>
                 </div>
-            </section>
+            </div>
             <Contact />
         </>
     );

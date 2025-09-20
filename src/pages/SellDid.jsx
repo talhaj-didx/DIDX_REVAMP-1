@@ -81,34 +81,48 @@ export const features = [
 
 const SellDid = () => {
 
-  const sectionRef = useRef(null);
+  const rootRef = useRef(null);
+  const moneySectionRef = useRef(null);
 
-  // Animate the new section
+  // GSAP animation for features section (same as BuyDid.jsx)
   useGSAP(() => {
-    gsap.from(sectionRef.current.querySelectorAll(".money-block"), {
+    gsap.from(rootRef.current.querySelectorAll(".buydid-section"), {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: rootRef.current,
+        start: "top 80%",
+      },
+    });
+
+    // Animate the money section
+    gsap.from(moneySectionRef.current.querySelectorAll(".money-block"), {
       opacity: 0,
       y: 50,
       duration: 0.8,
       stagger: 0.3,
       scrollTrigger: {
-        trigger: sectionRef.current,
+        trigger: moneySectionRef.current,
         start: "top 80%",
       },
     });
 
-    gsap.from(sectionRef.current.querySelector(".money-image"), {
+    gsap.from(moneySectionRef.current.querySelector(".money-image"), {
       opacity: 0,
       x: 100,
       duration: 1,
       scrollTrigger: {
-        trigger: sectionRef.current,
+        trigger: moneySectionRef.current,
         start: "top 85%",
       },
     });
   });
 
   return (
-    <div>
+    <div ref={rootRef}>
       <HeroSection
         titleA={"Sell Your DIDS To Us"}
         description={
@@ -122,18 +136,24 @@ const SellDid = () => {
         <div className="buydid-container">
           {/* Features Section */}
           <div className="buydid-features buydid-section">
-            <div className="buydid-features__grid">
-              {features.map((feature, index) => (
-                <div key={index} className="buydid-feature">
-                  <div className="buydid-feature__icon">
-                    {feature.icon}
+            <div className="buydid-features__content">
+              <h2 className="buydid-features__title">
+                Why Choose DIDX to Sell Your DIDs?
+              </h2>
+              <p className="buydid-features__subtitle">
+                Discover the comprehensive benefits and features that make DIDX the preferred marketplace for selling DIDs worldwide
+              </p>
+              <div className="buydid-features__benefits">
+                {features.map((feature, index) => (
+                  <div key={index} className="buydid-features__benefit">
+                    <div className="buydid-features__benefit-icon">
+                      {feature.icon}
+                    </div>
+                    <h3 className="buydid-features__benefit-title">{feature.title}</h3>
+                    <p className="buydid-features__benefit-text">{feature.text}</p>
                   </div>
-                  <div className="buydid-feature__content">
-                    <h3 className="buydid-feature__title">{feature.title}</h3>
-                    <p className="buydid-feature__text">{feature.text}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -143,7 +163,7 @@ const SellDid = () => {
 
 
       {/* New Section: How to Make Money from DIDX */}
-      <section className="money-section" ref={sectionRef}>
+      <section className="money-section" ref={moneySectionRef}>
         <h2>HOW TO MAKE MONEY FROM DIDX?</h2>
 
         <div className="money-container">
