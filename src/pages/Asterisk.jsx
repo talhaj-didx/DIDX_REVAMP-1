@@ -1,9 +1,9 @@
-import BreadCrumb from "./BreadCrumbs";
+import BreadCrumb from "../components/BreadCrumbs";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { FaServer, FaCode, FaCog, FaExternalLinkAlt, FaQuestionCircle } from "react-icons/fa";
-import { Contact } from "./contact";
+import { Contact } from "../components/contact";
 
 
 export const metadata = {
@@ -40,11 +40,11 @@ export default function Asterisk() {
     return (
         <>
             <BreadCrumb title={metadata.title} />
-            
+
             <section className="asterisk-page">
                 <div className="asterisk-container">
                     <div ref={containerRef} className="asterisk-content">
-                        
+
                         {/* Hero Section */}
                         <div className="asterisk-hero asterisk-section">
                             <div className="asterisk-hero__icon">
@@ -60,12 +60,12 @@ export default function Asterisk() {
                         <div className="asterisk-section">
                             <div className="asterisk-text-block">
                                 <p className="asterisk-text">
-                        DIDX provides simple call forwarding Service, does not offer SIP or
-                        IAX2 accounts (PEERS) to register on our network.
+                                    DIDX provides simple call forwarding Service, does not offer SIP or
+                                    IAX2 accounts (PEERS) to register on our network.
                                 </p>
                                 <p className="asterisk-text">
-                        Which means that you must allow DIDX to send you calls on your
-                        asterisk server from our IP Addresses.
+                                    Which means that you must allow DIDX to send you calls on your
+                                    asterisk server from our IP Addresses.
                                 </p>
                             </div>
                         </div>
@@ -83,19 +83,19 @@ export default function Asterisk() {
                                 <table className="asterisk-table">
                                     <thead>
                                         <tr>
-                                {headings.map((head, idx) => (
+                                            {headings.map((head, idx) => (
                                                 <th key={idx} className="asterisk-table__header">
-                                        {head}
+                                                    {head}
                                                 </th>
                                             ))}
                                         </tr>
                                     </thead>
                                     <tbody>
-                            {values.map((row, rowIndex) => (
+                                        {values.map((row, rowIndex) => (
                                             <tr key={rowIndex} className={`asterisk-table__row ${rowIndex % 2 === 0 ? 'asterisk-table__row--even' : 'asterisk-table__row--odd'}`}>
-                                    {row.map((val, colIndex) => (
+                                                {row.map((val, colIndex) => (
                                                     <td key={colIndex} className="asterisk-table__cell">
-                                            {val}
+                                                        {val}
                                                     </td>
                                                 ))}
                                             </tr>
@@ -109,10 +109,10 @@ export default function Asterisk() {
                         <div className="asterisk-section">
                             <div className="asterisk-text-block">
                                 <p className="asterisk-text">
-                        You should be able to receive calls from DIDX over SIP or IAX2
+                                    You should be able to receive calls from DIDX over SIP or IAX2
                                 </p>
                                 <p className="asterisk-text">
-                        Asterisk Sample Configurations
+                                    Asterisk Sample Configurations
                                 </p>
                             </div>
                         </div>
@@ -137,10 +137,10 @@ Sample iax.conf`}</pre>
                                     <strong>SIP.Conf Sample File Location:</strong> /etc/asterisk/sip.conf
                                 </p>
                                 <p className="asterisk-text">
-                        Since the call is going to you over GENERAL Context, you will need
-                        to add the following lines to make your asterisk work with DIDX
-                        properly. Otherwise you will face errors and will think that DID is
-                        not working.
+                                    Since the call is going to you over GENERAL Context, you will need
+                                    to add the following lines to make your asterisk work with DIDX
+                                    properly. Otherwise you will face errors and will think that DID is
+                                    not working.
                                 </p>
                             </div>
 
@@ -258,24 +258,24 @@ exten = radio,2,MP3Player(https://www.didx.net/jesus.mp3)`}</pre>
                                 </div>
                                 <div className="asterisk-support__content">
                                     <p className="asterisk-text">
-                        We recommend you to visit{" "}
+                                        We recommend you to visit{" "}
                                         <a href="/about" className="asterisk-link">
-                            About us
+                                            About us
                                         </a>
-                        ,{" "}
+                                        ,{" "}
                                         <a
-                            href="https://voip-info.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                                            href="https://voip-info.org"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="asterisk-link"
-                        >
-                            VOIP information
+                                        >
+                                            VOIP information
                                             <FaExternalLinkAlt />
                                         </a>
                                     </p>
                                     <p className="asterisk-text">
-                        If you are still having problems, We suggest you contact an asterisk
-                        consultant, or best would be to contact www.Digium.com
+                                        If you are still having problems, We suggest you contact an asterisk
+                                        consultant, or best would be to contact www.Digium.com
                                     </p>
                                 </div>
                             </div>
@@ -284,7 +284,7 @@ exten = radio,2,MP3Player(https://www.didx.net/jesus.mp3)`}</pre>
                     </div>
                 </div>
             </section>
-            
+
             <Contact />
         </>
     );

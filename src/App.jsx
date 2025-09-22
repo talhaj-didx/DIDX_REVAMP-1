@@ -24,7 +24,7 @@ import Clec from "./pages/Clec";
 import ToolFreeNumbers from "./pages/ToolFreeNumbers";
 import CaseStudy from "./pages/CaseStudy";
 import Lookup from "./pages/Lookup";
-import Asterisk from "./components/Asterisk";
+import Asterisk from "./pages/Asterisk";
 import VoipSwitch from "./pages/VoipSwitch";
 import Elastix from "./pages/Elastix";
 import Partners from "./pages/Partners";
