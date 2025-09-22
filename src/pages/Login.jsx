@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -6,21 +6,19 @@ import { FaUser, FaLock, FaShieldAlt } from "react-icons/fa";
 
 import { Contact } from "../components/contact";
 import BreadCrumb from "../components/BreadCrumbs";
+import { useLoginForm } from "../hooks/useLoginForm";
 
 export default function Login() {
   const formRef = useRef(null);
-  
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    captchaVerified,
+    handleInputChange,
+    handleSubmit
+  } = useLoginForm();
 
-  useEffect(() => {
-    const loadReCaptcha = () => {
-      const script = document.createElement("script");
-      script.src = "https://www.google.com/recaptcha/api.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    };
-    loadReCaptcha();
-  }, []);
 
   useGSAP(() => {
     gsap.from(formRef.current, {
@@ -62,9 +60,7 @@ export default function Login() {
 
               <form
                 className="login-form"
-                action="https://admin.didx.net/LoginAction.php"
-                method="POST"
-                noValidate
+                onSubmit={handleSubmit}
               >
                 <div className="login-form__fields">
                   {/* UID Field */}
@@ -74,12 +70,16 @@ export default function Login() {
                       <FaUser />
                     </div>
                     <input
-                      className="login-field__input"
+                      className={`login-field__input ${errors.UID ? 'login-field__input--error' : ''}`}
                       type="text"
                       name="UID"
+                      value={formData.UID}
+                      onChange={handleInputChange}
                       placeholder="Enter your UID"
-                      required
                     />
+                    {errors.UID && (
+                      <span className="login-field__error">{errors.UID}</span>
+                    )}
                   </div>
 
                   {/* Password Field */}
@@ -89,12 +89,16 @@ export default function Login() {
                       <FaLock />
                     </div>
                     <input
-                      className="login-field__input"
+                      className={`login-field__input ${errors.Pass ? 'login-field__input--error' : ''}`}
                       type="password"
                       name="Pass"
+                      value={formData.Pass}
+                      onChange={handleInputChange}
                       placeholder="Enter your password"
-                      required
                     />
+                    {errors.Pass && (
+                      <span className="login-field__error">{errors.Pass}</span>
+                    )}
                   </div>
                 </div>
 
@@ -120,14 +124,22 @@ export default function Login() {
                     <div
                       className="g-recaptcha"
                       data-sitekey="6Le4oD0UAAAAAC5rb6AJF6TQjUYXSo76OwzsQ1Vd"
+                      data-callback="onCaptchaChange"
                     />
                   </div>
+                  {errors.captcha && (
+                    <span className="login-field__error">{errors.captcha}</span>
+                  )}
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="login-form__submit">
+                <button 
+                  type="submit" 
+                  className="login-form__submit"
+                  disabled={isSubmitting || !formData.UID.trim() || !formData.Pass.trim() || !captchaVerified}
+                >
                   <FaUser className="login-form__submit-icon" />
-                  Sign In
+                  {isSubmitting ? "Signing In..." : "Sign In"}
                 </button>
               </form>
 
@@ -135,11 +147,11 @@ export default function Login() {
               <div className="login-form__info">
                 <p className="login-form__info-text">
                   By signing in, you agree to our{" "}
-                  <Link to="/terms" className="login-form__info-link">
+                  <Link to="/" className="login-form__info-link">
                     Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link to="/privacy" className="login-form__info-link">
+                  <Link to="/" className="login-form__info-link">
                     Privacy Policy
                   </Link>
                 </p>

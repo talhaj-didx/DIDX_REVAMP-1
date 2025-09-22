@@ -12,7 +12,7 @@ export const Testimonials = ({data}) => {
 
    const {
     title = "",
-    data: { testimonials = [] } = {},
+    data: { team_members : testimonials = [] } = {},
   } = data?.[0] || {};
 
   useGSAP(
@@ -76,10 +76,10 @@ export const Testimonials = ({data}) => {
                 >
                   <div className="testimonial">
                     <div className="testimonial-image">
-                      <img src={d.avatar} alt={d.name} />
+                      <img src={`https://didxhub.com/${d.photo}`} alt={d.name} />
                     </div>
                     <div className="testimonial-content">
-                      <p>"{d.content}"</p>
+                      <p>"{d.bio}"</p>
                       <div className="testimonial-meta"> - {d.name} </div>
                     </div>
                   </div>

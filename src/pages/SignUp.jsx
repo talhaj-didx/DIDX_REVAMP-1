@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -18,21 +18,20 @@ import ReferralCodeFromURL from "../components/ReferralCodeFromURL";
 import PhoneInput from "../components/phoneInput";
 import { Contact } from "../components/contact";
 import BreadCrumb from "../components/BreadCrumbs";
+import { useSignUpForm } from "../hooks/useSignUpForm";
 
 export default function Signup() {
     const formRef = useRef(null);
-    
+    const {
+        formData,
+        errors,
+        isSubmitting,
+        captchaVerified,
+        handleInputChange,
+        handleSubmit
+    } = useSignUpForm();
 
-    useEffect(() => {
-        const loadReCaptcha = () => {
-            const script = document.createElement("script");
-            script.src = "https://www.google.com/recaptcha/api.js";
-            script.async = true;
-            script.defer = true;
-            document.body.appendChild(script);
-        };
-        loadReCaptcha();
-    }, []);
+
 
     useGSAP(() => {
         gsap.from(formRef.current, {
@@ -74,9 +73,7 @@ export default function Signup() {
 
                   <form
                     className="signup-form"
-                    action="https://admin.didx.net/signup/NewSignupConfirm.php"
-                    method="POST"
-                    noValidate
+                    onSubmit={handleSubmit}
                   >
                     <div className="signup-form__fields">
                       {/* Personal Information Section */}
@@ -94,12 +91,16 @@ export default function Signup() {
                               <FaUser />
                             </div>
                             <input
-                              className="signup-field__input"
+                              className={`signup-field__input ${errors.CFName ? 'signup-field__input--error' : ''}`}
                               type="text"
                               name="CFName"
+                              value={formData.CFName}
+                              onChange={handleInputChange}
                               placeholder="John"
-                              required
                             />
+                            {errors.CFName && (
+                              <span className="signup-field__error">{errors.CFName}</span>
+                            )}
                           </div>
 
                           {/* Last Name */}
@@ -109,12 +110,16 @@ export default function Signup() {
                               <FaUser />
                             </div>
                             <input
-                              className="signup-field__input"
+                              className={`signup-field__input ${errors.CLName ? 'signup-field__input--error' : ''}`}
                               type="text"
                               name="CLName"
+                              value={formData.CLName}
+                              onChange={handleInputChange}
                               placeholder="Doe"
-                              required
                             />
+                            {errors.CLName && (
+                              <span className="signup-field__error">{errors.CLName}</span>
+                            )}
                           </div>
                         </div>
 
@@ -125,12 +130,16 @@ export default function Signup() {
                             <FaEnvelope />
                           </div>
                           <input
-                            className="signup-field__input"
+                            className={`signup-field__input ${errors.CEmail ? 'signup-field__input--error' : ''}`}
                             type="email"
                             name="CEmail"
+                            value={formData.CEmail}
+                            onChange={handleInputChange}
                             placeholder="business emails only"
-                            required
                           />
+                          {errors.CEmail && (
+                            <span className="signup-field__error">{errors.CEmail}</span>
+                          )}
                         </div>
                       </div>
 
@@ -150,8 +159,8 @@ export default function Signup() {
                           <select
                             className="signup-field__select"
                             name="custype"
-                            defaultValue="0"
-                            required
+                            value={formData.custype}
+                            onChange={handleInputChange}
                           >
                             <option value="0">Buy DIDS on DIDX</option>
                             <option value="1">Sell DIDS on DIDX</option>
@@ -165,12 +174,16 @@ export default function Signup() {
                             <FaBuilding />
                           </div>
                           <input
-                            className="signup-field__input"
+                            className={`signup-field__input ${errors.CCompany ? 'signup-field__input--error' : ''}`}
                             type="text"
                             name="CCompany"
+                            value={formData.CCompany}
+                            onChange={handleInputChange}
                             placeholder="John Cyber Inc"
-                            required
                           />
+                          {errors.CCompany && (
+                            <span className="signup-field__error">{errors.CCompany}</span>
+                          )}
                         </div>
 
                         {/* Company Website */}
@@ -179,13 +192,18 @@ export default function Signup() {
                           <div className="signup-field__input-group">
                             <span className="signup-field__prefix">https://</span>
                             <input
-                              className="signup-field__input"
+                              className={`signup-field__input ${errors.companyWebsite ? 'signup-field__input--error' : ''}`}
                               type="text"
-                              name="company-website"
+                              name="companyWebsite"
+                              value={formData.companyWebsite}
+                              onChange={handleInputChange}
                               placeholder="john-cyber.com"
                               style={{ paddingLeft: '0.5rem', border: 'none', borderRadius: '0 12px 12px 0' }}
                             />
                           </div>
+                          {errors.companyWebsite && (
+                            <span className="signup-field__error">{errors.companyWebsite}</span>
+                          )}
                         </div>
 
                         {/* Country */}
@@ -197,8 +215,8 @@ export default function Signup() {
                           <select
                             className="signup-field__select"
                             name="CCountry"
-                            defaultValue="AF"
-                            required
+                            value={formData.CCountry}
+                            onChange={handleInputChange}
                           >
                             {countries.map((country) => (
                               <option key={country.iso_code} value={country.iso_code}>
@@ -224,15 +242,28 @@ export default function Signup() {
                       {/* Checkboxes */}
                       <div className="signup-checkboxes">
                         <div className="signup-checkbox">
-                          <input type="checkbox" name="agree1" required />
+                          <input 
+                            type="checkbox" 
+                            name="agree1" 
+                            checked={formData.agree1}
+                            onChange={handleInputChange}
+                          />
                           <FaCheck className="signup-checkbox__mark" />
                           <p className="signup-checkbox__text">
                             I am or will be an Internet telephone service provider.
                           </p>
                         </div>
+                        {errors.agree1 && (
+                          <span className="signup-field__error">{errors.agree1}</span>
+                        )}
                         
                         <div className="signup-checkbox">
-                          <input type="checkbox" name="agree2" required />
+                          <input 
+                            type="checkbox" 
+                            name="agree2" 
+                            checked={formData.agree2}
+                            onChange={handleInputChange}
+                          />
                           <FaCheck className="signup-checkbox__mark" />
                           <p className="signup-checkbox__text">
                             I have read the{" "}
@@ -242,26 +273,37 @@ export default function Signup() {
                             of service and fully agree to this.
                           </p>
                         </div>
+                        {errors.agree2 && (
+                          <span className="signup-field__error">{errors.agree2}</span>
+                        )}
                       </div>
 
-                      {/* Captcha */}
-                      <div className="signup-captcha">
-                        <label className="signup-captcha__label">
-                          <FaShieldAlt className="signup-captcha__icon" />
-                          Captcha *
-                        </label>
-                        <div className="signup-captcha__container">
-                          <div
-                            className="g-recaptcha"
-                            data-sitekey="6Le4oD0UAAAAAC5rb6AJF6TQjUYXSo76OwzsQ1Vd"
-                          />
+                        {/* Captcha */}
+                        <div className="signup-captcha">
+                          <label className="signup-captcha__label">
+                            <FaShieldAlt className="signup-captcha__icon" />
+                            Captcha *
+                          </label>
+                          <div className="signup-captcha__container">
+                            <div
+                              className="g-recaptcha"
+                              data-sitekey="6Le4oD0UAAAAAC5rb6AJF6TQjUYXSo76OwzsQ1Vd"
+                              data-callback="onCaptchaChangeSignup"
+                            />
+                          </div>
+                          {errors.captcha && (
+                            <span className="signup-field__error">{errors.captcha}</span>
+                          )}
                         </div>
-                      </div>
 
                       {/* Submit Button */}
-                      <button type="submit" className="signup-form__submit">
+                      <button 
+                        type="submit" 
+                        className="signup-form__submit"
+                        disabled={isSubmitting || !formData.CFName.trim() || !formData.CLName.trim() || !formData.CEmail.trim() || !formData.CCompany.trim() || !formData.agree1 || !formData.agree2 || !captchaVerified}
+                      >
                         <FaUserPlus className="signup-form__submit-icon" />
-                        Create Account
+                        {isSubmitting ? "Creating Account..." : "Create Account"}
                       </button>
                     </div>
                   </form>
@@ -270,11 +312,11 @@ export default function Signup() {
                   <div className="signup-form__info">
                     <p className="signup-form__info-text">
                       By creating an account, you agree to our{" "}
-                      <Link to="/terms" className="signup-form__info-link">
+                      <Link to="/" className="signup-form__info-link">
                         Terms of Service
                       </Link>{" "}
                       and{" "}
-                      <Link to="/privacy" className="signup-form__info-link">
+                      <Link to="/" className="signup-form__info-link">
                         Privacy Policy
                       </Link>
                     </p>

@@ -4,10 +4,6 @@ import GridCard from "./GridCard";
 export const Features = ({ data, featuresVideos }) => {
 
   const {
-    data: { videos = [] } = {},
-  } = featuresVideos?.[0] || {};
-
-  const {
     title = "",
     data: { features = [] } = {},
   } = data?.[0] || {};
@@ -22,7 +18,7 @@ export const Features = ({ data, featuresVideos }) => {
 
         <GridCard features={features} />
       </div>
-      {/* YouTube Videos Section Endpoint: GET /sections/videos */}
+
       <div
         style={{
           display: "grid",
@@ -34,11 +30,11 @@ export const Features = ({ data, featuresVideos }) => {
           margin: "60px auto 0",
         }}
       >
-        {videos.map((item) => (
+        {featuresVideos?.map((item) => (
           <>
 
             <div>
-              <h3 style={{ marginBottom: "15px" }}>{item?.title || "Features for DID Buyers"}</h3>
+              <h3 style={{ marginBottom: "15px" }}>{item?.data[0]?.title || "Features for DID Buyers"}</h3>
               <div
                 style={{
                   position: "relative",
@@ -57,7 +53,7 @@ export const Features = ({ data, featuresVideos }) => {
                     height: "100%",
                   }}
                 >
-                  <YoutubeEmbed url={item?.url} />
+                  <YoutubeEmbed url={item?.data?.videos[0]?.url} />
                 </div>
               </div>
             </div>

@@ -62,7 +62,7 @@ export const Header = ({data}) => {
       <div
         className="intro"
         style={{
-          backgroundImage: `url(${background_image || ""})`,
+          backgroundImage: `url(${`https://didxhub.com/${background_image}` || ""})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

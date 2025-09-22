@@ -43,7 +43,6 @@ export default function Navbar() {
     { text: "About Us", link: "/about" },
     { text: "Buy DID", link: "/buy-did" },
     { text: "Sell DID", link: "/sell-did" },
-    { text: "Rates", link: "/rates" },
     { text: "Coverage", link: "/coverage" },
     { text: "Interop", link: "/introp" },
     { text: "Contact", link: "/contact" },

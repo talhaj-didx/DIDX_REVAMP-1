@@ -324,9 +324,10 @@ export const Contact = () => {
             ["Toll Free Numbers", "/toll-free-numbers"],
             ["Case Study", "/case-study"],
             // ["Testimonial", "/testimonial"],
-            ["Coverage Area", "/coverage"],
+            // ["Coverage Area", "/coverage"],
             ["LNP Lookup", "/lnp-lookup"],
             ["FAQ", "/faq"],
+            ["Rates", "/rates"],
           ].map(([label, link], i) => (
             <Typography
               key={i}

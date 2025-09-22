@@ -75,12 +75,12 @@ export const Team = ({ data }) => {
             ? team_members.map((d, i) => (
               <div
                 key={`${d.name}-${i}`}
-                className="col-md-3 col-sm-6 team"
+                className="col-md-4 col-sm-6 team"
                 ref={(el) => (cardsRef.current[i] = el)}
                 style={{ cursor: "pointer" }}
               >
                 <div className="thumbnail">
-                  <img src={d.photo} alt={d.name} className="team-img" />
+                  <img src={`https://didxhub.com/${d.photo}`} alt={d.name} className="team-img" />
                   <div className="caption">
                     <h4>{d.name}</h4>
                     <p>{d.position}</p>

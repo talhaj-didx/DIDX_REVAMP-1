@@ -1,4 +1,5 @@
 import axiosInstance from "../api/axiosInstance";
+import axios from "axios";
 
 // Generic data fetching functions
 export const fetchData = async (endpoint) => {
@@ -67,8 +68,10 @@ export const channelRatesSection = async () => {
  // fetching multiple sections at once
 export const getMultipleSections = async () => {
     try {
-        const response = await axiosInstance.post('/sections/by-types', {
-            "types": ["hero", "features", "videos", "why_choose_us", "testimonials", "our_team"]
+        const response = await axios.post('https://didxhub.com/api/sections/by-types', {
+          
+                types: ["hero", "features", "videos", "why_choose_us", "testimonials", "our_team"]
+            
         });
 
         if (response.data.success) {

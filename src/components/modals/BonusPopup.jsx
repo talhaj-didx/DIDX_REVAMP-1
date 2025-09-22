@@ -58,7 +58,7 @@ export default function BonusPopup({ open, handleClose }) {
                           position: "relative",
                           borderRadius: { xs: 2, sm: 3, md: 4 },
                           width: "100%",
-                          maxWidth: { xs: "100vw", sm: "90vw", md: 600, lg: 650, xl: 700 },
+                          maxWidth: { xs: "95vw", sm: "80vw", md: 480, lg: 520, xl: 560 },
                           maxHeight: { xs: "98vh", sm: "95vh", md: "90vh", lg: "85vh" },
                           overflow: "hidden",
                           background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",

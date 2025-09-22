@@ -1,23 +1,22 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { FaKey, FaShieldAlt } from 'react-icons/fa';
 import BreadCrumb from '../components/BreadCrumbs';
 import { Contact } from '../components/contact';
+import { useResetPasswordForm } from '../hooks/useResetPasswordForm';
 
 const ResetPassword = () => {
   const formRef = useRef(null);
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    captchaVerified,
+    handleInputChange,
+    handleSubmit
+  } = useResetPasswordForm();
 
-  useEffect(() => {
-    const loadReCaptcha = () => {
-      const script = document.createElement("script");
-      script.src = "https://www.google.com/recaptcha/api.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    };
-    loadReCaptcha();
-  }, []);
 
   useGSAP(() => {
     gsap.from(formRef.current, {
@@ -50,21 +49,23 @@ const ResetPassword = () => {
             <div className="reset-password-form-container">
               <form
                 className="reset-password-form"
-                action="https://admin.didx.net/ResetPasswordAction.php"
-                method="POST"
-                noValidate
+                onSubmit={handleSubmit}
               >
                 <div className="reset-password-form__fields">
                   {/* UID Field */}
                   <div className="reset-password-field">
                     <label className="reset-password-field__label">UID *</label>
                     <input
-                      className="reset-password-field__input"
+                      className={`reset-password-field__input ${errors.UID ? 'reset-password-field__input--error' : ''}`}
                       type="text"
                       name="UID"
+                      value={formData.UID}
+                      onChange={handleInputChange}
                       placeholder="Enter your UID"
-                      required
                     />
+                    {errors.UID && (
+                      <span className="reset-password-field__error">{errors.UID}</span>
+                    )}
                   </div>
 
                   {/* Captcha Field */}
@@ -77,15 +78,23 @@ const ResetPassword = () => {
                       <div
                         className="g-recaptcha"
                         data-sitekey="6Le4oD0UAAAAAC5rb6AJF6TQjUYXSo76OwzsQ1Vd"
+                        data-callback="onCaptchaChangeReset"
                       />
                     </div>
+                    {errors.captcha && (
+                      <span className="reset-password-field__error">{errors.captcha}</span>
+                    )}
                   </div>
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="reset-password-form__submit">
+                <button 
+                  type="submit" 
+                  className="reset-password-form__submit"
+                  disabled={isSubmitting || !formData.UID.trim() || !captchaVerified}
+                >
                   <FaKey className="reset-password-form__submit-icon" />
-                  Get email
+                  {isSubmitting ? "Sending..." : "Get email"}
                 </button>
               </form>
 

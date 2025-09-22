@@ -12,6 +12,12 @@ export default function ReferralCodeFromQuery() {
     }
   }, []);
 
+  const handleReferralChange = (e) => {
+    const value = e.target.value;
+    // Allow any length, no character limit
+    setReferralCode(value);
+  };
+
   return (
     <Box sx={{ my: 2 }}>
       <Typography
@@ -27,11 +33,14 @@ export default function ReferralCodeFromQuery() {
         fullWidth
         autoComplete="off"
         value={referralCode}
-        onChange={(e) => setReferralCode(e.target.value)}
+        onChange={handleReferralChange}
         InputProps={{
-          readOnly: !!referralCode,
+          readOnly: false, // Allow editing
         }}
         placeholder="Enter referral code and get free $20"
+        inputProps={{
+          maxLength: 50, // Set a reasonable max length if needed
+        }}
       />
     </Box>
   );

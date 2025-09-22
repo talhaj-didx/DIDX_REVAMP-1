@@ -9728,9 +9728,9 @@ a.buyer-interop-section__link:hover {
   display: flex;
   justify-content: center;
   padding: 1rem;
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  /* background: #f8fafc; */
+  /* border: 2px solid #e2e8f0; */
+  /* border-radius: 12px; */
   transition: all 0.3s ease;
 }
 
@@ -10443,6 +10443,127 @@ a.buyer-interop-section__link:hover {
 .case-study-item__link:hover {
   color: var(--c2);
   text-decoration: underline;
+}
+
+/* Form Validation Styles */
+.login-field__input--error,
+.signup-field__input--error {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important;
+}
+
+.login-field__error,
+.signup-field__error {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+  font-weight: 500;
+}
+
+.login-form__submit:disabled,
+.signup-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.login-form__submit:disabled:hover,
+.signup-form__submit:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Referral Code Field Styling */
+.signup-field__input-group {
+  display: flex;
+  align-items: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.signup-field__input-group:focus-within {
+  border-color: #0083A0;
+  box-shadow: 0 0 0 3px rgba(0, 131, 160, 0.1);
+}
+
+.signup-field__prefix {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  color: #666;
+  font-weight: 500;
+  border-right: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.signup-field__input-group .signup-field__input {
+  border: none !important;
+  box-shadow: none !important;
+  flex: 1;
+}
+
+.signup-field__input-group .signup-field__input:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+/* Captcha Error Styling */
+.login-captcha .login-field__error,
+.signup-captcha .signup-field__error {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+  font-weight: 500;
+}
+
+/* Captcha Container Styling */
+.login-captcha__container,
+.signup-captcha__container {
+  margin-top: 0.5rem;
+}
+
+.login-captcha__container .g-recaptcha,
+.signup-captcha__container .g-recaptcha {
+  transform: scale(0.9);
+  transform-origin: left top;
+}
+
+/* Reset Password Form Validation Styles */
+.reset-password-field__input--error {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important;
+}
+
+.reset-password-field__error {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+  font-weight: 500;
+}
+
+.reset-password-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.reset-password-form__submit:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Reset Password Captcha Styling */
+.reset-password-field__captcha {
+  margin-top: 0.5rem;
+}
+
+.reset-password-field__captcha .g-recaptcha {
+  transform: scale(0.9);
+  transform-origin: left top;
 }
 
 

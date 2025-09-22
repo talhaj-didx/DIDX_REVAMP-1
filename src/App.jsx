@@ -1,61 +1,3 @@
-// import { Navigation } from "./components/navigation";
-// import { Header } from "./components/header";
-// import { About } from "./components/about";
-// import { Testimonials } from "./components/testimonials";
-// import { Team } from "./components/Team";
-// import { Contact } from "./components/contact";
-// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
-// import { Features } from "./components/features"; // Ensure this import matches the updated export
-// import JsonData from "./data/data.json";
-// import SmoothScroll from "smooth-scroll";
-// import "./App.css";
-// import StatsSection from "./components/statsSection";
-// import AboutUs from "./pages/AboutUs";
-// import Home from "./pages/Home";
-
-// export const scroll = new SmoothScroll('a[href*="#"]', {
-//   speed: 1000,
-//   speedAsDuration: true,
-// });
-
-// const App = () => {
-//   // const [landingPageData, setLandingPageData] = useState({});
-//   // useEffect(() => {
-//   //   setLandingPageData(JsonData);
-//   // }, [ ]);
-
-
-//   
-
-//   return (
-//     <BrowserRouter>
-//       <>
-//         <Navigation />
-//         <Header data={landingPageData.Header} />
-//         <StatsSection />
-//         <Features data={landingPageData.Features} />
-//         <About data={landingPageData.About} />
-//         {/* <Services data={landingPageData.Services} /> */}
-//         {/* <Gallery data={landingPageData.Gallery} /> */}
-//         <Testimonials data={landingPageData.Testimonials} />
-//         <Team data={landingPageData.Team} />
-//         <Contact />
-
-
-//             {/* Routes */}
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/about" element={<AboutUs />} />
-//         <Route path="/butDid" element={<Contact />} />
-//       </Routes>
-//       </>
-//     </ BrowserRouter>
-//   );
-// };
-
-// export default App;
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -89,8 +31,6 @@ import Partners from "./pages/Partners";
 import Mobile from "./pages/Mobile";
 import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
-import { useEffect, useState } from "react";
-import BonusPopup from "./components/modals/BonusPopup";
 import Channel from "./pages/Channel";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./api/queryClient";
@@ -132,18 +72,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  useEffect(() => {
-    handleOpen();
-  }, [])
   return <>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-      {/* <BonusPopup open={open} handleClose={handleClose} /> */}
     </QueryClientProvider>
   </>;
 }

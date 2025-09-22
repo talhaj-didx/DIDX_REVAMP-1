@@ -33,11 +33,6 @@ export default function Awards() {
 
   return (
     <>
-      {/* <BreadCrumb title={metadata.title} /> */}
-      {/* <HeroSection
-        titleA={metadata.title}
-        img={"/img/globe.png"}
-      /> */}
       <BreadCrumb title={metadata.title} />
       <Container maxWidth="lg" sx={{ py: 6 }} ref={containerRef}>
         {awards?.map((award, index) => (
