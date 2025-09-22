@@ -29,8 +29,11 @@ const Home = () => {
   const teamsData = getSection(data, "our_team");
 
   useEffect(() => {
-    handleOpen();
-  }, [])
+    const formSubmitted = localStorage.getItem('formSubmitted');
+    if (!formSubmitted) {
+      handleOpen();
+    }
+  }, []);
 
   return (
     <>
