@@ -103,8 +103,8 @@ export default function BonusPopup({ open, handleClose }) {
               position: "relative",
               borderRadius: { xs: 2, sm: 3, md: 4 },
               width: "100%",
-              maxWidth: { xs: "90vw", sm: "70vw", md: 400, lg: 450, xl: 480 },
-              maxHeight: { xs: "85vh", sm: "80vh", md: "75vh", lg: "70vh" },
+              maxWidth: { xs: "95vw", sm: "80vw", md: 480, lg: 520, xl: 560 },
+              maxHeight: { xs: "98vh", sm: "95vh", md: "90vh", lg: "85vh" },
               overflow: "hidden",
               background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
               border: "1px solid rgba(0, 131, 160, 0.2)",
@@ -206,17 +206,7 @@ export default function BonusPopup({ open, handleClose }) {
                   variant="outlined"
                   fullWidth
                   required
-                  sx={{ 
-                    "& .MuiOutlinedInput-root": { 
-                      borderRadius: 2,
-                      fontSize: "1rem",
-                      padding: "8px 14px",
-                      height: "48px"
-                    },
-                    "& .MuiInputLabel-root": {
-                      fontSize: "0.9rem"
-                    }
-                  }}
+                  sx={{ "& .MuiOutlinedInput-root": { borderRadius: 2 } }}
                   InputProps={{
                     startAdornment: (
                       <Box sx={{ mr: 1, color: "#0083A0" }}>
@@ -233,9 +223,6 @@ export default function BonusPopup({ open, handleClose }) {
                   sx={{
                     background: "linear-gradient(135deg, #0083A0, #5ca9fb)",
                     borderRadius: 2,
-                    fontSize: "1.1rem",
-                    fontWeight: 600,
-                    py: 1.5,
                   }}
                 >
                   {submitting ? "Submitting..." : "Get My $10 Bonus"}
@@ -282,15 +269,11 @@ export default function BonusPopup({ open, handleClose }) {
 
               {/* Footer */}
               <Typography
-                variant="body1"
+                variant="body2"
                 sx={{
                   textAlign: "center",
                   color: "#666",
                   lineHeight: 1.5,
-                  mt: 2,
-                  mb: 1,
-                  fontSize: "0.95rem",
-                  fontWeight: 500,
                 }}
               >
                 By sharing your email address, you agree to receive marketing emails
