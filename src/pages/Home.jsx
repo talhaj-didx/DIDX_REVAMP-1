@@ -21,7 +21,10 @@ const Home = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { data, isLoading } = useApi({ queryKey: "multipleSections", queryFn: getMultipleSections });
+  const { data, isLoading } = useApi({ 
+    queryKey: "multipleSections", 
+    queryFn: getMultipleSections 
+  });
   const heroData = getSection(data, "hero");
   const featuresData = getSection(data, "features");
   const featuresVideos = getSection(data, "videos");
@@ -29,6 +32,7 @@ const Home = () => {
   const teamsData = getSection(data, "our_team");
 
   useEffect(() => {
+    // localStorage.removeItem('formSubmitted');
     const formSubmitted = localStorage.getItem('formSubmitted');
     if (!formSubmitted) {
       handleOpen();

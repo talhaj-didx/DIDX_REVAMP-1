@@ -3,8 +3,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Contact } from "../components/contact";
-import BreadCrumb from "../components/BreadCrumbs";
-import { FaInfoCircle, FaCheckCircle, FaEnvelope, FaFilePdf, FaYoutube, FaBook, FaArrowRight, FaCog, FaNetworkWired, FaPhone } from "react-icons/fa";
+import { FaCheckCircle, FaEnvelope, FaFilePdf, FaYoutube, FaBook, FaArrowRight, FaCog, FaNetworkWired, FaPhone } from "react-icons/fa";
 import HeroSection from '../components/heroSection'
 
 // Register ScrollTrigger plugin
@@ -19,26 +18,20 @@ export default function BuyerSellerInteropPage() {
     useGSAP(() => {
         // Simple fade-in animation for all sections
         gsap.from(rootRef.current.querySelectorAll(".interop-section"), {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top 80%",
-          },
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: rootRef.current,
+                start: "top 80%",
+            },
         });
-      });
+    });
 
     return (
         <>
-            {/* <HeroSection
-                titleA={"Buyer And Seller Interoperability Process"}
-                img={"/img/globe.png"}
-            /> */}
-            {/* <BreadCrumb title={"Buyer And Seller Interoperability Process"} /> */}
-
             <HeroSection
                 titleA={"Buyer and Seller Interop Process"}
                 description={

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 
-export const Header = ({data}) => {
+export const Header = ({ data }) => {
   const overlayRef = useRef(null);
   const titleRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -13,7 +13,7 @@ export const Header = ({data}) => {
   const headerData = data?.[0] || {};
   const {
     title,
-    description : paragraph,
+    description: paragraph,
     settings = {},
     data: nestedData = {}
   } = headerData;
@@ -79,18 +79,21 @@ export const Header = ({data}) => {
                 <p ref={paragraphRef} style={{ color: text_color }}>
                   {paragraph || ""}
                 </p>
+                <>{
+                  cta_link && button_color ?
+                    <Link
+                      to={cta_link || "/signup"}
+                      className="btn btn-custom btn-lg page-scroll"
+                      ref={buttonRef}
+                      style={{
+                        backgroundColor: button_color,
+                        backgroundImage: `linear-gradient(to right, ${button_color || "#000"}, transparent)`
+                      }}
+                    >
+                      {cta_text || ""}
+                    </Link> : <></>
+                }</>
 
-                <Link
-                  to={cta_link || "/signup"}
-                  className="btn btn-custom btn-lg page-scroll"
-                  ref={buttonRef}
-                  style={{
-                    backgroundColor: button_color,
-                    backgroundImage: `linear-gradient(to right, ${button_color || "#000"}, transparent)`
-                  }}
-                >
-                  {cta_text || ""}
-                </Link>
               </div>
             </div>
           </div>
