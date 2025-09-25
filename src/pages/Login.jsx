@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { FaUser, FaLock, FaShieldAlt } from "react-icons/fa";
+import { FaUser, FaLock, FaShieldAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { Contact } from "../components/contact";
 import BreadCrumb from "../components/BreadCrumbs";
@@ -10,6 +10,7 @@ import { useLoginForm } from "../hooks/useLoginForm";
 
 export default function Login() {
   const formRef = useRef(null);
+  const [showPassword, setShowPassword] = useState(false);
   const {
     formData,
     errors,
@@ -90,12 +91,20 @@ export default function Login() {
                     </div>
                     <input
                       className={`login-field__input ${errors.Pass ? 'login-field__input--error' : ''}`}
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       name="Pass"
                       value={formData.Pass}
                       onChange={handleInputChange}
                       placeholder="Enter your password"
                     />
+                    <button
+                      type="button"
+                      className="login-field__toggle"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                     {errors.Pass && (
                       <span className="login-field__error">{errors.Pass}</span>
                     )}

@@ -5508,7 +5508,7 @@ a.buyer-interop-section__link:hover {
 
 .login-field__input {
   width: 100%;
-  padding: clamp(1rem, 2vw, 1.25rem) 1rem;
+  padding: clamp(1rem, 2vw, 1.25rem) 3rem;
   padding-left: 3rem;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
@@ -5530,6 +5530,32 @@ a.buyer-interop-section__link:hover {
 .login-field__input::placeholder {
   color: #9ca3af;
   font-weight: 400;
+}
+
+.login-field__toggle {
+  position: absolute;
+  right: 1rem;
+  top: calc(50% + 0.75rem);
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--c1);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+.login-field__toggle:hover {
+  color: var(--c1-dark, #0066cc);
+}
+
+.login-field__toggle:focus {
+  outline: none;
+  color: var(--c1-dark, #0066cc);
 }
 
 .login-form__forgot {
@@ -6070,11 +6096,18 @@ a.buyer-interop-section__link:hover {
   .signup-field__input,
   .signup-field__select {
     padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
   
   .login-field__icon,
   .signup-field__icon {
     left: 0.75rem;
+    top: calc(50% + 0.75rem);
+    font-size: 1.125rem;
+  }
+  
+  .login-field__toggle {
+    right: 0.75rem;
     top: calc(50% + 0.75rem);
     font-size: 1.125rem;
   }
@@ -6098,11 +6131,18 @@ a.buyer-interop-section__link:hover {
   .signup-field__input,
   .signup-field__select {
     padding-left: 2.25rem;
+    padding-right: 2.25rem;
   }
   
   .login-field__icon,
   .signup-field__icon {
     left: 0.5rem;
+    top: calc(50% + 0.75rem);
+    font-size: 1rem;
+  }
+  
+  .login-field__toggle {
+    right: 0.5rem;
     top: calc(50% + 0.75rem);
     font-size: 1rem;
   }
